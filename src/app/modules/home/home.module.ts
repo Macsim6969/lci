@@ -15,7 +15,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 const routes: Routes = [
-  {path: '', component: HomeComponent}
+  {
+    path: '', component: HomeComponent, children: [
+      { path: '', loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule) }
+    ]
+  }
 ]
 
 @NgModule({

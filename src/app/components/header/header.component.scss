@@ -20,6 +20,7 @@
       flex-direction: row;
       gap: 16px;
       align-items: center;
+      cursor: pointer;
 
       img {
         width: 40px;
@@ -48,6 +49,71 @@
 
       .arrow {
         width: 16px;
+        cursor: pointer;
+
+        &.active {
+          transform: rotateX(180deg);
+        }
+      }
+    }
+  }
+
+  .overflowe {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .popup {
+    position: fixed;
+    z-index: 15;
+    right: 20px;
+    top: 90px;
+    border-radius: 25px;
+    width: 200px;
+    background-color: #FFFFFF;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-500px);
+    transition: transform 0.5s, opacity 0.5s, visibility 0.5s;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0 52px 24px;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    &.close {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-500px);
+    }
+
+    .items {
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+
+      &:hover {
+        p {
+          background-image: linear-gradient(to right, #14ADD6, #384295);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+      }
+
+      p {
+        color: #262626;
+        font-size: 1.8rem;
       }
     }
   }
