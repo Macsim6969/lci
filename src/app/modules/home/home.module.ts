@@ -7,6 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MenuNavigationComponent } from '../../components/menu-navigation/menu-navigation.component';
 import { ShareModule } from '../../shared/module/share.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HeaderComponent } from '../../components/header/header.component';
+import { HeaderIconService } from '../../shared/services/headerIcon.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -19,7 +21,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    MenuNavigationComponent
+    MenuNavigationComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +36,9 @@ const routes: Routes = [
         deps: [HttpClient],
       },
     })
+  ],
+  providers: [
+    HeaderIconService
   ],
   exports: [HomeComponent]
 })

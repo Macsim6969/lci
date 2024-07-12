@@ -1,0 +1,54 @@
+.header {
+  padding: 26px 20px 26px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .settings {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+
+    .noti {
+      cursor: pointer;
+    }
+
+    .user {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      align-items: center;
+
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+      }
+
+      .mainInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        .name {
+          color: #121212;
+          font-size: 1.4rem;
+          font-weight: 700;
+
+        }
+
+        .position {
+          font-size: 1.4rem;
+          color: #515151;
+        }
+
+      }
+
+      .arrow {
+        width: 16px;
+      }
+    }
+  }
+}

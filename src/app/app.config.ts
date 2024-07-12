@@ -1,5 +1,6 @@
 import { provideRouter, Routes } from "@angular/router";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from "@angular/common/http";
 
 
 const routes: Routes = [
@@ -8,6 +9,6 @@ const routes: Routes = [
 
 export const appConfig = {
   providers: [
-    provideRouter(routes), provideAnimationsAsync()
+    provideRouter(routes), provideAnimationsAsync(), provideHttpClient()
   ]
 };
