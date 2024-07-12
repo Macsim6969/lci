@@ -1,4 +1,5 @@
 import { provideRouter, Routes } from "@angular/router";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 const routes: Routes = [
@@ -7,6 +8,6 @@ const routes: Routes = [
 
 export const appConfig = {
   providers: [
-    provideRouter(routes)
+    provideRouter(routes), provideAnimationsAsync()
   ]
 };

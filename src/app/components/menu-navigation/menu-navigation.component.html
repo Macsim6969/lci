@@ -1,0 +1,16 @@
+<div class="navigation">
+  <div class="header">
+    <nav class="logo">
+      <img src="assets/images/global/logo.png" alt="Logo">
+    </nav>
+    <p class="title">LCI System</p>
+  </div>
+
+  <mat-list class="list" role="navigation">
+    <div *ngFor="let url of menuNavigation" class="page" routerLink="{{url.route}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <img src="{{url.link}}" alt="">
+      <mat-list-item class="list_inner">{{url.title}}</mat-list-item>
+    </div>
+  </mat-list>
+
+</div>

@@ -1,7 +1,16 @@
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MenuNavigationComponent } from '../../components/menu-navigation/menu-navigation.component';
+import { ShareModule } from '../../shared/module/share.module';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/');
+}
 
 const routes: Routes = [
   {path: '', component: HomeComponent}
@@ -9,11 +18,21 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    MenuNavigationComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    ShareModule,
+    HttpClientModule,
+    RouterModule.forChild(routes),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    })
   ],
   exports: [HomeComponent]
 })
