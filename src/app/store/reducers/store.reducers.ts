@@ -1,4 +1,4 @@
-import { createReducer, on } from "@ngrx/store";
+import { createReducer } from "@ngrx/store";
 import { StoreInterface } from "../model/store.model";
 
 
