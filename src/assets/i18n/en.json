@@ -3,7 +3,7 @@
     {
       "link": "../../../assets/images/menu/Dashboard.svg",
       "title": "Dashboard",
-      "route": "/"
+      "route": "/dashboard"
     }
   ]
 }

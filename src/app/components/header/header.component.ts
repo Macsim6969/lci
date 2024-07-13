@@ -19,7 +19,15 @@ export class HeaderComponent {
     this.isOpenPopup = !this.isOpenPopup;
   }
 
-  public useRoute(url: 'profile'| 'settings' | 'logout'){
+  public useRoute(url: 'profile' | 'settings' | 'logout') {
+    if (url === 'profile') {
+      this.setRouteToProfile();
+    }
 
+    this.isOpenPopup = false;
+  }
+
+  private setRouteToProfile() {
+    this.router.navigate(['/']).then();
   }
 }

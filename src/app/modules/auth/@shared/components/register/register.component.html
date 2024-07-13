@@ -1,0 +1,29 @@
+<mat-card class="login">
+  <p class="register-descr">Welcome back!</p>
+  <h2 class="register-title">Please Sign Up</h2>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="column">
+      <mat-label class="label">Name</mat-label>
+      <input placeholder="..." type="text" formControlName="name">
+    </div>
+    <div class="column">
+      <mat-label class="label">Email</mat-label>
+      <input matInput type="email" placeholder="..." required formControlName="email">
+    </div>
+
+    <div class="column">
+      <mat-label class="label">Password</mat-label>
+      <input matInput type="password" placeholder="..." required formControlName="password">
+    </div>
+
+
+    <div class="check-login">
+      <mat-checkbox [formControl]="hideRequiredControl">Remember Data</mat-checkbox>
+    </div>
+
+    <button type="submit" class="register" mat-button >Sign Up</button>
+  </form>
+
+</mat-card>
