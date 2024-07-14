@@ -7,7 +7,7 @@
         </nav>
         <p class="title">LCI System</p>
       </div>
-      <button class="btn">Sign Up</button>
+      <button class="btn" (click)="changeAuth(loginRegister)">{{loginRegister === 'login' ? 'Sign Up' : 'Sign In'}}</button>
     </div>
     <router-outlet></router-outlet>
   </div>

@@ -6,13 +6,18 @@ import { ShareModule } from '../../shared/module/share.module';
 import { LoginComponent } from './@shared/components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './@shared/components/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
-const roues: Routes = [
-  { path: '', component: AuthComponent, children: [
-    { path: 'register', component: RegisterComponent},
-    { path: 'login', component: LoginComponent}
-  ] }
-]
+const routes: Routes = [
+  {
+    path: '',
+    component: AuthComponent,
+    children: [
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent }
+    ]
+  }
+];
 
 @NgModule({
   declarations: [
@@ -23,9 +28,10 @@ const roues: Routes = [
   imports: [
     CommonModule,
     ShareModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(roues)
+    RouterModule.forChild(routes)
   ],
   exports: [
     AuthComponent
