@@ -13,9 +13,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   public hideRequiredControl = new FormControl(false);
 
   public formData!: Form;
-  constructor(
+  constructor() { }
 
-  ) { }
   ngOnInit() {
     this.initializeForm();
   }
@@ -33,7 +32,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   public submit() {
 
   }
-
 
   ngOnDestroy() {
     this.destroy$.next();

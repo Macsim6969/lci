@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Subject, take, takeUntil, timer } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,8 +15,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
   public hideRequiredControl = new FormControl(false);
 
   public formData!: Form;
-  constructor() { }
-
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -32,7 +36,22 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   public submit() {
+    const formData = { ...this.form.value };
 
+    this.authService
+      .sigUp(formData)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+        timer(300)
+          .pipe(take(1))
+          .subscribe(() => {
+            data ? this.router.navigate(['/auth/login']).then() : null;
+            if (this.hideRequiredControl && this.form.value) {
+              localStorage.setItem('save', JSON.stringify(formData));
+            }
+          });
+      });
+    this.form.reset();
   }
 
 

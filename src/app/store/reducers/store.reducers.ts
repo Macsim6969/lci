@@ -1,5 +1,6 @@
-import { createReducer } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import { StoreInterface } from "../model/store.model";
+import { newUserID } from "../actions/store.actions";
 
 
 export const store: StoreInterface = {
@@ -7,8 +8,7 @@ export const store: StoreInterface = {
 }
 
 export const storeReducers = createReducer(store,
-  // on(allUsers, (state, action) => {
-  //   return { ...state, allUsers: action.data }
-  // })
+  on(newUserID, (state, action) => {
+    return { ...state, idUser: action.id }
+  }),
 )
-
