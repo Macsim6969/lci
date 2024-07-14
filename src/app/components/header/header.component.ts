@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderIconService } from '../../shared/services/headerIcon.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../modules/auth/@shared/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent {
   public isOpenPopup!: boolean;
   constructor(
     private headerIcon: HeaderIconService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   public openPopup() {
@@ -22,6 +24,11 @@ export class HeaderComponent {
   public useRoute(url: 'profile' | 'settings' | 'logout') {
     if (url === 'profile') {
       this.setRouteToProfile();
+    } else if (url === 'settings') {
+      return
+    } else if (url === 'logout') {
+      this.authService.logout();
+      this.router.navigate(['/auth/login']).then();
     }
 
     this.isOpenPopup = false;

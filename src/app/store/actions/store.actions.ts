@@ -6,6 +6,7 @@ export const REGISTER = 'REGISTER';
 export const USERID = 'USERID';
 export const SETUSERDATA = 'SETUSERDATA';
 export const STARTAFFECT = 'STARTAFFECT';
+export const LOGINREGISTERDATA = 'LOGINREGISTERDATA';
 
 export const setAllUsers = createAction(
   SETALLUSERS
@@ -16,6 +17,10 @@ export const newUserID = createAction(
   props<{ id: string }>()
 );
 
+export const setIsLoginRegisterData = createAction(
+  LOGINREGISTERDATA,
+  props<{data: boolean}>()
+)
 
 export const setRegiset = createAction(
   REGISTER

@@ -5,7 +5,7 @@ import { BehaviorSubject, tap} from "rxjs";
 import { BackendService } from "../../../../shared/services/backend.service";
 import { Store } from "@ngrx/store";
 import { StoreInterface } from "../../../../store/model/store.model";
-import { newUserID, setRegiset, startGetData } from "../../../../store/actions/store.actions";
+import { newUserID, setIsLoginRegisterData, setRegiset, startGetData } from "../../../../store/actions/store.actions";
 import { environment } from '../../../../../environment/environment';
 import { Router } from "@angular/router";
 import { User } from "../model/auth.model";
@@ -34,14 +34,14 @@ export class AuthService {
   ) {
   }
 
-  sigUp(form: { email: string, password: string, name: string, rules: 'affiliate' | 'brand' }) {
+  sigUp(form: { email: string, password: string, name: string}) {
     return this.http.post<AuthResponseData>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.apiKey}`, {
-      email: form.email, password: form.password, rules: form.rules, returnSecureToken: true
+      email: form.email, password: form.password, returnSecureToken: true
     }).pipe(tap(resData => {
-      localStorage.setItem('rules', JSON.stringify(form.rules));
       localStorage.setItem('isRegister', JSON.stringify(true));
       localStorage.setItem('id', JSON.stringify(resData.localId));
-      this.backendService.sendUserProfile({ userID: resData.localId, email: form.email, password: form.password, name: form.name, token: resData.idToken })
+      this.backendService.sendUserProfile({ userID: resData.localId, email: form.email, password: form.password, name: form.name, token: resData.idToken });
+      this.store.dispatch(setIsLoginRegisterData({data: true}));
       this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn, resData.localId);
       setTimeout(() => {
         this.store.dispatch(setRegiset())
@@ -90,10 +90,8 @@ export class AuthService {
 
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:delete?key=${apiKey}`, body, httpOptions).subscribe(() => {
       this.logout();
-      localStorage.removeItem('save');
-      localStorage.removeItem('isRegister');
-      localStorage.removeItem('id');
       this.router.navigate(['/auth/register']).then();
+      localStorage.clear();
     })
   }
 

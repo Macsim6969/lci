@@ -7,7 +7,6 @@ import { LoginComponent } from './@shared/components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './@shared/components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthService } from './@shared/services/auth.service';
 
 const routes: Routes = [
   {
@@ -36,9 +35,6 @@ const routes: Routes = [
   ],
   exports: [
     AuthComponent
-  ],
-  providers: [
-    AuthService
   ]
 })
 export class AuthModule { }

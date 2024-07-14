@@ -19,9 +19,12 @@ export class AuthGuard implements CanActivate {
 
     this.store.pipe(take(1), select(selectIsLogin)).subscribe((dataLogin: boolean) => {
       this.isLogin = dataLogin
+      console.log(this.isLogin);
     })
 
-    if (this.isLogin) {
+    const user = JSON.parse(localStorage.getItem('userData'))
+
+    if (this.isLogin || user) {
       return true;
     } else {
       return this.router.createUrlTree(['/auth/register']);

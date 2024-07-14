@@ -37,18 +37,17 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   public submit() {
     const formData = { ...this.form.value };
-
-    this.authService
-      .sigUp(formData)
-      .pipe(takeUntil(this.destroy$))
+    this.authService.sigUp(formData).pipe(takeUntil(this.destroy$))
       .subscribe((data) => {
+        if (this.hideRequiredControl && this.form.value) {
+          const newSaveData = { ...formData, isSaveSettings: true }
+          localStorage.setItem('save', JSON.stringify(newSaveData));
+        }
         timer(300)
           .pipe(take(1))
           .subscribe(() => {
             data ? this.router.navigate(['/auth/login']).then() : null;
-            if (this.hideRequiredControl && this.form.value) {
-              localStorage.setItem('save', JSON.stringify(formData));
-            }
+
           });
       });
     this.form.reset();

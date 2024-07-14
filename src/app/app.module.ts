@@ -9,6 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { storeReducers } from './store/reducers/store.reducers';
 import { AuthEffects } from './store/effects/store.effects';
 import { AuthGuard } from './shared/services/isAuth.guard';
+import { AuthService } from './modules/auth/@shared/services/auth.service';
 
 
 
@@ -25,7 +26,8 @@ import { AuthGuard } from './shared/services/isAuth.guard';
     EffectsModule.forRoot([AuthEffects]),
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

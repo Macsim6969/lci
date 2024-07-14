@@ -1,6 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { saveData } from '../../interfaces/form.interface';
 
 @Component({
   selector: 'app-login',
@@ -13,16 +16,21 @@ export class LoginComponent implements OnInit, OnDestroy {
   public hideRequiredControl = new FormControl(false);
 
   public formData!: Form;
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.initializeForm();
+    const isSaveData = JSON.parse(localStorage.getItem('save'));
+    isSaveData ? this.initializeForm(isSaveData) : this.initializeForm();
+    isSaveData ? this.hideRequiredControl.setValue(true) : null;
   }
 
-  private initializeForm() {
+  private initializeForm(isSave?: saveData) {
     this.form = new FormGroup<any>({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl(null, [
+      email: new FormControl(isSave.email, [Validators.required, Validators.email]),
+      password: new FormControl(isSave.password, [
         Validators.required,
         Validators.minLength(8),
       ])
@@ -30,7 +38,20 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public submit() {
-
+    const formData = { ...this.form.value };
+    this.authService
+      .login(formData)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+        if (data) {
+          this.router.navigate([`/`]).then();
+          if (this.hideRequiredControl && this.form.value) {
+            const newSaveData = { ...formData, isSaveSettings: true }
+            localStorage.setItem('save', JSON.stringify(newSaveData));
+            this.form.reset();
+          }
+        }
+      });
   }
 
   ngOnDestroy() {
