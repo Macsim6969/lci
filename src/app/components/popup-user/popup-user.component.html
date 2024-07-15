@@ -3,13 +3,17 @@
   <form class="form" [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-avatar">
       <div class="avatar">
-        <img src="/assets/images/global/upload_photo.svg" alt="">
+        <img [src]="previewUrl ? previewUrl : '/assets/images/global/upload_photo.svg'" alt="Default Image">
+      </div>
+      <div class="column file">
+        <label for="uploadBtn">Upload image</label>
+        <input id="uploadBtn" class="select_file" type="file" (change)="onFileSelected($event)" />
       </div>
     </div>
     <div class="form-content">
       <div class="column">
         <label for="">First Name</label>
-        <input type="text" placeholder="Enter first name" type='text'  formControlName="name">
+        <input type="text" placeholder="Enter first name" type='text' formControlName="name">
       </div>
       <div class="column">
         <label for="">Last Name</label>
@@ -37,7 +41,7 @@
       </div>
       <div class="column">
         <label for="">Staff ID</label>
-        <input  readonly="readonly" type="text" placeholder="Staff ID" type='text' formControlName="id">
+        <input readonly="readonly" type="text" placeholder="Staff ID" type='text' formControlName="id">
       </div>
       <div class="column">
         <label for="">Official email</label>

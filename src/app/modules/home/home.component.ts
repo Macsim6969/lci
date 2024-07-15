@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   public date: Date = new Date();
   public name: string;
+  public lastName: string;
   constructor(
     private translate: TranslateService,
     private store: Store<{ store: StoreInterface }>
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   private getUserInfoFromStore() {
     this.store.pipe(select(selectUserInfo), takeUntil(this.destroy$)).subscribe((data: User) => {
       this.name = data?.name;
+      this.lastName = data?.lastName;
     })
   }
 

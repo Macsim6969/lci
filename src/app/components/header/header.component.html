@@ -5,7 +5,7 @@
     <div class="user" (click)="openPopup()">
       <img src="/assets/images/header/avatar.png" alt="">
       <nav class="mainInfo">
-        <p class="name">{{name}}</p>
+        <p class="name">{{name}} {{lastName}}</p>
         <p class="position">HR Office</p>
       </nav>
       <mat-icon [ngClass]="{'active': isOpenPopup}"  class="arrow" svgIcon="arrow"></mat-icon>

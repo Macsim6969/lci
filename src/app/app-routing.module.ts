@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/services/isAuth.guard';
 
+import { initializeApp } from 'firebase/app';
+import { getStorage } from 'firebase/storage';
+import { getDatabase } from 'firebase/database';  
+import { environment } from '../environment/environment';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./modules/home/home.module').then((m) => m.HomeModule), canActivate: [AuthGuard] },
@@ -17,4 +21,10 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  constructor() {
+    const app = initializeApp(environment.firebaseConfig);
+    const storage = getStorage(app);
+    const database = getDatabase(app);
+  }
+}

@@ -12,6 +12,7 @@ import { Subject } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   @Input() name: string;
+  @Input() lastName: string;
   public isOpenPopup!: boolean;
   constructor(
     private headerIcon: HeaderIconService,

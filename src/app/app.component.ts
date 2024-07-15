@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from './store/model/store.model';
 import { selectIsLogin } from './store/selectors/store.selectors';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,6 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.pipe(select(selectIsLogin)).subscribe((data) => console.log(data))
+    this.store.pipe(select(selectIsLogin), take(1)).subscribe((data) => console.log(data))
   }
 }

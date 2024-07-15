@@ -1,9 +1,9 @@
 <section class="main">
   <app-menu-navigation></app-menu-navigation>
   <div class="content">
-    <app-header [name]="name">
+    <app-header [name]="name" [lastName]="lastName">
       <div class="welcome">
-        <p class="title">Welcome, Mr. {{name}}</p>
+        <p class="title">Welcome, Mr. {{name}} {{lastName}}</p>
         <p class="date">Today is {{date|date:'longDate'}}</p>
       </div>
     </app-header>
