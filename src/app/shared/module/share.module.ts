@@ -6,8 +6,8 @@ import { MatLabel } from "@angular/material/form-field";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { PopupUserComponent } from "../../components/popup-user/popup-user.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { PopupUserComponent } from "../../components/popup-user/popup-user.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +32,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MatButtonModule,
     MatDividerModule,
     MatCheckboxModule,
-
     PopupUserComponent
   ]
 })

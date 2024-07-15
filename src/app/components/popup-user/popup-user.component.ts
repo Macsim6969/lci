@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../shared/interfaces/user.interface';
 import { BackendService } from '../../shared/services/backend.service';
-import { FirebaseStorageService } from '../../module/st-sett-pr/@shared/services/firebaseStorage.service';
 import { Router } from '@angular/router';
+import { FirebaseStorageService } from '../../modules/st-sett-pr/@shared/services/firebaseStorage.service';
 
 @Component({
   selector: 'app-popup-user',
@@ -84,11 +84,15 @@ export class PopupUserComponent implements OnInit, OnDestroy {
     const newUserData: User = {
       ...this.user,
       userID: this.user?.userID,
-      email: this.form.value.email,
       name: this.form.value.name,
-      password: this.form.value.password,
       lastName: this.form.value.lastName,
+      email: this.form.value.email,
       number: this.form.value.number,
+      gender: this.form.value.gender,
+      role: this.form.value.role,
+      designation: this.form.value.designation,
+      password: this.form.value.password,
+      offMail: this.form.value.offMail,
       avatar: this.form.value.avatar
     }
 

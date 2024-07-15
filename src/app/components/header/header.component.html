@@ -3,10 +3,10 @@
   <div class="settings">
     <mat-icon class="noti" svgIcon="notification"></mat-icon>
     <div class="user" (click)="openPopup()">
-      <img src="/assets/images/header/avatar.png" alt="">
+      <img [src]="avatar" [alt]="user.name">
       <nav class="mainInfo">
-        <p class="name">{{name}} {{lastName}}</p>
-        <p class="position">HR Office</p>
+        <p class="name">{{user.name}} {{user.lastName}}</p>
+        <p class="position">{{user.role}}</p>
       </nav>
       <mat-icon [ngClass]="{'active': isOpenPopup}"  class="arrow" svgIcon="arrow"></mat-icon>
     </div>
