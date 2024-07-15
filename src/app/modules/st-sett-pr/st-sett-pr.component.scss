@@ -7,17 +7,36 @@
   flex-direction: column;
   padding-top: 48px;
 
+  @media (max-width: 1320px) {
+    width: 95%;
+  }
+
+  @media (max-width: 920px) {
+    padding-top: 22px;
+  }
+
   .settings_title {
     font-size: 3.4rem;
     font-weight: 800;
+
+    @media (max-width: 920px) {
+      font-size: 2.4rem;
+    }
   }
 
   .settings_descr {
     font-size: 2rem;
     color: #262626;
+    @media (max-width: 920px) {
+      font-size: 1.8rem;
+    }
   }
 
   .popup_edite{
     margin-top: 42px;
+
+    @media (max-width: 576px) {
+      margin-top: 22px;
+    }
   }
 }
