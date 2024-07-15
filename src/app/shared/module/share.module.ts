@@ -1,25 +1,40 @@
 import { NgModule } from "@angular/core";
-import {MatListModule} from '@angular/material/list';
-import {MatIconModule} from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from "@angular/material/card";
 import { MatLabel } from "@angular/material/form-field";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { PopupUserComponent } from "../../components/popup-user/popup-user.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
+  declarations: [
+    PopupUserComponent
+  ],
   imports: [
     MatListModule,
     MatIconModule,
     MatCardModule,
     MatLabel,
-    MatCheckboxModule
+    MatButtonModule,
+    MatDividerModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     MatListModule,
     MatIconModule,
     MatCardModule,
     MatLabel,
-    MatCheckboxModule
+    MatButtonModule,
+    MatDividerModule,
+    MatCheckboxModule,
+
+    PopupUserComponent
   ]
 })
 
-export class ShareModule{}
+export class ShareModule { }

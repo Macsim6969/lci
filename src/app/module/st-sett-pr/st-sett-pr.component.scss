@@ -1,0 +1,23 @@
+.user_settings {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 48px;
+
+  .settings_title {
+    font-size: 3.4rem;
+    font-weight: 800;
+  }
+
+  .settings_descr {
+    font-size: 2rem;
+    color: #262626;
+  }
+
+  .popup_edite{
+    margin-top: 42px;
+  }
+}

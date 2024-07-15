@@ -1,12 +1,13 @@
 import { createReducer, on } from "@ngrx/store";
 import { StoreInterface } from "../model/store.model";
-import { newUserID, setIsLoginRegisterData, setUserData } from "../actions/store.actions";
+import { newUserID, setIsLoginRegisterData, setUserData, setUsers } from "../actions/store.actions";
 
 
 export const store: StoreInterface = {
   isLogin: false,
   idUser: '',
-  userInfo: null
+  userInfo: null,
+  allUsers: null
 }
 
 export const storeReducers = createReducer(store,
@@ -18,5 +19,8 @@ export const storeReducers = createReducer(store,
   }),
   on(setUserData, (state, action) => {
     return { ...state, userInfo: action.data }
+  }),
+  on(setUsers, (state, action) =>{
+    return {...state, allUsers: action.data}
   })
 )

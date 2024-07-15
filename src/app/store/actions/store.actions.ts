@@ -8,6 +8,8 @@ export const USERID = 'USERID';
 export const SETUSERDATA = 'SETUSERDATA';
 export const STARTAFFECT = 'STARTAFFECT';
 export const LOGINREGISTERDATA = 'LOGINREGISTERDATA';
+export const SETUSERS = 'SETUSERS'
+
 
 export const setAllUsers = createAction(
   SETALLUSERS
@@ -20,7 +22,7 @@ export const newUserID = createAction(
 
 export const setIsLoginRegisterData = createAction(
   LOGINREGISTERDATA,
-  props<{data: boolean}>()
+  props<{ data: boolean }>()
 )
 
 export const setRegiset = createAction(
@@ -30,6 +32,11 @@ export const setRegiset = createAction(
 export const setUserData = createAction(
   SETUSERDATA,
   props<{ data: User }>()
+);
+
+export const setUsers = createAction(
+  SETUSERS,
+  props<{ data: User[] }>()
 );
 
 export const startGetData = createAction(

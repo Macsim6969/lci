@@ -1,0 +1,51 @@
+<section class="user-edite">
+  <!-- <ng-template></ng-template> -->
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-avatar">
+      <div class="avatar">
+        <img src="/assets/images/global/upload_photo.svg" alt="">
+      </div>
+    </div>
+    <div class="form-content">
+      <div class="column">
+        <label for="">First Name</label>
+        <input type="text" placeholder="Enter first name" type='text'  formControlName="name">
+      </div>
+      <div class="column">
+        <label for="">Last Name</label>
+        <input type="text" placeholder="Enter last name" type='text' formControlName="lastName">
+      </div>
+      <div class="column">
+        <label for="">Email address</label>
+        <input type="text" placeholder="Enter email address" type='email' formControlName="email">
+      </div>
+      <div class="column">
+        <label for="">Phone number</label>
+        <input type="text" placeholder="Enter phone number" type='tel' formControlName="number">
+      </div>
+      <div class="column">
+        <label for="">Gender</label>
+        <input type="text" placeholder="Select gender" type='text' formControlName="gender">
+      </div>
+      <div class="column">
+        <label for="">Role</label>
+        <input type="text" placeholder="Select role" type='text' formControlName="role">
+      </div>
+      <div class="column">
+        <label for="">Designation</label>
+        <input type="text" placeholder="Select designation" type='text' formControlName="designation">
+      </div>
+      <div class="column">
+        <label for="">Staff ID</label>
+        <input  readonly="readonly" type="text" placeholder="Staff ID" type='text' formControlName="id">
+      </div>
+      <div class="column">
+        <label for="">Official email</label>
+        <input readonly="readonly" type="text" placeholder="Official email" type='email' formControlName="offMail">
+      </div>
+      <div class="column">
+        <button class="save" type="submit" mat-button>Save</button>
+      </div>
+    </div>
+  </form>
+</section>

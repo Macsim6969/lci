@@ -1,9 +1,14 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, take, takeUntil } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { saveData } from '../../interfaces/form.interface';
+import { select, Store } from '@ngrx/store';
+import { StoreInterface } from '../../../../../store/model/store.model';
+import { selectUserId, selectUserInfo, selectUsers } from '../../../../../store/selectors/store.selectors';
+import { User } from '../../../../../shared/interfaces/user.interface';
+import { BackendService } from '../../../../../shared/services/backend.service';
 
 @Component({
   selector: 'app-login',
@@ -18,10 +23,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   public formData!: Form;
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private store: Store<{ store: StoreInterface }>,
+    private backendService: BackendService
   ) { }
 
   ngOnInit() {
+    this.backendService.getUsers();
     const isSaveData = JSON.parse(localStorage.getItem('save'));
     isSaveData ? this.initializeForm(isSaveData) : this.initializeForm();
     isSaveData ? this.hideRequiredControl.setValue(true) : null;
@@ -44,7 +52,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((data) => {
         if (data) {
-          this.router.navigate([`/`]).then();
+          this.checkToUserInfo();
           if (this.hideRequiredControl && this.form.value) {
             const newSaveData = { ...formData, isSaveSettings: true }
             localStorage.setItem('save', JSON.stringify(newSaveData));
@@ -52,6 +60,21 @@ export class LoginComponent implements OnInit, OnDestroy {
           }
         }
       });
+  }
+
+  private checkToUserInfo() {
+    this.store.pipe(select(selectUsers), take(1)).subscribe((data: User[]) => {
+      const user = Object.values(data)?.find((e: any) => e.profile.email === this.form.value.email);
+      console.log(user)
+
+      if (user['profile'].number) {
+        this.router.navigate([`/`]).then();
+      } else {
+        this.backendService.getUserInfo(user['profile'].userID);
+        localStorage.setItem('localUser', JSON.stringify(user['profile']))
+        this.router.navigate([`/st-sett-pr`]).then();
+      }
+    })
   }
 
   ngOnDestroy() {
