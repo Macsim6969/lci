@@ -7,10 +7,10 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { PopupUserComponent } from "../../components/popup-user/popup-user.component";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { LoadingComponent } from "../../components/loading/loading.component";
 import { CommonModule } from "@angular/common";
+import { PopupUserComponent } from "../components/popup-user/popup-user.component";
+import { LoadingComponent } from "../components/loading/loading.component";
 
 @NgModule({
   declarations: [

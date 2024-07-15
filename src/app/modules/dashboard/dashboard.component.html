@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<section class="dashboard">
+  <app-dashboard-info>
+    <div class="info" *ngFor="let info of dashboardInfo">
+      <div class="info_content">
+        <p class="title">{{info.total}}</p>
+        <p class="content">{{info.title}}</p>
+      </div>
+      <div class="icon">
+        <mat-icon svgIcon="{{info.icon}}"></mat-icon>
+      </div>
+    </div>
+  </app-dashboard-info>
+</section>

@@ -1,13 +1,13 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../shared/interfaces/user.interface';
-import { BackendService } from '../../shared/services/backend.service';
 import { Router } from '@angular/router';
-import { FirebaseStorageService } from '../../modules/st-sett-pr/@shared/services/firebaseStorage.service';
-import { StoreInterface } from '../../store/model/store.model';
 import { select, Store } from '@ngrx/store';
-import { selectUserInfo, selectUsers } from '../../store/selectors/store.selectors';
 import { take } from 'rxjs';
+import { FirebaseStorageService } from '../../../modules/st-sett-pr/@shared/services/firebaseStorage.service';
+import { BackendService } from '../../services/backend.service';
+import { StoreInterface } from '../../../store/model/store.model';
+import { selectUserInfo } from '../../../store/selectors/store.selectors';
+import { User } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-popup-user',

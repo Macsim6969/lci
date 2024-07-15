@@ -1,13 +1,13 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { HeaderIconService } from '../../shared/services/headerIcon.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../../modules/auth/@shared/services/auth.service';
 import { Subject, takeUntil } from 'rxjs';
-import { User } from '../../shared/interfaces/user.interface';
-import { FirebaseStorageService } from '../../modules/st-sett-pr/@shared/services/firebaseStorage.service';
-import { StoreInterface } from '../../store/model/store.model';
 import { select, Store } from '@ngrx/store';
-import { selectUserInfo } from '../../store/selectors/store.selectors';
+import { User } from '../../interfaces/user.interface';
+import { HeaderIconService } from '../../services/headerIcon.service';
+import { AuthService } from '../../../modules/auth/@shared/services/auth.service';
+import { StoreInterface } from '../../../store/model/store.model';
+import { FirebaseStorageService } from '../../../modules/st-sett-pr/@shared/services/firebaseStorage.service';
+import { selectUserInfo } from '../../../store/selectors/store.selectors';
 
 @Component({
   selector: 'app-header',

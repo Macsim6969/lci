@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuNavigationComponent } from '../../components/menu-navigation/menu-navigation.component';
 import { ShareModule } from '../../shared/module/share.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HeaderComponent } from '../../components/header/header.component';
 import { HeaderIconService } from '../../shared/services/headerIcon.service';
+import { HeaderComponent } from '../../shared/components/header/header.component';
+import { MenuNavigationComponent } from '../../shared/components/menu-navigation/menu-navigation.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');

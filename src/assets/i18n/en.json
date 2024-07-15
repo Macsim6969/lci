@@ -5,5 +5,27 @@
       "title": "Dashboard",
       "route": "/dashboard"
     }
+  ],
+  "dashboard": [
+    {
+      "icon": "staff",
+      "total": "250",
+      "title": "Total number of staff"
+    },
+    {
+      "icon": "applicatation",
+      "total": "100",
+      "title": "Total applicatation"
+    },
+    {
+      "icon": "projects",
+      "total": "10",
+      "title": "Total projects"
+    },
+    {
+      "icon": "departments",
+      "total": "10",
+      "title": "Total departments"
+    }
   ]
 }
