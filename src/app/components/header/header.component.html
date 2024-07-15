@@ -8,11 +8,15 @@
         <p class="name">{{user.name}} {{user.lastName}}</p>
         <p class="position">{{user.role}}</p>
       </nav>
-      <mat-icon [ngClass]="{'active': isOpenPopup}"  class="arrow" svgIcon="arrow"></mat-icon>
+      <mat-icon [ngClass]="{'active': isOpenPopup}" class="arrow" svgIcon="arrow"></mat-icon>
     </div>
   </div>
 
   <div class="popup" [ngClass]="{'active': isOpenPopup, 'close' : !isOpenPopup}">
+    <nav class="mainInfo">
+      <p class="name">{{user.name}} {{user.lastName}}</p>
+      <p class="position">{{user.role}}</p>
+    </nav>
     <nav class="items" (click)="useRoute('profile')">
       <mat-icon svgIcon="profile"></mat-icon>
       <p>Profile</p>
@@ -20,7 +24,7 @@
     <nav class="items" (click)="useRoute('settings')">
       <mat-icon svgIcon="settings"></mat-icon>
       <p>Settings</p>
-    </nav> 
+    </nav>
     <nav class="items" (click)="useRoute('logout')">
       <mat-icon svgIcon="logout"></mat-icon>
       <p>Logout</p>

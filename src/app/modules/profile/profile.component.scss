@@ -1,0 +1,11 @@
+.profile {
+  max-width: 1420px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (max-width: 1720px) {
+    width: 95%;
+  }
+}

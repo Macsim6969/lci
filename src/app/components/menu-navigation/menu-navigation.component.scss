@@ -68,6 +68,10 @@
 
       img {
         padding-left: 10px;
+
+        @media (max-height: 460px) {
+          padding: 0;
+        }
       }
 
       .list_inner {

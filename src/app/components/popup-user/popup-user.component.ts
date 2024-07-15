@@ -1,9 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../shared/interfaces/user.interface';
 import { BackendService } from '../../shared/services/backend.service';
 import { Router } from '@angular/router';
 import { FirebaseStorageService } from '../../modules/st-sett-pr/@shared/services/firebaseStorage.service';
+import { StoreInterface } from '../../store/model/store.model';
+import { select, Store } from '@ngrx/store';
+import { selectUserInfo, selectUsers } from '../../store/selectors/store.selectors';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-popup-user',
@@ -11,6 +15,7 @@ import { FirebaseStorageService } from '../../modules/st-sett-pr/@shared/service
   styleUrl: './popup-user.component.scss'
 })
 export class PopupUserComponent implements OnInit, OnDestroy {
+  @Input() activePage: 'profile';
   public form: FormGroup;
   public user: User;
   public previewUrl: string | ArrayBuffer | null = null;
@@ -18,7 +23,8 @@ export class PopupUserComponent implements OnInit, OnDestroy {
   constructor(
     private backendService: BackendService,
     private firebaseStorageService: FirebaseStorageService,
-    private router: Router
+    private router: Router,
+    private store: Store<{ store: StoreInterface }>
   ) { }
 
   ngOnInit(): void {
@@ -26,9 +32,20 @@ export class PopupUserComponent implements OnInit, OnDestroy {
   }
 
   private getUserInfo() {
-    const localUser = JSON.parse(localStorage.getItem('localUser'));
-    this.user = localUser;
-    localUser ? this.setForm(localUser) : null;
+    if (this.activePage !== 'profile') {
+      const localUser = JSON.parse(localStorage.getItem('localUser'));
+      this.user = localUser;
+      localUser ? this.setForm(localUser) : null;
+    } else {
+      this.store.pipe(select(selectUserInfo), take(1)).subscribe(async (user: User) => {
+        this.user = user;
+        if (user) {
+          this.setForm(user);
+          user ? this.previewUrl = await this.firebaseStorageService.onGetImage(user) : null;
+        }
+      })
+    }
+
   }
 
   private setForm(user: User) {

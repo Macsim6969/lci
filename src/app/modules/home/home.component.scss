@@ -4,8 +4,14 @@
   height: 100%;
   gap: 16px;
 
+  @media (max-width: 720px) {
+    padding-right: 10px;
+  }
+
   @media (max-width: 576px) {
-    grid-template-columns: 0.25fr 1fr;
+    grid-template-columns: 0.15fr 0.85fr;
+    gap: 8px;
+
   }
 
   .content {
@@ -14,15 +20,34 @@
       flex-direction: column;
       gap: 1px;
 
+      @media (max-width: 576px) {
+        max-width: 160px;
+      }
+
+
       .title {
         color: #000000;
         font-size: 2.4rem;
         font-weight: 700;
+
+        @media (max-width: 720px) {
+          font-size: 2rem;
+          max-width: 190px;
+        }
+
+        @media (max-width: 576px) {
+          font-size: 1.8rem;
+          max-width: 160px;
+        }
       }
 
-      .date{
+      .date {
         font-size: 1.8rem;
         color: #262626;
+
+        @media (max-width: 576px) {
+          font-size: 1.5rem;
+        }
       }
     }
   }

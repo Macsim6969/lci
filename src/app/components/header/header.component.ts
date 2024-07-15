@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private async streamCheckAvatar() {
     this.store.pipe(select(selectUserInfo), takeUntil(this.destroy$)).subscribe(async (data: User) => {
       data ? this.avatar = await this.firebaseStorageService.onGetImage(data) : null;
-      console.log(this.avatar);
+      
     });
   }
 

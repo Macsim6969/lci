@@ -8,12 +8,17 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PopupUserComponent } from "../../components/popup-user/popup-user.component";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingComponent } from "../../components/loading/loading.component";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
-    PopupUserComponent
+    PopupUserComponent,
+    LoadingComponent
   ],
   imports: [
+    CommonModule,
     MatListModule,
     MatIconModule,
     MatCardModule,
@@ -21,6 +26,7 @@ import { PopupUserComponent } from "../../components/popup-user/popup-user.compo
     MatButtonModule,
     MatDividerModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -32,7 +38,10 @@ import { PopupUserComponent } from "../../components/popup-user/popup-user.compo
     MatButtonModule,
     MatDividerModule,
     MatCheckboxModule,
-    PopupUserComponent
+    MatProgressSpinnerModule,
+    PopupUserComponent,
+    LoadingComponent
+
   ]
 })
 
