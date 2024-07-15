@@ -1,4 +1,5 @@
 import { createAction, props } from "@ngrx/store"
+import { User } from "../../shared/interfaces/user.interface";
 
 
 export const SETALLUSERS = 'SETALLUSERS';
@@ -28,7 +29,7 @@ export const setRegiset = createAction(
 
 export const setUserData = createAction(
   SETUSERDATA,
-  props<{ data: boolean }>()
+  props<{ data: User }>()
 );
 
 export const startGetData = createAction(

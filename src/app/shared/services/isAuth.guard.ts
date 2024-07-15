@@ -18,8 +18,7 @@ export class AuthGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     this.store.pipe(take(1), select(selectIsLogin)).subscribe((dataLogin: boolean) => {
-      this.isLogin = dataLogin
-      console.log(this.isLogin);
+      this.isLogin = dataLogin;
     })
 
     const user = JSON.parse(localStorage.getItem('userData'))

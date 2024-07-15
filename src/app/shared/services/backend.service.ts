@@ -4,6 +4,7 @@ import { Store } from "@ngrx/store";
 import { StoreInterface } from "../../store/model/store.model";
 import { User } from '../interfaces/user.interface';
 import { setUserData } from "../../store/actions/store.actions";
+import { Observable } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 
@@ -13,9 +14,15 @@ export class BackendService {
     private store: Store<{ store: StoreInterface }>,) {
   }
 
+  public getUserInfo(idUser) {
+    return this.http.get<User>(`${this.baseUrl}/users/${idUser}/profile.json`).subscribe((userData: User) => {
+      this.store.dispatch(setUserData({ data: userData }));
+    });
+  }
+
   public sendUserProfile(userData: User) {
     return this.http.put<User>(`${this.baseUrl}/users/${userData.userID}/profile.json`, userData).subscribe(() => {
-      this.store.dispatch(setUserData({ data: true }));
+      this.store.dispatch(setUserData({ data: userData }));
     });
   }
 

@@ -5,7 +5,7 @@
     <div class="user" (click)="openPopup()">
       <img src="/assets/images/header/avatar.png" alt="">
       <nav class="mainInfo">
-        <p class="name">Otor John</p>
+        <p class="name">{{name}}</p>
         <p class="position">HR Office</p>
       </nav>
       <mat-icon [ngClass]="{'active': isOpenPopup}"  class="arrow" svgIcon="arrow"></mat-icon>
@@ -20,7 +20,7 @@
     <nav class="items" (click)="useRoute('settings')">
       <mat-icon svgIcon="settings"></mat-icon>
       <p>Settings</p>
-    </nav>
+    </nav> 
     <nav class="items" (click)="useRoute('logout')">
       <mat-icon svgIcon="logout"></mat-icon>
       <p>Logout</p>
