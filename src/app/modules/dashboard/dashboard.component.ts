@@ -30,7 +30,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private streamDashboardInfo() {
     combineLatest(([this.translate.stream('dashboard'), this.store.pipe(select(selectDashboardData))])).pipe(takeUntil(this.destroy$))
       .subscribe(([dashboardData, totalData]) => {
-        console.log(totalData)
         this.dashboardInfo = dashboardData.map((item: any) => {
           switch (item.icon) {
             case 'staff':
@@ -39,7 +38,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               return { ...item, total: totalData?.totalApplication };
             case 'projects':
               return { ...item, total: totalData?.totalProject };
-            case 'departments': 
+            case 'departments':
               return { ...item, total: totalData?.totalDepartments };
             default:
               return item;
@@ -48,8 +47,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       })
 
   }
-
-  p
 
   ngOnDestroy(): void {
     this.destroy$.next();

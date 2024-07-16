@@ -1,12 +1,14 @@
 <section class="main" *ngIf="user">
   <app-menu-navigation></app-menu-navigation>
-  <div class="content">
+  <div *ngIf="pageInfo;else loading" class="content">
     <app-header [user]="user">
       <div class="welcome">
-        <p class="title">Welcome, Mr. {{user?.name}} {{user?.lastName}}</p>
-        <p class="date">Today is {{date|date:'longDate'}}</p>
+        <p class="title">{{pageInfo?.title}}</p>
+        <p class="date">{{pageInfo?.descr}}</p>
       </div>
     </app-header>
     <router-outlet></router-outlet>
   </div>
+  <ng-template #loading></ng-template>
+
 </section>

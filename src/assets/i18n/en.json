@@ -1,9 +1,28 @@
 {
+  "headerInfoPage": [
+    {
+      "url": "/dashboard",
+      "icon": "",
+      "title": "Welcome, Mr.",
+      "descr": "Today is "
+    },
+    {
+      "url": "/memo",
+      "icon": "./assets/images/menu/memo.svg",
+      "title": "Memo",
+      "descr": "Create and send memos to designated offices"
+    }
+  ],
   "menuNavigation": [
     {
-      "link": "../../../assets/images/menu/Dashboard.svg",
+      "link": "dashboard",
       "title": "Dashboard",
       "route": "/dashboard"
+    },
+    {
+      "link": "memo",
+      "title": "Memo",
+      "route": "/memo"
     }
   ],
   "dashboard": [

@@ -7,8 +7,9 @@
   </div>
 
   <mat-list class="list" role="navigation">
-    <div *ngFor="let url of menuNavigation" class="page" routerLink="{{url.route}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      <img src="{{url.link}}" alt="">
+    <div *ngFor="let url of menuNavigation" class="page" routerLink="{{url.route}}" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon svgIcon="{{url.link}}"></mat-icon>
       <mat-list-item class="list_inner">{{url.title}}</mat-list-item>
     </div>
   </mat-list>

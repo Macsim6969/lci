@@ -9,6 +9,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HeaderIconService } from '../../shared/services/headerIcon.service';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { MenuNavigationComponent } from '../../shared/components/menu-navigation/menu-navigation.component';
+import { MenuIconService } from '../../shared/services/menuIcon.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -18,7 +19,8 @@ const routes: Routes = [
   {
     path: '', component: HomeComponent, children: [
       { path: '', loadChildren: () => import('../profile/profile.module').then((m) => m.ProfileModule) },
-      { path: 'dashboard', loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule) }
+      { path: 'dashboard', loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule) },
+      { path: 'memo', loadChildren: () => import('../memo/memo.module').then((m) => m.MemoModule) }
     ]
   }
 ]
@@ -43,7 +45,8 @@ const routes: Routes = [
     })
   ],
   providers: [
-    HeaderIconService
+    HeaderIconService,
+    MenuIconService
   ],
   exports: [HomeComponent]
 })
