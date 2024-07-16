@@ -12,3 +12,8 @@ export interface User {
   role?: string
   designation?: string
 }
+
+export interface StaffMiniList{
+  name: string
+  id: string
+}

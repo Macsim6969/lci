@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Store } from "@ngrx/store";
 import { StoreInterface } from "../../store/model/store.model";
 import { User } from '../interfaces/user.interface';
-import { setUserData, setUsers } from "../../store/actions/store.actions";
+import { setStaffMiniList, setUserData, setUsers } from "../../store/actions/store.actions";
 import { Observable } from "rxjs";
 import { DashboardInfo, DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface";
 import { setDashbordInfo } from "../../store/actions/dashboard.actions";
@@ -26,6 +26,9 @@ export class BackendService {
 
   public getUsers() {
     return this.http.get<User[]>(`${this.baseUrl}/users.json`).subscribe((userData: User[]) => {
+      const users = Object.values(userData)?.map(e => ({ name: e['profile'].name + ' ' + e['profile'].lastName, id: e['profile'].userID }));
+
+      this.store.dispatch(setStaffMiniList({ data: users }));
       this.store.dispatch(setUsers({ data: userData }));
     });
   }
@@ -55,6 +58,12 @@ export class BackendService {
   public getMemo(userID: string) {
     return this.http.get<MemoList[]>(`${this.baseUrl}/users/${userID}/memo.json`).subscribe((data: MemoList[]) => {
       data ? this.store.dispatch(sendMemoData({ data: data })) : this.store.dispatch(sendMemoData({ data: [] }));
+    })
+  }
+
+  public setMemo(userID: string, memoData: MemoList) {
+    return this.http.post<MemoList>(`${this.baseUrl}/users/${userID}/memo.json`, memoData).subscribe(() => {
+      this.getMemo(userID);
     })
   }
 

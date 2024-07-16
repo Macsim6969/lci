@@ -26,7 +26,7 @@ export class MemoComponent implements OnInit, OnDestroy {
 
   private getMemoListFromStore() {
     this.store.pipe(select(selectMemoList), takeUntil(this.destroy$)).subscribe((data: MemoList[]) => {
-      this.memoList = data;
+      this.memoList = Object.values(data);
     })
   }
 

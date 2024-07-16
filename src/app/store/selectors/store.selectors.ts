@@ -6,3 +6,5 @@ export const selectUserInfo = (store: {store: StoreInterface}) => store.store.us
 export const selectUsers = (store: {store: StoreInterface}) => store.store.allUsers;
 
 export const selectMemoList = (store: {store: StoreInterface}) => store.store.memoList;
+
+export const selectStaffMiniList = (store: {store: StoreInterface}) => store.store.staffMiniList;

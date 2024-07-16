@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShareModule } from '../../shared/module/share.module';
 import { MemoHeaderComponent } from './@shared/components/memo-header/memo-header.component';
 import { MemoListComponent } from './@shared/components/memo-list/memo-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: MemoComponent , children: [
@@ -23,6 +24,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     ShareModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   exports: [

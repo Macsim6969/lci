@@ -5,8 +5,9 @@ export interface MemoList {
  sentTo: string
  date: Date
  attachment: 'Yes' | 'No',
- memoType: string
+ memoType: string 
  action: "View more"
  message: string
  actionFilter: string
+ id?: number
 }

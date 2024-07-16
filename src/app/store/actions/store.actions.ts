@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store"
-import { User } from "../../shared/interfaces/user.interface";
+import { StaffMiniList, User } from "../../shared/interfaces/user.interface";
 
 
 export const SETALLUSERS = 'SETALLUSERS';
@@ -9,6 +9,7 @@ export const SETUSERDATA = 'SETUSERDATA';
 export const STARTAFFECT = 'STARTAFFECT';
 export const LOGINREGISTERDATA = 'LOGINREGISTERDATA';
 export const SETUSERS = 'SETUSERS'
+export const STAFFMINILIST = 'STAFFMINILIST'
 
 
 export const setAllUsers = createAction(
@@ -43,3 +44,8 @@ export const startGetData = createAction(
   STARTAFFECT
 );
 
+
+export const setStaffMiniList = createAction(
+  STAFFMINILIST,
+  props<{data: StaffMiniList[]}>()
+)
