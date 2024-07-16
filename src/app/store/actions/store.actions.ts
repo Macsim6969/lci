@@ -42,3 +42,4 @@ export const setUsers = createAction(
 export const startGetData = createAction(
   STARTAFFECT
 );
+

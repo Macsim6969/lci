@@ -9,6 +9,7 @@ import { newUserID, setIsLoginRegisterData, setRegiset, startGetData } from "../
 import { environment } from '../../../../../environment/environment';
 import { Router } from "@angular/router";
 import { User } from "../model/auth.model";
+import { setStartDashboarfInfo } from "../../../../shared/base/startData";
 
 export interface AuthResponseData {
   idToken: string
@@ -42,6 +43,7 @@ export class AuthService {
       localStorage.setItem('id', JSON.stringify(resData.localId));
       this.backendService.sendUserProfile({ userID: resData.localId, email: form.email, password: form.password, name: form.name, token: resData.idToken });
       this.store.dispatch(setIsLoginRegisterData({data: true}));
+      this.backendService.setDashboardInfo(resData.localId, setStartDashboarfInfo());
       this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn, resData.localId);
       setTimeout(() => {
         this.store.dispatch(setRegiset())

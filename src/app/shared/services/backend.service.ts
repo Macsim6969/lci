@@ -5,6 +5,8 @@ import { StoreInterface } from "../../store/model/store.model";
 import { User } from '../interfaces/user.interface';
 import { setUserData, setUsers } from "../../store/actions/store.actions";
 import { Observable } from "rxjs";
+import { DashboardInfo, DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface";
+import { setDashbordInfo } from "../../store/actions/dashboard.action";
 
 @Injectable({ providedIn: 'root' })
 
@@ -30,6 +32,18 @@ export class BackendService {
     return this.http.put<User>(`${this.baseUrl}/users/${userData.userID}/profile.json`, userData).subscribe(() => {
       this.store.dispatch(setUserData({ data: userData }));
     });
+  }
+
+  public setDashboardInfo(userID: string, dashboardInfo: DashboardTotalInfo) {
+    return this.http.put<DashboardTotalInfo>(`${this.baseUrl}/users/${userID}/dashboardInfo.json`, dashboardInfo).subscribe((data: DashboardTotalInfo) => {
+      this.store.dispatch(setDashbordInfo({ data: data }))
+    })
+  }
+
+  public getDashboardInfo(userID: string) {
+    return this.http.get<DashboardTotalInfo>(`${this.baseUrl}/users/${userID}/dashboardInfo.json`).subscribe((data: DashboardTotalInfo) => {
+      this.store.dispatch(setDashbordInfo({ data: data }))
+    })
   }
 
   public removeUser(userId: string) {
