@@ -7,11 +7,16 @@ import { ShareModule } from '../../shared/module/share.module';
 import { MemoHeaderComponent } from './@shared/components/memo-header/memo-header.component';
 import { MemoListComponent } from './@shared/components/memo-list/memo-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MemoViewComponent } from './@shared/components/memo-view/memo-view.component';
+import { MemoService } from './@shared/services/memo.service';
 
 const routes: Routes = [
-  { path: '', component: MemoComponent , children: [
-    {path: 'create', component: MemosCreateComponent}
-  ]}
+  {
+    path: '', component: MemoComponent, children: [
+      { path: 'create', component: MemosCreateComponent },
+      { path: 'view', component: MemoViewComponent }
+    ]
+  }
 ]
 
 @NgModule({
@@ -19,7 +24,8 @@ const routes: Routes = [
     MemoComponent,
     MemoHeaderComponent,
     MemoListComponent,
-    MemosCreateComponent
+    MemosCreateComponent,
+    MemoViewComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +36,9 @@ const routes: Routes = [
   ],
   exports: [
     MemoComponent
+  ],
+  providers: [
+    MemoService
   ]
 })
 export class MemoModule { }

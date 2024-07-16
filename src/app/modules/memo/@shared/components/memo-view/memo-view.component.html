@@ -1,0 +1,16 @@
+<div class="view_memo">
+  <button mat-button (click)="backTo()">
+    <mat-icon svgIcon="arrow"></mat-icon>
+    <p>Back</p>
+  </button>
+  <div class="memo">
+    <h2 class="title_edite">Operations Memo</h2>
+    <div class="content" *ngIf="memoList">
+      <nav><strong>Date:</strong> {{memoList.date}}</nav>
+      <nav><strong>From:</strong> {{memoList.sentFrom}}</nav>
+      <nav><strong>To:</strong> {{memoList.sentTo}}</nav>
+      <nav><strong>Attachment:</strong> {{memoList.attachment}}</nav>
+      <nav><strong>Memo Message:</strong> {{memoList.message}}</nav>
+    </div>
+  </div>
+</div>

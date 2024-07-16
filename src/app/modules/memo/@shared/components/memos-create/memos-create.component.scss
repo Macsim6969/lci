@@ -1,7 +1,7 @@
 .create_memo {
   position: absolute;
   inset: 0;
-  animation: 0.6s open;
+  animation: 1s open;
   background-color: #F2F7FF;
 
   display: flex;
@@ -141,5 +141,5 @@
 }
 
 .close_animation {
-  animation: 0.6s close forwards;
+  animation: 1s close forwards;
 }

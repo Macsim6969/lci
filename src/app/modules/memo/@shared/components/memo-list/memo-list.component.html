@@ -13,7 +13,7 @@
          <nav>{{list.date}}</nav>
          <nav>{{list.attachment}}</nav>
          <nav>{{list.memoType}}</nav>
-         <nav>View more</nav>
+         <nav class="view" (click)="checkMemoView(list.id)">View more</nav>
       </div>
    </div>
    <ng-template #loading>

@@ -23,6 +23,12 @@
       "icon": "memo",
       "title": "Create Memo",
       "descr": "Create and send memos to designated offices"
+    },
+    {
+      "url": "/memo/view",
+      "icon": "memo",
+      "title": "Create Memo",
+      "descr": "Create and send memos to designated offices"
     }
   ],
   "menuNavigation": [

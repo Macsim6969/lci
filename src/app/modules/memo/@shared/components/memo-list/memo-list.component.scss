@@ -40,6 +40,14 @@
         line-height: 2.4rem;
         color: #515151;
       }
+
+      .view{
+        cursor: pointer;
+        background-image: linear-gradient(to right, #14ADD6, #384295);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
     }
   }
 }
