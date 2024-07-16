@@ -6,10 +6,11 @@ import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ShareModule } from '../../shared/module/share.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HeaderIconService } from '../../shared/services/headerIcon.service';
+import { HeaderIconService } from '../../shared/services/icons/headerIcon.service';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { MenuNavigationComponent } from '../../shared/components/menu-navigation/menu-navigation.component';
-import { MenuIconService } from '../../shared/services/menuIcon.service';
+import { MenuIconService } from '../../shared/services/icons/menuIcon.service';
+import { GlobalIconService } from '../../shared/services/icons/globalIcon.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -46,7 +47,8 @@ const routes: Routes = [
   ],
   providers: [
     HeaderIconService,
-    MenuIconService
+    MenuIconService,
+    GlobalIconService
   ],
   exports: [HomeComponent]
 })

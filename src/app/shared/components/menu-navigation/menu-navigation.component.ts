@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject, takeUntil } from 'rxjs';
 import { MenuNavigationInterface } from '../../interfaces/menuNavigation.interface';
-import { MenuIconService } from '../../services/menuIcon.service';
+import { MenuIconService } from '../../services/icons/menuIcon.service';
 
 @Component({
   selector: 'app-menu-navigation',

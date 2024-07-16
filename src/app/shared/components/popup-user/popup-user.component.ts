@@ -45,7 +45,6 @@ export class PopupUserComponent implements OnInit, OnDestroy {
         }
       })
     }
-
   }
 
   private setForm(user: User) {
@@ -97,7 +96,6 @@ export class PopupUserComponent implements OnInit, OnDestroy {
   }
 
   private setDataToStore() {
-    console.log(this.user);
     const newUserData: User = {
       ...this.user,
       userID: this.user?.userID,

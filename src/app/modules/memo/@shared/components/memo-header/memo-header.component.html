@@ -1,0 +1,23 @@
+<div class="memo_header">
+  <div class="header_total">
+    <p class="total">{{memoList.length}}</p>
+    <p class="desc">Total memo</p>
+  </div>
+  <div class="search_memo">
+    <p>Quick search a memo</p>
+    <nav class="search">
+      <input type="text" placeholder="Enter search a word">
+      <mat-icon svgIcon="search"></mat-icon>
+    </nav>
+  </div>
+  <div class="filter_memo">
+    <p>Filter memo</p>
+    <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of foods" [value]="food.value">{{food.viewValue}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button mat-button (click)="openCreateMemo()">Create Memo</button>
+</div>

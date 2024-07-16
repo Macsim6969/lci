@@ -3,7 +3,10 @@
   <div *ngIf="pageInfo;else loading" class="content">
     <app-header [user]="user">
       <div class="welcome">
-        <p class="title">{{pageInfo?.title}}</p>
+        <div class="top">
+          <mat-icon *ngIf="pageInfo?.icon" svgIcon="{{pageInfo?.icon}}"> </mat-icon>
+          <p class="title">{{pageInfo?.title}}</p>
+        </div>
         <p class="date">{{pageInfo?.descr}}</p>
       </div>
     </app-header>

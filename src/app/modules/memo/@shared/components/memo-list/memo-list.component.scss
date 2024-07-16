@@ -1,0 +1,45 @@
+.all_memos {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  padding: 24px 20px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  height: 100%;
+
+  .memos {
+    font-size: 2.4rem;
+  }
+
+  .memos_data_type {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 1fr 1fr 0.6fr 0.8fr 0.7fr 0.5fr;
+
+    nav {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #515151;
+    }
+  }
+
+  .memos_list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .memos_data {
+      display: grid;
+      grid-template-columns: 0.3fr 1fr 1fr 1fr 0.6fr 0.8fr 0.7fr 0.5fr;
+
+      padding-bottom: 8px;
+      border-bottom: 1px solid #D0D0D0;
+
+      nav {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        color: #515151;
+      }
+    }
+  }
+}

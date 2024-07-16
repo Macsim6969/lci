@@ -1,4 +1,5 @@
 import { DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface"
+import { MemoList } from "../../modules/memo/@shared/interfaces/memo.interface"
 import { User } from "../../shared/interfaces/user.interface"
 
 export interface StoreInterface {
@@ -6,5 +7,6 @@ export interface StoreInterface {
   idUser: string
   userInfo: User,
   allUsers: User[],
-  dashboardInfo: DashboardTotalInfo
+  dashboardInfo: DashboardTotalInfo,
+  memoList: MemoList[]
 }

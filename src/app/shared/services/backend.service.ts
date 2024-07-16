@@ -6,7 +6,9 @@ import { User } from '../interfaces/user.interface';
 import { setUserData, setUsers } from "../../store/actions/store.actions";
 import { Observable } from "rxjs";
 import { DashboardInfo, DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface";
-import { setDashbordInfo } from "../../store/actions/dashboard.action";
+import { setDashbordInfo } from "../../store/actions/dashboard.actions";
+import { sendMemoData } from "../../store/actions/memo.actions";
+import { MemoList } from "../../modules/memo/@shared/interfaces/memo.interface";
 
 @Injectable({ providedIn: 'root' })
 
@@ -28,6 +30,10 @@ export class BackendService {
     });
   }
 
+  public removeUser(userId: string) {
+    return this.http.delete<User>(`${this.baseUrl}/users/${userId}.json`).subscribe();
+  }
+
   public sendUserProfile(userData: User) {
     return this.http.put<User>(`${this.baseUrl}/users/${userData.userID}/profile.json`, userData).subscribe(() => {
       this.store.dispatch(setUserData({ data: userData }));
@@ -46,8 +52,10 @@ export class BackendService {
     })
   }
 
-  public removeUser(userId: string) {
-    return this.http.delete<User>(`${this.baseUrl}/users/${userId}.json`).subscribe();
+  public getMemo(userID: string) {
+    return this.http.get<MemoList[]>(`${this.baseUrl}/users/${userID}/memo.json`).subscribe((data: MemoList[]) => {
+      data ? this.store.dispatch(sendMemoData({ data: data })) : this.store.dispatch(sendMemoData({ data: [] }));
+    })
   }
 
 }

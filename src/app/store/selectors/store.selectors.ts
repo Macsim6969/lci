@@ -4,3 +4,5 @@ export const selectIsLogin = (store: {store: StoreInterface}) => store.store.isL
 export const selectUserId = (store : {store: StoreInterface}) => store.store.idUser;
 export const selectUserInfo = (store: {store: StoreInterface}) => store.store.userInfo;
 export const selectUsers = (store: {store: StoreInterface}) => store.store.allUsers;
+
+export const selectMemoList = (store: {store: StoreInterface}) => store.store.memoList;

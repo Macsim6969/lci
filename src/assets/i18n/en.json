@@ -1,6 +1,12 @@
 {
   "headerInfoPage": [
     {
+      "url": "/",
+      "icon": "",
+      "title": "Welcome, Mr.",
+      "descr": "Today is "
+    },
+    {
       "url": "/dashboard",
       "icon": "",
       "title": "Welcome, Mr.",
@@ -8,8 +14,14 @@
     },
     {
       "url": "/memo",
-      "icon": "./assets/images/menu/memo.svg",
+      "icon": "memo",
       "title": "Memo",
+      "descr": "Create and send memos to designated offices"
+    },
+    {
+      "url": "/memo/create",
+      "icon": "memo",
+      "title": "Create Memo",
       "descr": "Create and send memos to designated offices"
     }
   ],
@@ -45,6 +57,32 @@
       "icon": "departments",
       "total": "10",
       "title": "Total departments"
+    }
+  ],
+  "memoList": [
+    {
+      "title": "S/N"
+    },
+    {
+      "title": "Memo Title"
+    },
+    {
+      "title": "Sent From"
+    },
+    {
+      "title": "Sent To"
+    },
+    {
+      "title": "Date"
+    },
+    {
+      "title": "Attachment?"
+    },
+    {
+      "title": "Memo Type"
+    },
+    {
+      "title": "Action"
     }
   ]
 }

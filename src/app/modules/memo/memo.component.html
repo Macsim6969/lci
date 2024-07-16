@@ -1,1 +1,11 @@
-<p>memo works!</p>
+<section class="memo" *ngIf="memoList;else loading">
+  <app-memo-header [memoList]="memoList"></app-memo-header>
+  <app-memo-list [memoList]="memoList"></app-memo-list>
+  <router-outlet></router-outlet>
+</section>
+
+
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

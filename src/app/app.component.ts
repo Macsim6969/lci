@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.pipe(select(selectIsLogin), take(1)).subscribe((data) => console.log(data))
+    // this.store.pipe(select(selectIsLogin), take(1)).subscribe((data) => console.log(data))
   }
 }

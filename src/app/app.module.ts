@@ -10,6 +10,7 @@ import { storeReducers } from './store/reducers/store.reducers';
 import { AuthEffects } from './store/effects/store.effects';
 import { AuthGuard } from './shared/services/isAuth.guard';
 import { AuthService } from './modules/auth/@shared/services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -24,6 +25,7 @@ import { AuthService } from './modules/auth/@shared/services/auth.service';
     RouterModule,
     StoreModule.forRoot({ store: storeReducers}),
     EffectsModule.forRoot([AuthEffects]),
+    BrowserAnimationsModule
   ],
   providers: [
     AuthGuard,

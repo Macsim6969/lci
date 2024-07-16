@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { User } from '../../interfaces/user.interface';
-import { HeaderIconService } from '../../services/headerIcon.service';
+import { HeaderIconService } from '../../services/icons/headerIcon.service';
 import { AuthService } from '../../../modules/auth/@shared/services/auth.service';
 import { StoreInterface } from '../../../store/model/store.model';
 import { FirebaseStorageService } from '../../../modules/st-sett-pr/@shared/services/firebaseStorage.service';
