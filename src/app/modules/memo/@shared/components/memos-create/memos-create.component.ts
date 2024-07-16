@@ -36,7 +36,8 @@ export class MemosCreateComponent implements OnInit {
       .subscribe(([data, userInfo, memoList]) => {
         this.staffList = data;
         this.userInfo = userInfo;
-        this.memoList = memoList;
+        this.memoList = Object.values(memoList);
+        !this.staffList && !this.userInfo && !this.memoList  ? this.router.navigate(['/memo']).then() : null;
       })
   }
 
@@ -65,6 +66,7 @@ export class MemosCreateComponent implements OnInit {
   }
 
   public submit() {
+    console.log(this.memoList.length);
     const newData: MemoList = {
       ...this.form.value,
       id: this.memoList.length + 1
