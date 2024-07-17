@@ -69,6 +69,7 @@ export class MemosCreateComponent implements OnInit {
     console.log(this.memoList.length);
     const newData: MemoList = {
       ...this.form.value,
+      memoType: 'Sent',
       id: this.memoList.length + 1
     }
 

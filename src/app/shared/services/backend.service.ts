@@ -56,13 +56,13 @@ export class BackendService {
   }
 
   public getMemo(userID: string) {
-    return this.http.get<MemoList[]>(`${this.baseUrl}/users/${userID}/memo.json`).subscribe((data: MemoList[]) => {
+    return this.http.get<MemoList[]>(`${this.baseUrl}/memo.json`).subscribe((data: MemoList[]) => {
       data ? this.store.dispatch(sendMemoData({ data: data })) : this.store.dispatch(sendMemoData({ data: [] }));
     })
   }
 
   public setMemo(userID: string, memoData: MemoList) {
-    return this.http.post<MemoList>(`${this.baseUrl}/users/${userID}/memo.json`, memoData).subscribe(() => {
+    return this.http.post<MemoList>(`${this.baseUrl}/memo.json`, memoData).subscribe(() => {
       this.getMemo(userID);
     })
   }

@@ -65,6 +65,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   private checkToUserInfo() {
     this.store.pipe(select(selectUsers), take(1)).subscribe((data: User[]) => {
       const user = Object.values(data)?.find((e: any) => e.profile.email === this.form.value.email);
+      console.log(user)
 
       if (user['profile'].number) {
         this.router.navigate([`/`]).then();

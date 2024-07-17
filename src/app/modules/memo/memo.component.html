@@ -1,6 +1,6 @@
 <section class="memo" *ngIf="memoList;else loading">
   <app-memo-header [memoList]="memoList"></app-memo-header>
-  <app-memo-list [memoList]="memoList"></app-memo-list>
+  <app-memo-list [backMemoList]="memoList" [memoList]="memoList"></app-memo-list>
   <router-outlet></router-outlet>
 </section>
 

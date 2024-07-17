@@ -6,18 +6,16 @@
   <div class="search_memo">
     <p>Quick search a memo</p>
     <nav class="search">
-      <input type="text" placeholder="Enter search a word">
+      <input type="text" placeholder="Enter search a word" (input)="changeData($event)">
       <mat-icon svgIcon="search"></mat-icon>
     </nav>
   </div>
   <div class="filter_memo">
-    <p>Filter memo</p>
-    <mat-form-field>
-      <mat-label>Favorite food</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let food of foods" [value]="food.value">{{food.viewValue}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <label>Filter memo</label>
+    <select (change)="setFilter($event)">
+      <option [value]="'All'">All</option>
+      <option *ngFor="let staffs of staffs" [value]="staffs.name">{{staffs.name}}</option>
+    </select>
   </div>
   <button mat-button (click)="openCreateMemo()">Create Memo</button>
 </div>

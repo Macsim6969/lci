@@ -21,7 +21,7 @@ const routes: Routes = [
     path: '', component: HomeComponent, children: [
       { path: '', loadChildren: () => import('../profile/profile.module').then((m) => m.ProfileModule) },
       { path: 'dashboard', loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule) },
-      { path: 'memo', loadChildren: () => import('../memo/memo.module').then((m) => m.MemoModule) }
+      { path: 'memo', loadChildren: () => import('../memo/memo.module').then((m) => m.MemoModule) },
     ]
   }
 ]
