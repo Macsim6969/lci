@@ -37,7 +37,7 @@ export class MemosCreateComponent implements OnInit {
         this.staffList = data;
         this.userInfo = userInfo;
         this.memoList = Object.values(memoList);
-        !this.staffList && !this.userInfo && !this.memoList  ? this.router.navigate(['/memo']).then() : null;
+        !this.staffList && !this.userInfo && !this.memoList ? this.router.navigate(['/memo']).then() : null;
       })
   }
 
@@ -66,14 +66,13 @@ export class MemosCreateComponent implements OnInit {
   }
 
   public submit() {
-    console.log(this.memoList.length);
     const newData: MemoList = {
       ...this.form.value,
       memoType: 'Sent',
       id: this.memoList.length + 1
     }
 
-    this.backendService.setMemo(this.userInfo.userID, newData);
+    this.backendService.setMemo(newData);
     this.form.reset();
     this.backTo();
   }

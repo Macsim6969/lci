@@ -20,6 +20,7 @@ export class BackendService {
 
   public getUserInfo(idUser) {
     return this.http.get<User>(`${this.baseUrl}/users/${idUser}/profile.json`).subscribe((userData: User) => {
+      console.log(userData, idUser);
       this.store.dispatch(setUserData({ data: userData }));
     });
   }
@@ -55,15 +56,15 @@ export class BackendService {
     })
   }
 
-  public getMemo(userID: string) {
+  public getMemo() {
     return this.http.get<MemoList[]>(`${this.baseUrl}/memo.json`).subscribe((data: MemoList[]) => {
       data ? this.store.dispatch(sendMemoData({ data: data })) : this.store.dispatch(sendMemoData({ data: [] }));
     })
   }
 
-  public setMemo(userID: string, memoData: MemoList) {
+  public setMemo( memoData: MemoList) {
     return this.http.post<MemoList>(`${this.baseUrl}/memo.json`, memoData).subscribe(() => {
-      this.getMemo(userID);
+      this.getMemo();
     })
   }
 

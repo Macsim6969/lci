@@ -1,4 +1,4 @@
-<section class="main" *ngIf="user">
+<section class="main" *ngIf="user;else loading">
   <app-menu-navigation></app-menu-navigation>
   <div *ngIf="pageInfo;else loading" class="content">
     <app-header [user]="user">
@@ -15,3 +15,6 @@
   <ng-template #loading></ng-template>
 
 </section>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

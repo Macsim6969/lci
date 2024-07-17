@@ -6,9 +6,10 @@ import { Router } from '@angular/router';
 import { saveData } from '../../interfaces/form.interface';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from '../../../../../store/model/store.model';
-import { selectUserId, selectUserInfo, selectUsers } from '../../../../../store/selectors/store.selectors';
+import { selectUserId, selectUsers } from '../../../../../store/selectors/store.selectors';
 import { User } from '../../../../../shared/interfaces/user.interface';
 import { BackendService } from '../../../../../shared/services/backend.service';
+import { newUserID } from '../../../../../store/actions/store.actions';
 
 @Component({
   selector: 'app-login',
@@ -37,8 +38,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   private initializeForm(isSave?: saveData) {
     this.form = new FormGroup<any>({
-      email: new FormControl(isSave.email, [Validators.required, Validators.email]),
-      password: new FormControl(isSave.password, [
+      email: new FormControl(isSave?.email ? isSave?.email : '', [Validators.required, Validators.email]),
+      password: new FormControl(isSave?.password ? isSave?.password : '', [
         Validators.required,
         Validators.minLength(8),
       ])
@@ -65,9 +66,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   private checkToUserInfo() {
     this.store.pipe(select(selectUsers), take(1)).subscribe((data: User[]) => {
       const user = Object.values(data)?.find((e: any) => e.profile.email === this.form.value.email);
-      console.log(user)
 
       if (user['profile'].number) {
+        localStorage.setItem('id', JSON.stringify(user['profile'].userID));
         this.router.navigate([`/`]).then();
       } else {
         this.backendService.getUserInfo(user['profile'].userID);

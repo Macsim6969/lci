@@ -1,15 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { BehaviorSubject, tap} from "rxjs";
+import { BehaviorSubject, tap } from "rxjs";
 
 import { BackendService } from "../../../../shared/services/backend.service";
-import { Store } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
 import { StoreInterface } from "../../../../store/model/store.model";
 import { newUserID, setIsLoginRegisterData, setRegiset, startGetData } from "../../../../store/actions/store.actions";
 import { environment } from '../../../../../environment/environment';
 import { Router } from "@angular/router";
 import { User } from "../model/auth.model";
 import { setStartDashboarfInfo } from "../../../../shared/base/startData";
+import { selectUsers } from "../../../../store/selectors/store.selectors";
 
 export interface AuthResponseData {
   idToken: string
@@ -35,14 +36,14 @@ export class AuthService {
   ) {
   }
 
-  sigUp(form: { email: string, password: string, name: string}) {
+  sigUp(form: { email: string, password: string, name: string }) {
     return this.http.post<AuthResponseData>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.apiKey}`, {
       email: form.email, password: form.password, returnSecureToken: true
     }).pipe(tap(resData => {
       localStorage.setItem('isRegister', JSON.stringify(true));
       localStorage.setItem('id', JSON.stringify(resData.localId));
       this.backendService.sendUserProfile({ userID: resData.localId, email: form.email, password: form.password, name: form.name, token: resData.idToken });
-      this.store.dispatch(setIsLoginRegisterData({data: true}));
+      this.store.dispatch(setIsLoginRegisterData({ data: true }));
       this.backendService.setDashboardInfo(resData.localId, setStartDashboarfInfo());
       this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn, resData.localId);
       setTimeout(() => {
@@ -69,9 +70,13 @@ export class AuthService {
       if (localStorage.getItem('userData')) {
         const id = JSON.parse(localStorage.getItem('userData'))
         this.store.dispatch(newUserID({ id: id.localId }))
-        this.store.dispatch(startGetData())
       }
+      this.store.dispatch(startGetData())
+      this.store.dispatch(setIsLoginRegisterData({ data: true }));
     }));
+  }
+
+  private getUserFromDataBase(){
   }
 
   deleteUser() {

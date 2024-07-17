@@ -9,6 +9,7 @@ import { User } from '../../shared/interfaces/user.interface';
 import { HeaderInfoPageInterface } from '../../shared/interfaces/headerInfoPage.interface';
 import { NavigationEnd, Router } from '@angular/router';
 import { HeaderIconService } from '../../shared/services/icons/headerIcon.service';
+import { BackendService } from '../../shared/services/backend.service';
 
 @Component({
   selector: 'app-home',
@@ -25,13 +26,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     private translate: TranslateService,
     private store: Store<{ store: StoreInterface }>,
     private router: Router,
-    private headerIcon: HeaderIconService
+    private headerIcon: HeaderIconService,
+    private backendService: BackendService
   ) { }
 
   ngOnInit(): void {
     this.translate.use('en');
-    this.getUserInfoFromStore();
     this.initializeIsUserData();
+    this.getUserInfoFromStore();
     this.streamHeaderInfoPageFromJSON();
   }
 
@@ -42,14 +44,16 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private getUserInfoFromStore() {
     this.store.pipe(select(selectUserInfo), takeUntil(this.destroy$)).subscribe((data: User) => {
       this.user = data;
+      console.log(data)
     })
   }
 
   private initializeIsUserData() {
-    if (localStorage.getItem('userData')) {
-      const id = JSON.parse(localStorage.getItem('userData'));
-      this.store.dispatch(newUserID({ id: id.localId }));
+    if (JSON.parse(localStorage.getItem('id'))) {
+      const id = JSON.parse(localStorage.getItem('id'));
+      this.store.dispatch(newUserID({ id: id }));
       this.store.dispatch(startGetData());
+
     }
   }
 

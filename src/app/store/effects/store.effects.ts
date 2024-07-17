@@ -19,7 +19,7 @@ export class AuthEffects {
       tap(([action, id]) => {
         this.backendService.getUserInfo(id);
         this.backendService.getDashboardInfo(id);
-        this.backendService.getMemo(id);
+        this.backendService.getMemo();
         this.backendService.getUsers();
       })
     )
