@@ -8,6 +8,7 @@ import { combineLatest, take } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MemoList } from '../../interfaces/memo.interface';
 import { BackendService } from '../../../../../shared/services/backend.service';
+import { PopupService } from '../../../../../shared/services/popup.service';
 
 @Component({
   selector: 'app-memos-create',
@@ -23,7 +24,8 @@ export class MemosCreateComponent implements OnInit {
   constructor(
     private router: Router,
     private store: Store<{ store: StoreInterface }>,
-    private backendService: BackendService
+    private backendService: BackendService,
+    private popupService: PopupService
   ) { }
 
   ngOnInit(): void {
@@ -72,7 +74,9 @@ export class MemosCreateComponent implements OnInit {
       id: this.memoList.length + 1
     }
 
-    this.backendService.setMemo(newData);
+    this.backendService.setMemo(newData).add(() => {
+      this.popupService._isOpenDone = true;
+    });
     this.form.reset();
     this.backTo();
   }

@@ -1,0 +1,40 @@
+.popup {
+  position: fixed;
+  right: 30px;
+  top: 40px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  background-color: #d6e6c7;
+  border-radius: 16px;
+  padding: 15px;
+  max-width: 150px;
+  width: 100%;
+
+  animation: open 0.75s;
+
+  mat-icon {
+    transform: rotate(-90deg);
+    width: 24px;
+  }
+
+  p {
+    font-size: 2rem;
+    background-image: linear-gradient(to right, #14ADD6, #384295);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes open {
+  from {
+    transform: translate(600px);
+  }
+
+  to {
+    transform: translate(0);
+  }
+}

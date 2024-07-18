@@ -11,6 +11,7 @@ import { AuthEffects } from './store/effects/store.effects';
 import { AuthGuard } from './shared/services/isAuth.guard';
 import { AuthService } from './modules/auth/@shared/services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PopupService } from './shared/services/popup.service';
 
 
 
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     AuthGuard,
-    AuthService
+    AuthService,
+    PopupService
   ],
   bootstrap: [AppComponent]
 })

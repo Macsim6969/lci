@@ -15,11 +15,13 @@ import { LoadingComponent } from "../components/loading/loading.component";
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { PopupConfirmedComponent } from "../components/popup-confirmed/popup-confirmed.component";
 
 @NgModule({
   declarations: [
     PopupUserComponent,
-    LoadingComponent
+    LoadingComponent,
+    PopupConfirmedComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LoadingComponent,
     MatInputModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    PopupConfirmedComponent
 
   ]
 })

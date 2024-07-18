@@ -10,6 +10,7 @@ import { HeaderInfoPageInterface } from '../../shared/interfaces/headerInfoPage.
 import { NavigationEnd, Router } from '@angular/router';
 import { HeaderIconService } from '../../shared/services/icons/headerIcon.service';
 import { BackendService } from '../../shared/services/backend.service';
+import { PopupService } from '../../shared/services/popup.service';
 
 @Component({
   selector: 'app-home',
@@ -22,12 +23,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   public user: User;
   public headerInfoPage: HeaderInfoPageInterface[];
   public pageInfo: HeaderInfoPageInterface = null;
+  public isOpenDonePopup: boolean;
   constructor(
     private translate: TranslateService,
     private store: Store<{ store: StoreInterface }>,
     private router: Router,
     private headerIcon: HeaderIconService,
-    private backendService: BackendService
+    private backendService: BackendService,
+    private popupService: PopupService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +38,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.initializeIsUserData();
     this.getUserInfoFromStore();
     this.streamHeaderInfoPageFromJSON();
+    this.streamIsOpenPopup();
   }
 
   ngAfterViewInit(): void {
@@ -52,7 +56,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       const id = JSON.parse(localStorage.getItem('id'));
       this.store.dispatch(newUserID({ id: id }));
       this.store.dispatch(startGetData());
-
     }
   }
 
@@ -63,6 +66,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       })
   }
 
+  private streamIsOpenPopup() {
+    this.popupService._isOpenDone$.pipe(takeUntil(this.destroy$)).subscribe((data: boolean) => {
+      this.isOpenDonePopup = data;
+    })
+  }
   private streamCurrentPage() {
     timer(2000).pipe(take(1)).subscribe(() => {
       this.router.events.pipe(takeUntil(this.destroy$)).subscribe(event => {

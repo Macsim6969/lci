@@ -8,6 +8,7 @@ import { selectMemoList } from '../../../../../store/selectors/store.selectors';
 import { take, takeUntil } from 'rxjs';
 import { BackendService } from '../../../../../shared/services/backend.service';
 import { PopupReviewedSerivce } from '../../services/popup-reviewed.service';
+import { PopupService } from '../../../../../shared/services/popup.service';
 
 @Component({
   selector: 'app-memo-view',
@@ -21,7 +22,8 @@ export class MemoViewComponent implements OnInit {
     private memoService: MemoService,
     private store: Store<{ store: StoreInterface }>,
     private backendService: BackendService,
-    private popupReviewed: PopupReviewedSerivce
+    private popupReviewed: PopupReviewedSerivce,
+    private popupSerive: PopupService
 
   ) { }
 
@@ -55,6 +57,7 @@ export class MemoViewComponent implements OnInit {
       }
 
       this.backendService.updatedMemo(blockId, newData).add(() => {
+        this.popupSerive._isOpenDone = true;
         this.router.navigate(['/memo']).then();
       });
     })
