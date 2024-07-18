@@ -44,7 +44,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private getUserInfoFromStore() {
     this.store.pipe(select(selectUserInfo), takeUntil(this.destroy$)).subscribe((data: User) => {
       this.user = data;
-      console.log(data)
     })
   }
 

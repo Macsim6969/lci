@@ -13,7 +13,7 @@
   <div class="filter_memo">
     <label>Filter memo</label>
     <select (change)="setFilter($event)">
-      <option [value]="'All'">All</option>
+      <option [value]="myName">{{myName}}</option>
       <option *ngFor="let staffs of staffs" [value]="staffs.name">{{staffs.name}}</option>
     </select>
   </div>

@@ -53,10 +53,12 @@ export class MemoListComponent implements OnInit, OnDestroy {
         this.memoList = this.backMemoList;
       } else if (data) {
         this.memoList = this.backMemoList.filter(
-          (e: MemoList) => e.sentTo === data)
+          (e: MemoList) => e.sentTo === data || e.sentFrom === data
+        );
       }
-    })
+    });
   }
+
 
   public checkMemoView(id: number) {
     const newValue = this.memoList.find((e: MemoList) => e.id === id);

@@ -20,7 +20,6 @@ export class BackendService {
 
   public getUserInfo(idUser) {
     return this.http.get<User>(`${this.baseUrl}/users/${idUser}/profile.json`).subscribe((userData: User) => {
-      console.log(userData, idUser);
       this.store.dispatch(setUserData({ data: userData }));
     });
   }

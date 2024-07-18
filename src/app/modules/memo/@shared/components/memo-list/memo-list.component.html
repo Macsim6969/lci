@@ -1,7 +1,6 @@
 <div class="all_memos">
    <h2 class="memos">All Memos</h2>
 
-   <div class="scroll">
       <div class="memos_data_type">
          <nav *ngFor="let header of memoDataType">{{header.title}}</nav>
       </div>
@@ -18,7 +17,6 @@
             <nav class="view" (click)="checkMemoView(list.id)">View more</nav>
          </div>
       </div>
-   </div>
    <ng-template #loading>
       <app-loading></app-loading>
    </ng-template>

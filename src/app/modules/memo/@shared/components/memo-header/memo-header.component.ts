@@ -1,12 +1,13 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { StaffMiniList } from './../../../../../shared/interfaces/user.interface';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MemoList } from '../../interfaces/memo.interface';
 import { Router } from '@angular/router';
 import { MemoService } from '../../services/memo.service';
-import { Subject, takeUntil } from 'rxjs';
+import { combineLatest, Subject, takeUntil } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from '../../../../../store/model/store.model';
-import { selectStaffMiniList } from '../../../../../store/selectors/store.selectors';
-import { StaffMiniList } from '../../../../../shared/interfaces/user.interface';
+import { selectStaffMiniList, selectUserInfo } from '../../../../../store/selectors/store.selectors';
+import { User } from '../../../../../shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-memo-header',
@@ -17,6 +18,8 @@ export class MemoHeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   @Input() memoList: MemoList[];
   public staffs: StaffMiniList[];
+  private user: User;
+  public myName: string;
   constructor(
     private router: Router,
     private memoService: MemoService,
@@ -28,9 +31,12 @@ export class MemoHeaderComponent implements OnInit, OnDestroy {
   }
 
   private getStaffMiniListFromStore() {
-    this.store.pipe(select(selectStaffMiniList), takeUntil(this.destroy$))
-      .subscribe((data: StaffMiniList[]) => {
-        this.staffs = data;
+    combineLatest(([this.store.pipe(select(selectStaffMiniList)), this.store.pipe(select(selectUserInfo))])).pipe(takeUntil(this.destroy$))
+      .subscribe(([data, user]) => {
+        this.user = user;
+        this.staffs = data.filter((e: StaffMiniList) => e.name !== (this.user.name + ' ' + this.user.lastName));
+        this.staffs.push({ name: 'All', id: 'all' })
+        this.myName = this.user.name + ' ' + this.user.lastName
       })
   }
 
@@ -42,7 +48,7 @@ export class MemoHeaderComponent implements OnInit, OnDestroy {
     this.memoService._searchText = event.target.value;
   }
 
-  public setFilter(name: any){
+  public setFilter(name: any) {
     this.memoService._filterText = event.target['value'];
   }
 
