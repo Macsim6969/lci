@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MemoService } from '../../services/memo.service';
 import { MemoList } from '../../interfaces/memo.interface';
+import { select, Store } from '@ngrx/store';
+import { StoreInterface } from '../../../../../store/model/store.model';
+import { selectMemoList } from '../../../../../store/selectors/store.selectors';
+import { take, takeUntil } from 'rxjs';
+import { BackendService } from '../../../../../shared/services/backend.service';
+import { PopupReviewedSerivce } from '../../services/popup-reviewed.service';
 
 @Component({
   selector: 'app-memo-view',
@@ -12,7 +18,11 @@ export class MemoViewComponent implements OnInit {
   public memoList: MemoList;
   constructor(
     private router: Router,
-    private memoService: MemoService
+    private memoService: MemoService,
+    private store: Store<{ store: StoreInterface }>,
+    private backendService: BackendService,
+    private popupReviewed: PopupReviewedSerivce
+
   ) { }
 
   ngOnInit(): void {
@@ -34,5 +44,25 @@ export class MemoViewComponent implements OnInit {
     } else {
       navigateToMemo();
     }
+  }
+
+  public closeMemo() {
+    this.store.pipe(select(selectMemoList), take(1)).subscribe((data) => {
+      const blockId = Object.keys(data).find(key => data[key].id === this.memoList.id);
+      const newData: MemoList = {
+        ...this.memoList,
+        finished: true
+      }
+
+      this.backendService.updatedMemo(blockId, newData).add(() => {
+        this.router.navigate(['/memo']).then();
+      });
+    })
+
+  }
+
+  public openPopup() {
+    this.popupReviewed._isMemoList = this.memoList;
+    this.popupReviewed._isPopupSend = true;
   }
 }

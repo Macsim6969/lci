@@ -11,9 +11,9 @@
       <nav><strong>To:</strong> {{memoList.sentTo}}</nav>
       <nav><strong>Attachment:</strong> {{memoList.attachment}}</nav>
       <nav><strong>Memo Message:</strong> {{memoList.message}}</nav>
-      <div class="action">
-        <button mat-button>Rewied</button>
-        <button mat-button>Finished</button>
+      <div class="action" *ngIf="!memoList.finished">
+        <button mat-button (click)="openPopup()">Rewied</button>
+        <button mat-button (click)="closeMemo()">Finished</button>
       </div>
     </div>
   </div>

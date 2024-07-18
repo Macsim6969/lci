@@ -9,6 +9,8 @@ import { MemoListComponent } from './@shared/components/memo-list/memo-list.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MemoViewComponent } from './@shared/components/memo-view/memo-view.component';
 import { MemoService } from './@shared/services/memo.service';
+import { PopupReviewedComponent } from './@shared/components/popup-reviewed/popup-reviewed.component';
+import { PopupReviewedSerivce } from './@shared/services/popup-reviewed.service';
 
 const routes: Routes = [
   {
@@ -25,7 +27,8 @@ const routes: Routes = [
     MemoHeaderComponent,
     MemoListComponent,
     MemosCreateComponent,
-    MemoViewComponent
+    MemoViewComponent,
+    PopupReviewedComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +41,8 @@ const routes: Routes = [
     MemoComponent
   ],
   providers: [
-    MemoService
+    MemoService,
+    PopupReviewedSerivce
   ]
 })
 export class MemoModule { }

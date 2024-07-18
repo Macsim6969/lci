@@ -61,8 +61,14 @@ export class BackendService {
     })
   }
 
-  public setMemo( memoData: MemoList) {
+  public setMemo(memoData: MemoList) {
     return this.http.post<MemoList>(`${this.baseUrl}/memo.json`, memoData).subscribe(() => {
+      this.getMemo();
+    })
+  }
+
+  public updatedMemo(idList: string, memoData: MemoList) {
+    return this.http.put<MemoList>(`${this.baseUrl}/memo/${idList}.json`, memoData).subscribe(() => {
       this.getMemo();
     })
   }

@@ -2,6 +2,7 @@
   <app-memo-header [memoList]="memoList"></app-memo-header>
   <app-memo-list [backMemoList]="memoList" [memoList]="memoList"></app-memo-list>
   <router-outlet></router-outlet>
+  <app-popup-reviewed *ngIf="isPopupSend"></app-popup-reviewed>
 </section>
 
 <ng-template #loading>

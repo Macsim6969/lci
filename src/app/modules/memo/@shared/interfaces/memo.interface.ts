@@ -9,5 +9,6 @@ export interface MemoList {
  action: "View more"
  message: string
  actionFilter: string
- id?: number
+ id?: number,
+ finished?: boolean
 }
