@@ -51,6 +51,14 @@ export class MemoListComponent implements OnInit, OnDestroy {
     this.memoService._filterText$.pipe(takeUntil(this.destroy$)).subscribe((data: string) => {
       if (data === 'All') {
         this.memoList = this.backMemoList;
+      } else if (data === 'In work') {
+        this.memoList = this.backMemoList.filter(
+          (e: MemoList) => !e.finished
+        );
+      } else if (data === 'Close') {
+        this.memoList = this.backMemoList.filter(
+          (e: MemoList) => e.finished
+        );
       } else if (data) {
         this.memoList = this.backMemoList.filter(
           (e: MemoList) => e.sentTo === data || e.sentFrom === data
@@ -67,6 +75,7 @@ export class MemoListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

@@ -24,7 +24,6 @@ export class MemoViewComponent implements OnInit {
     private backendService: BackendService,
     private popupReviewed: PopupReviewedSerivce,
     private popupSerive: PopupService
-
   ) { }
 
   ngOnInit(): void {

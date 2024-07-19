@@ -5,6 +5,7 @@ import { ShareModule } from '../../shared/module/share.module';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboarInfodModule } from '../../shared/module/dashboard.module';
 import { DashboardIconService } from './@shared/services/dashboardIcon.service';
+import { MemoMiniListComponent } from './@shared/components/memo-mini-list/memo-mini-list.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent}
@@ -12,7 +13,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    MemoMiniListComponent
   ],
   imports: [
     CommonModule,

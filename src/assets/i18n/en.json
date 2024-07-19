@@ -90,5 +90,22 @@
     {
       "title": "Action"
     }
+  ],
+  "memoMiniList": [
+    {
+      "title": "S/N"
+    },
+    {
+      "title": "Memo Title"
+    },
+    {
+      "title": "Sent From"
+    },
+    {
+      "title": "Sent To"
+    },
+    {
+      "title": "Status"
+    }
   ]
 }

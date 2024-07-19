@@ -10,5 +10,6 @@ export interface MemoList {
  message: string
  actionFilter: string
  id?: number,
- finished?: boolean
+ finished?: boolean,
+ status: '' | 'Pending' | 'Approved'
 }

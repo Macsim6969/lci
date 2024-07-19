@@ -1,0 +1,20 @@
+<div class="all_memos">
+  <h2 class="memos">Memos</h2>
+
+  <div class="memos_data_type">
+     <nav *ngFor="let header of memoDataType">{{header.title}}</nav>
+  </div>
+  <div class="memos_list" *ngIf="memoList;else loading">
+     <div class="memos_data" [ngClass]="{'finishe': list.finished}" *ngFor="let list of memoList">
+        <nav>{{list.id}}</nav>
+        <nav>{{list.memoTitle}}</nav>
+        <nav>{{list.sentFrom}}</nav>
+        <nav>{{list.sentTo}}</nav>
+        <nav>{{list.status}}</nav>
+     </div>
+  </div>
+  <ng-template #loading>
+     <app-loading></app-loading>
+  </ng-template>
+
+</div>
