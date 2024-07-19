@@ -1,7 +1,7 @@
 <section class="user-edite">
   <ng-content></ng-content>
-  
-  <form class="form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="user;else loading">
+
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="activePage !== 'profile' || user;else loading">
     <div class="form-avatar">
       <div class="avatar">
         <img [src]="previewUrl ? previewUrl : '/assets/images/global/upload_photo.svg'" alt="Default Image">
@@ -14,48 +14,57 @@
     <div class="form-content">
       <div class="column">
         <label for="">First Name</label>
-        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter first name" type='text' formControlName="name">
+        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter first name" type='text'
+          formControlName="name">
       </div>
       <div class="column">
         <label for="">Last Name</label>
-        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter last name" type='text' formControlName="lastName">
+        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter last name" type='text'
+          formControlName="lastName">
       </div>
       <div class="column">
         <label for="">Email address</label>
-        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter email address" type='email' formControlName="email">
+        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter email address" type='email'
+          formControlName="email">
       </div>
       <div class="column">
         <label for="">Phone number</label>
-        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter phone number" type='tel' formControlName="number">
+        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter phone number" type='tel'
+          formControlName="number">
       </div>
       <div class="column">
         <label for="">Gender</label>
-        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Select gender" type='text' formControlName="gender">
+        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Select gender" type='text'
+          formControlName="gender">
       </div>
       <div class="column">
         <label for="">Role</label>
-        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Select role" type='text' formControlName="role">
+        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Select role" type='text'
+          formControlName="role">
       </div>
       <div class="column">
         <label for="">Designation</label>
         <input [readOnly]="activePage ==='profile'" type="text" placeholder="Select designation" type='text'
           formControlName="designation">
       </div>
-      <div class="column">
+      <div *ngIf="activePage === 'profile'" class="column">
         <label for="">Staff ID</label>
         <input readonly="readonly" type="text" placeholder="Staff ID" type='text' formControlName="id">
       </div>
       <div class="column">
         <label for="">Official email</label>
-        <input readonly="readonly" type="text" placeholder="Official email" type='email' formControlName="offMail">
+        <input [readonly]="activePage === 'profile'" type="text" placeholder="Official email" type='email' formControlName="offMail">
       </div>
       <div class="column">
-        <button *ngIf="activePage !== 'profile'" class="save" type="submit" mat-button>Save</button>
+        <button *ngIf="activePage !== 'profile' && activePage !== 'staff-create'" class="save" type="submit" mat-button>Save</button>
+      </div>
+      <div class="column">
+        <button *ngIf="activePage === 'staff-create'" class="save" type="submit" mat-button>Create</button>
       </div>
     </div>
   </form>
   <ng-template #loading>
     <app-loading></app-loading>
   </ng-template>
-  
+
 </section>

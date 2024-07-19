@@ -15,7 +15,7 @@ import { User } from '../../interfaces/user.interface';
   styleUrl: './popup-user.component.scss'
 })
 export class PopupUserComponent implements OnInit, OnDestroy {
-  @Input() activePage: 'profile';
+  @Input() activePage: 'profile' | 'staff-create';
   public form: FormGroup;
   public user: User;
   public previewUrl: string | ArrayBuffer | null = null;
@@ -32,7 +32,9 @@ export class PopupUserComponent implements OnInit, OnDestroy {
   }
 
   private getUserInfo() {
-    if (this.activePage !== 'profile') {
+    if (this.activePage === 'staff-create') {
+      this.setForm();
+    } else if (this.activePage !== 'profile') {
       const localUser = JSON.parse(localStorage.getItem('localUser'));
       this.user = localUser;
       localUser ? this.setForm(localUser) : null;
@@ -47,16 +49,16 @@ export class PopupUserComponent implements OnInit, OnDestroy {
     }
   }
 
-  private setForm(user: User) {
+  private setForm(user?: User) {
     this.form = new FormGroup<any>({
-      name: new FormControl(user.name ? user.name : '', [Validators.required]),
+      name: new FormControl(user ? user.name : '', [Validators.required]),
       lastName: new FormControl(user ? user.lastName : '', [Validators.required]),
       email: new FormControl(user ? user.email : '', [Validators.required, Validators.email]),
       number: new FormControl(user ? user.number : '', [Validators.required]),
       gender: new FormControl(user ? user.gender : '', [Validators.required]),
       role: new FormControl(user ? user.role : '', [Validators.required]),
       designation: new FormControl(user ? user.designation : '', [Validators.required]),
-      id: new FormControl(user.userID ? user.userID : '', [Validators.required]),
+      id: new FormControl(user ? user.userID : '', [Validators.required]),
       offMail: new FormControl(user ? user.offMail : '', [Validators.required, Validators.email]),
       avatar: new FormControl('', [Validators.required])
     })
