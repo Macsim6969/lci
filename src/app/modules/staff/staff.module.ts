@@ -8,10 +8,12 @@ import { StaffAddedComponent } from './@shared/components/staff-added/staff-adde
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StaffListComponent } from './@shared/components/staff-list/staff-list.component';
 import { StaffService } from './@shared/services/staff.service';
+import { StaffViewComponent } from './@shared/components/staff-view/staff-view.component';
 
 const routes: Routes = [
   { path: '', component: StaffComponent, children: [
-    {path: 'add', component: StaffAddedComponent}
+    {path: 'add', component: StaffAddedComponent},
+    {path: 'view', component: StaffViewComponent}
   ] }
 ]
 
@@ -20,7 +22,8 @@ const routes: Routes = [
     StaffComponent,
     StaffHeaderComponent,
     StaffAddedComponent,
-    StaffListComponent
+    StaffListComponent,
+    StaffViewComponent
   ],
   imports: [
     CommonModule,

@@ -62,8 +62,8 @@ export class StaffListComponent implements OnInit, OnDestroy {
 
   public checkMemoView(id: string) {
     const newValue = this.staffList.find((e: User) => e.userID === id);
-    // this.memoService._isMemoList = newValue;
-    // this.router.navigate(['/memo/view']).then();
+    this.staffService._isStaffList = newValue;
+    this.router.navigate(['/staff/view']).then();
   }
 
   ngOnDestroy(): void {

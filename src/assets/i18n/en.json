@@ -25,6 +25,12 @@
       "descr": "Create account for a new staff"
     },
     {
+      "url": "/staff/view",
+      "icon": "staff",
+      "title": "New Staff",
+      "descr": "Create account for a new staff"
+    },
+    {
       "url": "/memo",
       "icon": "memo",
       "title": "Memo",

@@ -17,6 +17,7 @@ import { StaffAddedService } from '../../services/staffAdded.service';
   styleUrl: './popup-user.component.scss'
 })
 export class PopupUserComponent implements OnInit {
+  @Input() staffView: User;
   @Input() activePage: 'profile' | 'staff-create';
   public form: FormGroup;
   public user: User;
@@ -34,7 +35,9 @@ export class PopupUserComponent implements OnInit {
   }
 
   private getUserInfo() {
-    if (this.activePage === 'staff-create') {
+    if (this.staffView) {
+      this.setForm(this.staffView);
+    } else if (this.activePage === 'staff-create') {
       this.setForm();
     } else if (this.activePage !== 'profile') {
       const localUser = JSON.parse(localStorage.getItem('localUser'));
