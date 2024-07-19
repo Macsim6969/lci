@@ -13,6 +13,18 @@
       "descr": "Today is "
     },
     {
+      "url": "/staff",
+      "icon": "staff",
+      "title": "All Staff",
+      "descr": "View search for and add new staff"
+    },
+    {
+      "url": "/staff/add",
+      "icon": "staff",
+      "title": "New Staff",
+      "descr": "Create account for a new staff"
+    },
+    {
       "url": "/memo",
       "icon": "memo",
       "title": "Memo",
@@ -36,6 +48,11 @@
       "link": "dashboard",
       "title": "Dashboard",
       "route": "/dashboard"
+    },
+    {
+      "link": "staff",
+      "title": "Staff",
+      "route": "/staff"
     },
     {
       "link": "memo",
@@ -63,6 +80,35 @@
       "icon": "departments",
       "total": "10",
       "title": "Total departments"
+    }
+  ],
+  "stafList": [
+    {
+      "title": "S/N"
+    },
+    {
+      "title": "First Name"
+    },
+    {
+      "title": "Last Name"
+    },
+    {
+      "title": "Gender"
+    },
+    {
+      "title": "Staff ID"
+    },
+    {
+      "title": "Phone Number"
+    },
+    {
+      "title": "Role"
+    },
+    {
+      "title": "Designation"
+    },
+    {
+      "title": "Action"
     }
   ],
   "memoList": [

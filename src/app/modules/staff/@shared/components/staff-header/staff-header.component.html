@@ -1,0 +1,22 @@
+<div class="staff_header">
+  <div class="search_staff">
+    <p>Quick search a staff</p>
+    <nav class="search">
+      <input type="text" placeholder="Enter search a word" (input)="changeData($event)">
+      <mat-icon svgIcon="search"></mat-icon>
+    </nav>
+  </div>
+  <div class="header_total">
+    <p class="total">{{staffList?.length ? staffList?.length : 0}}</p>
+    <p class="desc">Total number of staff</p>
+  </div>
+
+  <div class="filter_staff">
+    <label>Filter staff</label>
+    <select (change)="setFilter($event)">
+      <option value="All" class="user">All</option>
+      <option *ngFor="let staffs of staffsFilter" [value]="staffs">{{staffs}}</option>
+    </select>
+  </div>
+  <button mat-button (click)="openCreateMemo()">Add New Staff</button>
+</div>

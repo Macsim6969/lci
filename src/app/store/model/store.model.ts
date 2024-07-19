@@ -7,6 +7,7 @@ export interface StoreInterface {
   idUser: string
   userInfo: User
   allUsers: User[]
+  allUsersProfile: User[];
   dashboardInfo: DashboardTotalInfo
   memoList: MemoList[]
   staffMiniList: StaffMiniList[]

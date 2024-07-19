@@ -1,0 +1,15 @@
+.staff {
+  width: calc(100% - 16px);
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 16px;
+
+  .create_memo {
+    position: absolute;
+    inset: 0;
+    background-color: white;
+    width: 100%;
+  }
+}

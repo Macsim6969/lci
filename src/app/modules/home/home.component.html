@@ -12,7 +12,9 @@
     </app-header>
     <router-outlet></router-outlet>
   </div>
-  <ng-template #loading></ng-template>
+  <ng-template #loading>
+    <app-loading></app-loading>
+  </ng-template>
   <app-popup-confirmed *ngIf="isOpenDonePopup"></app-popup-confirmed>
 </section>
 <ng-template #loading>

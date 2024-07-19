@@ -1,0 +1,24 @@
+<div class="all_memos">
+  <h2 class="memos">All Memos</h2>
+
+  <div class="memos_data_type">
+     <nav *ngFor="let header of memoDataType">{{header.title}}</nav>
+  </div>
+  <div class="memos_list" *ngIf="staffList;else loading">
+     <div class="memos_data" *ngFor="let list of staffList;index as i">
+        <nav>{{i+1}}</nav>
+        <nav>{{list.name}}</nav>
+        <nav>{{list.lastName}}</nav>
+        <nav>{{list.gender}}</nav>
+        <nav class="id">{{list.userID}}</nav>
+        <nav>{{list.number}}</nav>
+        <nav>{{list.role}}</nav>
+        <nav>{{list.designation}}</nav>
+        <nav class="view" (click)="checkMemoView(list.userID)">View more</nav>
+     </div>
+  </div>
+  <ng-template #loading>
+     <app-loading></app-loading>
+  </ng-template>
+
+</div>

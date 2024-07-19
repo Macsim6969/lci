@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Store } from "@ngrx/store";
 import { StoreInterface } from "../../store/model/store.model";
 import { User } from '../interfaces/user.interface';
-import { setStaffMiniList, setUserData, setUsers } from "../../store/actions/store.actions";
+import { setStaffMiniList, setStaffUserProfile, setUserData, setUsers } from "../../store/actions/store.actions";
 import { Observable } from "rxjs";
 import { DashboardInfo, DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface";
 import { setDashbordInfo } from "../../store/actions/dashboard.actions";
@@ -26,8 +26,12 @@ export class BackendService {
 
   public getUsers() {
     return this.http.get<User[]>(`${this.baseUrl}/users.json`).subscribe((userData: User[]) => {
+      const usersProfile = Object.values(userData)?.reduce((acc, val) => {
+        acc.push(val['profile']);
+        return acc;
+      }, []);
       const users = Object.values(userData)?.map(e => ({ name: e['profile'].name + ' ' + e['profile'].lastName, id: e['profile'].userID }));
-
+      this.store.dispatch(setStaffUserProfile({ data: usersProfile }));
       this.store.dispatch(setStaffMiniList({ data: users }));
       this.store.dispatch(setUsers({ data: userData }));
     });

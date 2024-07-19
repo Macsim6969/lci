@@ -8,3 +8,4 @@ export const selectUsers = (store: {store: StoreInterface}) => store.store.allUs
 export const selectMemoList = (store: {store: StoreInterface}) => store.store.memoList;
 
 export const selectStaffMiniList = (store: {store: StoreInterface}) => store.store.staffMiniList;
+export const selectUsersProfile = (store: {store: StoreInterface}) => store.store.allUsersProfile;
