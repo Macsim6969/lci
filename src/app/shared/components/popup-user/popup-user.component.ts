@@ -8,23 +8,25 @@ import { BackendService } from '../../services/backend.service';
 import { StoreInterface } from '../../../store/model/store.model';
 import { selectUserInfo } from '../../../store/selectors/store.selectors';
 import { User } from '../../interfaces/user.interface';
+import { UserSavePopupService } from '../../services/user-save-popup.service';
+import { StaffAddedService } from '../../services/staffAdded.service';
 
 @Component({
   selector: 'app-popup-user',
   templateUrl: './popup-user.component.html',
   styleUrl: './popup-user.component.scss'
 })
-export class PopupUserComponent implements OnInit, OnDestroy {
+export class PopupUserComponent implements OnInit {
   @Input() activePage: 'profile' | 'staff-create';
   public form: FormGroup;
   public user: User;
   public previewUrl: string | ArrayBuffer | null = null;
   public selectedFile: File | null = null;
   constructor(
-    private backendService: BackendService,
     private firebaseStorageService: FirebaseStorageService,
-    private router: Router,
-    private store: Store<{ store: StoreInterface }>
+    private store: Store<{ store: StoreInterface }>,
+    private userSavePopup: UserSavePopupService,
+    private staffAdded: StaffAddedService
   ) { }
 
   ngOnInit(): void {
@@ -54,6 +56,7 @@ export class PopupUserComponent implements OnInit, OnDestroy {
       name: new FormControl(user ? user.name : '', [Validators.required]),
       lastName: new FormControl(user ? user.lastName : '', [Validators.required]),
       email: new FormControl(user ? user.email : '', [Validators.required, Validators.email]),
+      password: new FormControl(user ? user.email : '', [Validators.required, Validators.minLength(6)]),
       number: new FormControl(user ? user.number : '', [Validators.required]),
       gender: new FormControl(user ? user.gender : '', [Validators.required]),
       role: new FormControl(user ? user.role : '', [Validators.required]),
@@ -77,48 +80,13 @@ export class PopupUserComponent implements OnInit, OnDestroy {
   }
 
   public submit() {
-
-    if (!this.selectedFile) {
-      this.form.value.avatar = this.user?.avatar;
-    } else {
-      const oldPhotoUrl = this.user?.avatar;
-      this.form.value.avatar = this.selectedFile.name;
-      if (oldPhotoUrl) {
-        const filePath = this.firebaseStorageService.getFilePathFromUrl(oldPhotoUrl);
-        this.firebaseStorageService.deleteImage(filePath).catch(error => {
-          console.error('Error deleting old avatar:', error);
-        });
-      }
-      this.firebaseStorageService.updateProfilePhoto(this.selectedFile);
+    if (this.activePage === 'profile' || !this.activePage) {
+      this.userSavePopup.submitUserDataSave(this.selectedFile, this.form, this.user);
+      this.form.reset();
+    } else if (this.activePage === 'staff-create') {
+      this.staffAdded.submitUserDataSave(this.selectedFile, this.form, this.user);
+      this.form.reset();
     }
-    if (this.form.value.number === null || this.form.value.number === undefined) {
-      this.form.value.number = this.user?.number;
-    }
-    this.setDataToStore();
   }
 
-  private setDataToStore() {
-    const newUserData: User = {
-      ...this.user,
-      userID: this.user?.userID,
-      name: this.form.value.name,
-      lastName: this.form.value.lastName,
-      email: this.form.value.email,
-      number: this.form.value.number,
-      gender: this.form.value.gender,
-      role: this.form.value.role,
-      designation: this.form.value.designation,
-      password: this.form.value.password,
-      offMail: this.form.value.offMail,
-      avatar: this.form.value.avatar
-    }
-
-    this.backendService.sendUserProfile(newUserData);
-    this.form.reset()
-    this.router.navigate(['/']).then();
-  }
-
-  ngOnDestroy(): void {
-
-  }
 }

@@ -43,9 +43,10 @@ export class BackendService {
 
   public sendUserProfile(userData: User) {
     return this.http.put<User>(`${this.baseUrl}/users/${userData.userID}/profile.json`, userData).subscribe(() => {
-      this.store.dispatch(setUserData({ data: userData }));
+      this.getUsers()
     });
   }
+
 
   public setDashboardInfo(userID: string, dashboardInfo: DashboardTotalInfo) {
     return this.http.put<DashboardTotalInfo>(`${this.baseUrl}/users/${userID}/dashboardInfo.json`, dashboardInfo).subscribe((data: DashboardTotalInfo) => {

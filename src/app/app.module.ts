@@ -12,6 +12,8 @@ import { AuthGuard } from './shared/services/isAuth.guard';
 import { AuthService } from './modules/auth/@shared/services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PopupService } from './shared/services/popup.service';
+import { UserSavePopupService } from './shared/services/user-save-popup.service';
+import { StaffAddedService } from './shared/services/staffAdded.service';
 
 
 
@@ -31,7 +33,9 @@ import { PopupService } from './shared/services/popup.service';
   providers: [
     AuthGuard,
     AuthService,
-    PopupService
+    PopupService,
+    UserSavePopupService,
+    StaffAddedService
   ],
   bootstrap: [AppComponent]
 })

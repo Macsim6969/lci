@@ -27,6 +27,10 @@
         <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter email address" type='email'
           formControlName="email">
       </div>
+      <div class="column" *ngIf="activePage === 'staff-create'">
+        <label for="">Password</label>
+        <input type="text" placeholder="Enter password" type='password' formControlName="password">
+      </div>
       <div class="column">
         <label for="">Phone number</label>
         <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter phone number" type='tel'
@@ -53,10 +57,12 @@
       </div>
       <div class="column">
         <label for="">Official email</label>
-        <input [readonly]="activePage === 'profile'" type="text" placeholder="Official email" type='email' formControlName="offMail">
+        <input [readonly]="activePage === 'profile'" type="text" placeholder="Official email" type='email'
+          formControlName="offMail">
       </div>
       <div class="column">
-        <button *ngIf="activePage !== 'profile' && activePage !== 'staff-create'" class="save" type="submit" mat-button>Save</button>
+        <button *ngIf="activePage !== 'profile' && activePage !== 'staff-create'" class="save" type="submit"
+          mat-button>Save</button>
       </div>
       <div class="column">
         <button *ngIf="activePage === 'staff-create'" class="save" type="submit" mat-button>Create</button>
