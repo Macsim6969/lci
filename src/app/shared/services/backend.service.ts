@@ -47,7 +47,6 @@ export class BackendService {
     });
   }
 
-
   public setDashboardInfo(userID: string, dashboardInfo: DashboardTotalInfo) {
     return this.http.put<DashboardTotalInfo>(`${this.baseUrl}/users/${userID}/dashboardInfo.json`, dashboardInfo).subscribe((data: DashboardTotalInfo) => {
       this.store.dispatch(setDashbordInfo({ data: data }))

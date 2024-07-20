@@ -13,7 +13,7 @@ import { PopupService } from "./popup.service";
 
 @Injectable()
 
-export class StaffAddedService {
+export class StaffViewService {
 
   constructor(
     private router: Router,
@@ -47,7 +47,7 @@ export class StaffAddedService {
   private setDataToStore(form, user) {
     const newUserData: User = {
       ...user,
-      serID: user?.userID,
+      userID: form.value.id,
       name: form.value.name,
       lastName: form.value.lastName,
       email: form.value.email,
@@ -60,25 +60,11 @@ export class StaffAddedService {
       avatar: form.value.avatar,
       salary: form.value.salary
     }
-
-    this.sigUp(newUserData);
+    
+    this.backendService.sendUserProfile(newUserData);
+    this.popupService._isOpenDone = true;
+    this.router.navigate(['/staff']).then();
   }
 
-  private sigUp(userData) {
-    return this.http.post<AuthResponseData>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.apiKey}`, {
-      email: userData.email, password: userData.password, returnSecureToken: true
-    }).pipe(tap(resData => {
-      const data = {
-        ...userData,
-        userID: resData.localId, email: userData.email, password: userData.password, name: userData.name, token: resData.idToken
-      }
-      this.backendService.sendUserProfile(data);
-      this.backendService.setDashboardInfo(resData.localId, setStartDashboarfInfo());
 
-    })).subscribe(() => {
-      this.popupService._isOpenDone = true;
-      this.router.navigate(['/staff']).then();
-    });
-
-  }
 }

@@ -3,8 +3,8 @@
     <mat-icon svgIcon="arrow"></mat-icon>
     <p>Back</p>
   </button>
-  <div class="memo_popup">
-    <h2 class="title_edite">Add a New Staff</h2>
-    <app-popup-user [staffView]="staffList"></app-popup-user>
+  <div class="staff_popup">
+    <h2 class="title_edite">Edite Staff Profile</h2>
+    <app-popup-user [activePage]="'staff-view'" [staffView]="staffList"></app-popup-user>
   </div>
 </div>

@@ -16,12 +16,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PopupConfirmedComponent } from "../components/popup-confirmed/popup-confirmed.component";
+import { SalaryPipe } from "../pipe/salary.pipe";
 
 @NgModule({
   declarations: [
     PopupUserComponent,
     LoadingComponent,
-    PopupConfirmedComponent
+    PopupConfirmedComponent,
+    SalaryPipe
   ],
   imports: [
     CommonModule,
@@ -53,7 +55,8 @@ import { PopupConfirmedComponent } from "../components/popup-confirmed/popup-con
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    PopupConfirmedComponent
+    PopupConfirmedComponent,
+    SalaryPipe
 
   ]
 })

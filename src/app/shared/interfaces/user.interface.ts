@@ -10,6 +10,7 @@ export interface User {
   password: string
   avatar?: string
   role?: string
+  salary?: number
   designation?: string
 }
 

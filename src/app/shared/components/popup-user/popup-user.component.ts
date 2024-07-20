@@ -10,6 +10,7 @@ import { selectUserInfo } from '../../../store/selectors/store.selectors';
 import { User } from '../../interfaces/user.interface';
 import { UserSavePopupService } from '../../services/user-save-popup.service';
 import { StaffAddedService } from '../../services/staffAdded.service';
+import { StaffViewService } from '../../services/staffView.service';
 
 @Component({
   selector: 'app-popup-user',
@@ -18,7 +19,7 @@ import { StaffAddedService } from '../../services/staffAdded.service';
 })
 export class PopupUserComponent implements OnInit {
   @Input() staffView: User;
-  @Input() activePage: 'profile' | 'staff-create';
+  @Input() activePage: 'profile' | 'staff-create' | 'staff-view';
   public form: FormGroup;
   public user: User;
   public previewUrl: string | ArrayBuffer | null = null;
@@ -27,7 +28,8 @@ export class PopupUserComponent implements OnInit {
     private firebaseStorageService: FirebaseStorageService,
     private store: Store<{ store: StoreInterface }>,
     private userSavePopup: UserSavePopupService,
-    private staffAdded: StaffAddedService
+    private staffAdded: StaffAddedService,
+    private staffViewService: StaffViewService
   ) { }
 
   ngOnInit(): void {
@@ -66,6 +68,7 @@ export class PopupUserComponent implements OnInit {
       designation: new FormControl(user ? user.designation : '', [Validators.required]),
       id: new FormControl(user ? user.userID : '', [Validators.required]),
       offMail: new FormControl(user ? user.offMail : '', [Validators.required, Validators.email]),
+      salary: new FormControl(user ? user.salary : 0, [Validators.required]),
       avatar: new FormControl('', [Validators.required])
     })
   }
@@ -89,6 +92,8 @@ export class PopupUserComponent implements OnInit {
     } else if (this.activePage === 'staff-create') {
       this.staffAdded.submitUserDataSave(this.selectedFile, this.form, this.user);
       this.form.reset();
+    } else if(this.activePage === 'staff-view'){
+      this.staffViewService.submitUserDataSave(this.selectedFile, this.form, this.user)
     }
   }
 

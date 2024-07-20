@@ -49,7 +49,8 @@ export class UserSavePopupService {
       designation: form.value.designation,
       password: form.value.password,
       offMail: form.value.offMail,
-      avatar: form.value.avatar
+      avatar: form.value.avatar,
+      salary: form.value.salary
     }
 
     this.backendService.sendUserProfile(newUserData);

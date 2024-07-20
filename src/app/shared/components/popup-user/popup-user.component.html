@@ -61,6 +61,11 @@
           formControlName="offMail">
       </div>
       <div class="column">
+        <label for="">Salary$</label>
+        <input [readonly]="activePage === 'profile'"  type="text" placeholder="Salary" type='number'
+          formControlName="salary">
+      </div>
+      <div class="column">
         <button *ngIf="activePage !== 'profile' && activePage !== 'staff-create'" class="save" type="submit"
           mat-button>Save</button>
       </div>
