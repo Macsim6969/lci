@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboarInfodModule } from '../../shared/module/dashboard.module';
 import { DashboardIconService } from './@shared/services/dashboardIcon.service';
 import { MemoMiniListComponent } from './@shared/components/memo-mini-list/memo-mini-list.component';
+import { StaffMiniListComponent } from './@shared/components/staff-mini-list/staff-mini-list.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent}
@@ -14,7 +15,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     DashboardComponent,
-    MemoMiniListComponent
+    MemoMiniListComponent,
+    StaffMiniListComponent
   ],
   imports: [
     CommonModule,

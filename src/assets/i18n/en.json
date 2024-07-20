@@ -117,6 +117,20 @@
       "title": "Action"
     }
   ],
+  "stafMiniList": [
+    {
+      "title": "S/N"
+    },
+    {
+      "title": "Staff Name"
+    },
+    {
+      "title": "Staff Role"
+    },
+    {
+      "title": "Designation"
+    }
+  ],
   "memoList": [
     {
       "title": "S/N"
