@@ -13,56 +13,76 @@
     </div>
     <div class="form-content">
       <div class="column">
-        <label for="">First Name</label>
+        <label>First Name</label>
         <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter first name" type='text'
           formControlName="name">
       </div>
       <div class="column">
-        <label for="">Last Name</label>
+        <label>Last Name</label>
         <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter last name" type='text'
           formControlName="lastName">
       </div>
       <div class="column">
-        <label for="">Email address</label>
+        <label>Email address</label>
         <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter email address" type='email'
           formControlName="email">
       </div>
       <div class="column" *ngIf="activePage === 'staff-create'">
-        <label for="">Password</label>
+        <label>Password</label>
         <input type="text" placeholder="Enter password" type='password' formControlName="password">
       </div>
       <div class="column">
-        <label for="">Phone number</label>
+        <label>Phone number</label>
         <input [readOnly]="activePage ==='profile'" type="text" placeholder="Enter phone number" type='tel'
           formControlName="number">
       </div>
       <div class="column">
-        <label for="">Gender</label>
-        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Select gender" type='text'
-          formControlName="gender">
+        <label>Gender</label>
+        <select formControlName="gender">
+          <option value="Male" class="user">Male</option>
+          <option value="Female" class="user">Female</option>
+        </select>
       </div>
       <div class="column">
-        <label for="">Role</label>
-        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Select role" type='text'
-          formControlName="role">
+        <label>Role</label>
+        <select [disabled]="activePage ==='profile'" formControlName="role">
+          <option value="Admin">Admin</option>
+          <option value="I.T">I.T</option>
+          <option value="P.M">P.M</option>
+          <option value="Agular">Angular</option>
+          <option value="Q.A">Q.A</option>
+          <option value="H.R">H.R</option>
+          <option value="React">React</option>
+          <option value="Node JS">Node JS</option>
+          <option value="Backend">Backend</option>
+          <option value="None">None</option>
+        </select>
       </div>
       <div class="column">
-        <label for="">Designation</label>
-        <input [readOnly]="activePage ==='profile'" type="text" placeholder="Select designation" type='text'
-          formControlName="designation">
+        <label>Designation</label>
+        <select [disabled]="activePage ==='profile'" formControlName="designation">
+          <option value="Human Resources">Human Resources</option>
+          <option value="Operations">Operations</option>
+          <option value="Project Management">Project Management</option>
+          <option value="Customer Service">Customer Service</option>
+          <option value="Operation">Operation</option>
+          <option value="Security">Security</option>
+          <option value="Front-end">Front-end</option>
+          <option value="Accounts">Accounts</option>
+        </select>
       </div>
       <div *ngIf="activePage === 'profile'" class="column">
-        <label for="">Staff ID</label>
+        <label>Staff ID</label>
         <input readonly="readonly" type="text" placeholder="Staff ID" type='text' formControlName="id">
       </div>
       <div class="column">
-        <label for="">Official email</label>
+        <label>Official email</label>
         <input [readonly]="activePage === 'profile'" type="text" placeholder="Official email" type='email'
           formControlName="offMail">
       </div>
       <div class="column">
-        <label for="">Salary$</label>
-        <input [readonly]="activePage === 'profile'"  type="text" placeholder="Salary" type='number'
+        <label>Salary$</label>
+        <input [readonly]="activePage === 'profile'" type="text" placeholder="Salary" type='number'
           formControlName="salary">
       </div>
       <div class="column">

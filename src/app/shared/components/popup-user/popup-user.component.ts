@@ -92,8 +92,9 @@ export class PopupUserComponent implements OnInit {
     } else if (this.activePage === 'staff-create') {
       this.staffAdded.submitUserDataSave(this.selectedFile, this.form, this.user);
       this.form.reset();
-    } else if(this.activePage === 'staff-view'){
-      this.staffViewService.submitUserDataSave(this.selectedFile, this.form, this.user)
+    } else if (this.activePage === 'staff-view') {
+      console.log(this.form.value);
+      // this.staffViewService.submitUserDataSave(this.selectedFile, this.form, this.user)
     }
   }
 
