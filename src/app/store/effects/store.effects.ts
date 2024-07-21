@@ -21,6 +21,7 @@ export class AuthEffects {
         this.backendService.getDashboardInfo(id);
         this.backendService.getMemo();
         this.backendService.getUsers();
+        this.backendService.getPaymentVouchers();
       })
     )
     ,

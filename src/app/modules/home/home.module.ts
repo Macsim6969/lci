@@ -19,10 +19,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 const routes: Routes = [
   {
     path: '', component: HomeComponent, children: [
+      // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: '', loadChildren: () => import('../profile/profile.module').then((m) => m.ProfileModule) },
       { path: 'dashboard', loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule) },
       { path: 'staff', loadChildren: () => import('../staff/staff.module').then((m) => m.StaffModule) },
+      { path: 'payment-vouchers', loadChildren: () => import('../payment-vouchers/payment-vouchers.module').then((m) => m.PaymentVouchersModule) },
       { path: 'memo', loadChildren: () => import('../memo/memo.module').then((m) => m.MemoModule) },
+      { path: '**', redirectTo: '' }
     ]
   }
 ]

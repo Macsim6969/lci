@@ -31,6 +31,12 @@
       "descr": "Create account for a new staff"
     },
     {
+      "url": "/payment-vouchers",
+      "icon": "staff",
+      "title": "Payment Vouchers",
+      "descr": "Create Payment Vouchers"
+    },
+    {
       "url": "/memo",
       "icon": "memo",
       "title": "Memo",
@@ -61,6 +67,11 @@
       "route": "/staff"
     },
     {
+      "link": "staff",
+      "title": "Payment Vouchers",
+      "route": "/payment-vouchers"
+    },
+    {
       "link": "memo",
       "title": "Memo",
       "route": "/memo"
@@ -68,7 +79,7 @@
   ],
   "dashboard": [
     {
-      "icon": "staff",
+      "icon": "number_staff",
       "total": "250",
       "title": "Total number of staff"
     },

@@ -3,12 +3,14 @@ import { HttpClient } from "@angular/common/http";
 import { Store } from "@ngrx/store";
 import { StoreInterface } from "../../store/model/store.model";
 import { User } from '../interfaces/user.interface';
-import { setStaffMiniList, setStaffUserProfile, setUserData, setUsers } from "../../store/actions/store.actions";
-import { Observable } from "rxjs";
-import { DashboardInfo, DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface";
+import { setUserData, setUsers } from "../../store/actions/store.actions";
+import { DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface";
 import { setDashbordInfo } from "../../store/actions/dashboard.actions";
 import { sendMemoData } from "../../store/actions/memo.actions";
 import { MemoList } from "../../modules/memo/@shared/interfaces/memo.interface";
+import { setStaffMiniList, setStaffUserProfile } from "../../store/actions/staff.action";
+import { setPaymentsVouchers } from "../../store/actions/paymentVouchers.action";
+import { PaymentVouchers } from "../../modules/payment-vouchers/@shared/interfaces/paymentsVouchers.interface";
 
 @Injectable({ providedIn: 'root' })
 
@@ -74,6 +76,24 @@ export class BackendService {
   public updatedMemo(idList: string, memoData: MemoList) {
     return this.http.put<MemoList>(`${this.baseUrl}/memo/${idList}.json`, memoData).subscribe(() => {
       this.getMemo();
+    })
+  }
+
+  public getPaymentVouchers() {
+    return this.http.get<PaymentVouchers[]>(`${this.baseUrl}/payments.json`).subscribe((data: PaymentVouchers[]) => {
+      data ? this.store.dispatch(setPaymentsVouchers({ data: data })) : this.store.dispatch(sendMemoData({ data: [] }));
+    })
+  }
+
+  public setPaymentVouchers(memoData: PaymentVouchers) {
+    return this.http.post<PaymentVouchers>(`${this.baseUrl}/payments.json`, memoData).subscribe(() => {
+      this.getPaymentVouchers();
+    })
+  }
+
+  public updatedPaymentVouchers(idList: string, memoData: PaymentVouchers) {
+    return this.http.put<PaymentVouchers>(`${this.baseUrl}/payments/${idList}.json`, memoData).subscribe(() => {
+      this.getPaymentVouchers();
     })
   }
 

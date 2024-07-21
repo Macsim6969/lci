@@ -12,6 +12,6 @@ export class DashboardIconService {
     this.matIconRegistry.addSvgIcon('application', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/dashboard/application.svg'));
     this.matIconRegistry.addSvgIcon('departments', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/dashboard/departments.svg'));
     this.matIconRegistry.addSvgIcon('projects', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/dashboard/projects.svg'));
-    this.matIconRegistry.addSvgIcon('staff', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/dashboard/staff.svg'));
+    this.matIconRegistry.addSvgIcon('number_staff', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/dashboard/number_staff.svg'));
   }
 }

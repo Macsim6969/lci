@@ -9,8 +9,6 @@ const SETUSERDATA = 'SETUSERDATA';
 const STARTAFFECT = 'STARTAFFECT';
 const LOGINREGISTERDATA = 'LOGINREGISTERDATA';
 const SETUSERS = 'SETUSERS';
-const STAFFMINILIST = 'STAFFMINILIST';
-const USERSPROFILE = 'USERSPROFILE';
 
 
 export const setAllUsers = createAction(
@@ -46,13 +44,3 @@ export const startGetData = createAction(
 );
 
 
-export const setStaffMiniList = createAction(
-  STAFFMINILIST,
-  props<{ data: StaffMiniList[] }>()
-)
-
-
-export const setStaffUserProfile = createAction(
-  USERSPROFILE,
-  props<{ data: User[] }>()
-)
