@@ -184,5 +184,25 @@
     {
       "title": "Status"
     }
+  ],
+  "paymentVoucher": [
+    {
+      "title": "S/N"
+    },
+    {
+      "title": "Subject"
+    },
+    {
+      "title": "Date"
+    },
+    {
+      "title": "Prepared By"
+    },
+    {
+      "title": "Send To"
+    },
+    {
+      "title": "Action"
+    }
   ]
 }

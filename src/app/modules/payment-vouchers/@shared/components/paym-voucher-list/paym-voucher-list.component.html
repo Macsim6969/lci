@@ -1,0 +1,21 @@
+<div class="all_memos">
+  <h2 class="memos">All Memos</h2>
+
+  <div class="memos_data_type">
+     <nav *ngFor="let header of memoDataType">{{header.title}}</nav>
+  </div>
+  <div class="memos_list" *ngIf="paymentVouchers;else loading">
+     <div class="memos_data" *ngFor="let list of paymentVouchers;index as i">
+        <nav>{{i+1}}</nav>
+        <nav>{{list.subject}}</nav>
+        <nav>{{list.data}}</nav>
+        <nav>{{list.preparedBy}}</nav>
+        <nav class="id">{{list.sendTo}}</nav>
+        <nav class="view" (click)="checkMemoView(list.id)">View more</nav>
+     </div>
+  </div>
+  <ng-template #loading>
+     <app-loading></app-loading>
+  </ng-template>
+
+</div>
