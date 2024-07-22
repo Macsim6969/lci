@@ -37,6 +37,12 @@
       "descr": "Create Payment Vouchers"
     },
     {
+      "url": "/payroll",
+      "icon": "payroll",
+      "title": "Payroll",
+      "descr": "Generate and send payroll to account"
+    },
+    {
       "url": "/memo",
       "icon": "memo",
       "title": "Memo",
@@ -70,6 +76,11 @@
       "link": "staff",
       "title": "Payment Vouchers",
       "route": "/payment-vouchers"
+    },
+    {
+      "link": "payroll",
+      "title": "Payroll",
+      "route": "/payroll"
     },
     {
       "link": "memo",

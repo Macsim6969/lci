@@ -1,6 +1,7 @@
 import { DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface"
 import { MemoList } from "../../modules/memo/@shared/interfaces/memo.interface"
 import { PaymentVouchers } from "../../modules/payment-vouchers/@shared/interfaces/paymentsVouchers.interface"
+import { PayrollData } from "../../modules/payroll/@shared/interfaces/payroll.interface"
 import { StaffMiniList, User } from "../../shared/interfaces/user.interface"
 
 export interface StoreInterface {
@@ -13,4 +14,5 @@ export interface StoreInterface {
   memoList: MemoList[]
   staffMiniList: StaffMiniList[]
   paymentsVouchers: PaymentVouchers[]
+  payrollDashboard: PayrollData
 }

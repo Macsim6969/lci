@@ -10,3 +10,4 @@ export const selectMemoList = (store: {store: StoreInterface}) => store.store.me
 export const selectStaffMiniList = (store: {store: StoreInterface}) => store.store.staffMiniList;
 export const selectUsersProfile = (store: {store: StoreInterface}) => store.store.allUsersProfile;
 export const selectPaymentsVouchers = (store: {store: StoreInterface}) => store.store.paymentsVouchers;
+export const selectPayroll = (store: {store: StoreInterface}) => store.store.payrollDashboard;

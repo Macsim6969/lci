@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { PaymentVouchers } from '../../interfaces/paymentsVouchers.interface';
+import { PaymentPopupCreateService } from '../../services/payment-popup-create.service';
 
 @Component({
   selector: 'app-paym-voucher-header',
@@ -10,13 +11,14 @@ import { PaymentVouchers } from '../../interfaces/paymentsVouchers.interface';
 export class PaymVoucherHeaderComponent {
   @Input() public paymentVouchers: PaymentVouchers[];
   @Input() public staffsFilter: string[];
-  
+
   constructor(
-    private router: Router
+    private router: Router,
+    private paymentPopupCreate: PaymentPopupCreateService
   ) { }
 
-  public openCreateMemo() {
-    this.router.navigate(['/staff/add']).then();
+  public openPaymentVouchers() {
+    this.paymentPopupCreate._isOpenPopup = true;
   }
 
 

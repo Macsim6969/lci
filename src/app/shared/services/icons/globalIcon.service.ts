@@ -12,5 +12,6 @@ export class GlobalIconService {
     this.matIconRegistry.addSvgIcon('search', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/global/search.svg'));
     this.matIconRegistry.addSvgIcon('arrow', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/global/arrow.svg'));
     this.matIconRegistry.addSvgIcon('arrow_type', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/global/arrow_type.svg'));
+    this.matIconRegistry.addSvgIcon('close', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/global/close.svg'));
   }
 }
