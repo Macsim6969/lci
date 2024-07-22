@@ -8,7 +8,7 @@
      <div class="memos_data" *ngFor="let list of paymentVouchers;index as i">
         <nav>{{i+1}}</nav>
         <nav>{{list.subject}}</nav>
-        <nav>{{list.data}}</nav>
+        <nav>{{list.data|date: 'shortDate'}}</nav>
         <nav>{{list.preparedBy}}</nav>
         <nav class="id">{{list.sendTo}}</nav>
         <nav class="view" (click)="checkMemoView(list.id)">View more</nav>

@@ -34,7 +34,6 @@ export class PaymVoucherListComponent implements OnInit, OnDestroy {
     })
   }
 
-
   private streamCheckFilterList() {
     this.paymentVouchersService._filterText$.pipe(takeUntil(this.destroy$)).subscribe((data: string) => {
       if (data === 'All') {

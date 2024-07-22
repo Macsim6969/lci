@@ -1,0 +1,36 @@
+<div class="popup">
+  <div class="content">
+    <div class="content_header">
+      <h3>Create Payment Voucher</h3>
+      <button mat-icon-button (click)="closePopup()">
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </div>
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="userName && staffList">
+
+      <div class="column">
+        <label>S/N(Priority list number)</label>
+        <input type="number" placeholder="..." formControlName="id">
+      </div>
+      <div class="column">
+        <label>Subject</label>
+        <input placeholder="..." type="text" formControlName="subject">
+      </div>
+      <div class="column">
+        <label>Prepared By</label>
+        <input [value]="userName" [readonly]="true" type="text" formControlName="preparedBy">
+      </div>
+      <div class="column">
+        <label>Send To</label>
+        <select formControlName="sendTo">
+          <option *ngFor="let option of staffList" [value]="option.name">
+            {{ option.name }}
+          </option>
+        </select>
+      </div>
+      <div class="action">
+        <button mat-button type="submit">Send Memo</button>
+      </div>
+    </form>
+  </div>
+</div>

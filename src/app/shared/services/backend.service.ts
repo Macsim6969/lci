@@ -81,7 +81,8 @@ export class BackendService {
 
   public getPaymentVouchers() {
     return this.http.get<PaymentVouchers[]>(`${this.baseUrl}/payments.json`).subscribe((data: PaymentVouchers[]) => {
-      data ? this.store.dispatch(setPaymentsVouchers({ data: data })) : this.store.dispatch(sendMemoData({ data: [] }));
+      console.log(data);
+      this.store.dispatch(setPaymentsVouchers({ data: data }));
     })
   }
 

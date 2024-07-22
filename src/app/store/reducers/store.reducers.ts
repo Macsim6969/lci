@@ -4,6 +4,7 @@ import { newUserID, setIsLoginRegisterData, setUserData, setUsers } from "../act
 import { setDashbordInfo } from "../actions/dashboard.actions";
 import { sendMemoData } from "../actions/memo.actions";
 import { setStaffMiniList, setStaffUserProfile } from "../actions/staff.action";
+import { setPaymentsVouchers } from "../actions/paymentVouchers.action";
 
 
 export const store: StoreInterface = {
@@ -42,5 +43,8 @@ export const storeReducers = createReducer(store,
   }),
   on(setStaffUserProfile, (state, action) => {
     return { ...state, allUsersProfile: action.data }
+  }),
+  on(setPaymentsVouchers, (state, action) =>{
+    return {...state, paymentsVouchers: action.data}
   })
 )

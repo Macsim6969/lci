@@ -1,4 +1,7 @@
 <section class="payment">
   <app-paym-voucher-header [paymentVouchers]="paymentVouchers"></app-paym-voucher-header>
-  <app-paym-voucher-list [paymentVouchers]="paymentVouchers" [backsPaymentVouchers]="paymentVouchers"></app-paym-voucher-list>
+  <app-paym-voucher-list [paymentVouchers]="paymentVouchers"
+    [backsPaymentVouchers]="paymentVouchers"></app-paym-voucher-list>
+
+  <app-paym-voucher-create *ngIf="isOpenPopup"></app-paym-voucher-create>
 </section>
