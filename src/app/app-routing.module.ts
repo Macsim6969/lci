@@ -8,6 +8,8 @@ import { getDatabase } from 'firebase/database';
 import { environment } from '../environment/environment';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: 'welcome', loadChildren: () => import('./modules/welcome/welcome.module').then((m) => m.WelcomeModule) },
   { path: '', loadChildren: () => import('./modules/home/home.module').then((m) => m.HomeModule), canActivate: [AuthGuard] },
   { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule) },
   { path: 'st-sett-pr', loadChildren: () => import('./modules/st-sett-pr/st-sett-pr.module').then((m) => m.StSettPrModule) }
