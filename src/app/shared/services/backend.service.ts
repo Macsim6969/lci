@@ -11,6 +11,8 @@ import { MemoList } from "../../modules/memo/@shared/interfaces/memo.interface";
 import { setStaffMiniList, setStaffUserProfile } from "../../store/actions/staff.action";
 import { setPaymentsVouchers } from "../../store/actions/paymentVouchers.action";
 import { PaymentVouchers } from "../../modules/payment-vouchers/@shared/interfaces/paymentsVouchers.interface";
+import { PayrollData } from "../../modules/payroll/@shared/interfaces/payroll.interface";
+import { setPayroallDashboard } from "../../store/actions/payroll.action";
 
 @Injectable({ providedIn: 'root' })
 
@@ -81,7 +83,6 @@ export class BackendService {
 
   public getPaymentVouchers() {
     return this.http.get<PaymentVouchers[]>(`${this.baseUrl}/payments.json`).subscribe((data: PaymentVouchers[]) => {
-      console.log(data);
       this.store.dispatch(setPaymentsVouchers({ data: data }));
     })
   }
@@ -98,4 +99,15 @@ export class BackendService {
     })
   }
 
+  public setPayrollData(data: PayrollData){
+    return this.http.post<PayrollData>(`${this.baseUrl}/payroll.json`, data).subscribe(() =>{
+      this.getPayrollData();
+    })
+  }
+
+  public getPayrollData(){
+    return this.http.get<PayrollData>(`${this.baseUrl}/payroll.json`).subscribe((data: PayrollData) =>{
+      this.store.dispatch(setPayroallDashboard({data: data}));
+    })
+  }
 }

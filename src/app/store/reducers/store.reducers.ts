@@ -5,6 +5,7 @@ import { setDashbordInfo } from "../actions/dashboard.actions";
 import { sendMemoData } from "../actions/memo.actions";
 import { setStaffMiniList, setStaffUserProfile } from "../actions/staff.action";
 import { setPaymentsVouchers } from "../actions/paymentVouchers.action";
+import { setPayroallDashboard } from "../actions/payroll.action";
 
 
 export const store: StoreInterface = {
@@ -16,7 +17,8 @@ export const store: StoreInterface = {
   dashboardInfo: null,
   memoList: [],
   staffMiniList: [],
-  paymentsVouchers: []
+  paymentsVouchers: [],
+  payrollDashboard: null
 }
 
 export const storeReducers = createReducer(store,
@@ -44,7 +46,10 @@ export const storeReducers = createReducer(store,
   on(setStaffUserProfile, (state, action) => {
     return { ...state, allUsersProfile: action.data }
   }),
-  on(setPaymentsVouchers, (state, action) =>{
-    return {...state, paymentsVouchers: action.data}
+  on(setPaymentsVouchers, (state, action) => {
+    return { ...state, paymentsVouchers: action.data }
+  }),
+  on(setPayroallDashboard, (state, action) => {
+    return { ...state, payrollDashboard: action.data }
   })
 )

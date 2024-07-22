@@ -1,0 +1,9 @@
+<section *ngIf="payrollDashboard;else loading">
+
+</section>
+<ng-template #loading>
+  <div class="sett">
+    <app-loading></app-loading>
+    <p>Creating page...</p>
+  </div>
+</ng-template>

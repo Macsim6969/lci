@@ -22,6 +22,7 @@ export class AuthEffects {
         this.backendService.getMemo();
         this.backendService.getUsers();
         this.backendService.getPaymentVouchers();
+        this.backendService.getPayrollData()
       })
     )
     ,
