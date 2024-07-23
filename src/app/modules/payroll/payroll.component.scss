@@ -1,11 +1,15 @@
+.main_payroll{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-
-.sett{
+.sett {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  p{
+  p {
     font-size: 2.4rem;
     font-weight: 600;
   }

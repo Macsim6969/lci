@@ -43,6 +43,18 @@
       "descr": "Generate and send payroll to account"
     },
     {
+      "url": "/payroll/salary",
+      "icon": "payroll",
+      "title": "Payroll",
+      "descr": "Generate and send payroll to account"
+    },
+    {
+      "url": "/payroll/tax",
+      "icon": "payroll",
+      "title": "Payroll",
+      "descr": "Generate and send payroll to account"
+    },
+    {
       "url": "/memo",
       "icon": "memo",
       "title": "Memo",
@@ -237,5 +249,36 @@
     {
       "title": "Action"
     }
-  ]
+  ],
+  "payroll": {
+    "tabs": [
+      {
+        "title": "Salary Breakdown",
+        "route": "salary"
+      },
+      {
+        "title": "Tax Definitions",
+        "route": "tax"
+      },
+      {
+        "title": "Payslips",
+        "route": "payslips"
+      },
+      {
+        "title": "Payroll",
+        "route": "payroll"
+      }
+    ],
+    "salary": [
+      {"title": "S/N"},
+      {"title": "Title"},
+      {"title": "Level"},
+      {"title": "Basic Salary"},
+      {"title": "Allowance"},
+      {"title": "Gross Salary"},
+      {"title": "Deductions"},
+      {"title": "Net Salary"},
+      {"title": "Action"}
+    ]
+  }
 }

@@ -1,0 +1,7 @@
+<div class="payroll">
+  <div class="payroll_tab">
+    <nav [ngClass]="{'active': isActiveTab === i +1}" *ngFor="let item of tabsData;index as i"
+      (click)="choiceActiveTab(i+1, item.route)">{{item.title}}</nav>
+  </div>
+  <router-outlet></router-outlet>
+</div>

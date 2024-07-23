@@ -26,7 +26,6 @@ const routes: Routes = [
       { path: 'payment-vouchers', loadChildren: () => import('../payment-vouchers/payment-vouchers.module').then((m) => m.PaymentVouchersModule) },
       { path: 'payroll', loadChildren: () => import('../payroll/payroll.module').then((m) => m.PayrollModule) },
       { path: 'memo', loadChildren: () => import('../memo/memo.module').then((m) => m.MemoModule) },
-      { path: '**', redirectTo: '' }
     ]
   }
 ]
