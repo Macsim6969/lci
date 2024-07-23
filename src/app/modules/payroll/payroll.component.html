@@ -1,5 +1,5 @@
 <section *ngIf="payrollDashboard;else loading">
-
+  <app-payroll-header [dashboardInfo]="payrollDashboard"></app-payroll-header>
 </section>
 <ng-template #loading>
   <div class="sett">

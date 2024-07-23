@@ -32,7 +32,6 @@ export class PaymentVouchersComponent implements OnInit, OnDestroy {
     this.store.pipe(select(selectPaymentsVouchers), takeUntil(this.destroy$))
       .subscribe((data: PaymentVouchers[]) => {
         this.paymentVouchers = Object.values(data);
-        console.log(data);
       })
   }
 

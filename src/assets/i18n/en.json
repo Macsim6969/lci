@@ -91,23 +91,45 @@
   "dashboard": [
     {
       "icon": "number_staff",
-      "total": "250",
+      "total": "0",
       "title": "Total number of staff"
     },
     {
       "icon": "application",
-      "total": "100",
+      "total": "0",
       "title": "Total applicatation"
     },
     {
       "icon": "projects",
-      "total": "10",
+      "total": "0",
       "title": "Total projects"
     },
     {
       "icon": "departments",
-      "total": "10",
+      "total": "0",
       "title": "Total departments"
+    }
+  ],
+  "dashboardPayroll": [
+    {
+      "icon": "gross",
+      "total": 0,
+      "title": "Gross salary this month"
+    },
+    {
+      "icon": "net",
+      "total": 0,
+      "title": "Net salary this month"
+    },
+    {
+      "icon": "tax",
+      "total": 0,
+      "title": "Total tax this month"
+    },
+    {
+      "icon": "loan",
+      "total": 0,
+      "title": "Total loan this month"
     }
   ],
   "stafList": [
