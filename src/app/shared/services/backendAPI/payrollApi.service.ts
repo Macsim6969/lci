@@ -6,7 +6,9 @@ import { SalaryDefinition } from "../../../modules/payroll/@shared/interfaces/sa
 import { setPayroallSalary } from "../../../store/actions/payroll.action";
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class PayrollApiService {
   private baseUrl = 'https://lcii-cd674-default-rtdb.firebaseio.com';
@@ -21,7 +23,7 @@ export class PayrollApiService {
     })
   }
 
-  public getPayrollSalary() {
+public getPayrollSalary() {
    return this.http.get<SalaryDefinition[]>(`${this.baseUrl}/payrollSalary.json`).subscribe((data) =>{
       this.store.dispatch(setPayroallSalary({data: data}))
     })

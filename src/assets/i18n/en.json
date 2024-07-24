@@ -261,10 +261,6 @@
         "route": "tax"
       },
       {
-        "title": "Payslips",
-        "route": "payslips"
-      },
-      {
         "title": "Payroll",
         "route": "payroll"
       }
@@ -277,8 +273,7 @@
       {"title": "Allowance"},
       {"title": "Gross Salary"},
       {"title": "Deductions"},
-      {"title": "Net Salary"},
-      {"title": "Action"}
+      {"title": "Net Salary"}
     ]
   },
   "jobPositions": [

@@ -9,15 +9,14 @@
       <nav *ngFor="let data of dataHeaderList">{{data.title}}</nav>
     </div>
     <div class="list_content_main" *ngFor="let data of listData">
-      <nav >{{data.id}}</nav>
-      <nav >{{data.title}}</nav>
-      <nav >{{data.level}}</nav>
-      <nav >{{data.basicSalary}}</nav>
-      <nav >{{data.allowance}}</nav>
-      <nav >{{data.grossSalary}}</nav>
-      <nav >{{data.deductions}}</nav>
-      <nav >{{data.netSalary}}</nav>
-      <nav >Delete</nav>
+      <nav>{{data.id}}</nav>
+      <nav>{{data.title}}</nav>
+      <nav>{{data.level}}</nav>
+      <nav>${{data.basicSalary}}</nav>
+      <nav>${{data.allowance}}</nav>
+      <nav>${{data.grossSalary}}</nav>
+      <nav>${{data.deductions}}</nav>
+      <nav>${{data.netSalary}}</nav>
     </div>
   </div>
 </div>

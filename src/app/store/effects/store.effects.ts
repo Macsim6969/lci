@@ -6,6 +6,7 @@ import { tap, withLatestFrom } from "rxjs";
 import { startGetData } from "../actions/store.actions";
 import { selectUserId } from "../selectors/store.selectors";
 import { BackendService } from "../../shared/services/backendAPI/backend.service";
+import { PayrollApiService } from "../../shared/services/backendAPI/payrollApi.service";
 
 @Injectable()
 export class AuthEffects {
@@ -21,7 +22,8 @@ export class AuthEffects {
         this.backendService.getMemo();
         this.backendService.getUsers();
         this.backendService.getPaymentVouchers();
-        this.backendService.getPayrollData()
+        this.backendService.getPayrollData();
+        this.payrollApi.getPayrollSalary();
       })
     )
     ,
@@ -30,7 +32,8 @@ export class AuthEffects {
 
   constructor(private actions$: Actions,
     private store: Store<{ store: StoreInterface }>,
-    private backendService: BackendService
+    private backendService: BackendService,
+    private payrollApi: PayrollApiService
   ) { }
 
 }
