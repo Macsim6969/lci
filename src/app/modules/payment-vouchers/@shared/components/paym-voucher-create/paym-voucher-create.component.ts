@@ -7,7 +7,7 @@ import { selectStaffMiniList, selectUserInfo } from '../../../../../store/select
 import { combineLatest, take } from 'rxjs';
 import { StaffMiniList, User } from '../../../../../shared/interfaces/user.interface';
 import { PaymentVouchers } from '../../interfaces/paymentsVouchers.interface';
-import { BackendService } from '../../../../../shared/services/backend.service';
+import { BackendService } from '../../../../../shared/services/backendAPI/backend.service';
 
 @Component({
   selector: 'app-paym-voucher-create',

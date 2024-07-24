@@ -21,7 +21,7 @@ export class PayrollContentComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getTabsDataFromJSon();
 
-    this.choiceActiveTab(1, 'salary breakdown');
+    this.choiceActiveTab(1, 'salary');
   }
 
   private getTabsDataFromJSon() {

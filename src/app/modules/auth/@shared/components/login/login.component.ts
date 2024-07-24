@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject, take, takeUntil } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
@@ -6,10 +6,9 @@ import { Router } from '@angular/router';
 import { saveData } from '../../interfaces/form.interface';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from '../../../../../store/model/store.model';
-import { selectUserId, selectUsers } from '../../../../../store/selectors/store.selectors';
+import { selectUsers } from '../../../../../store/selectors/store.selectors';
 import { User } from '../../../../../shared/interfaces/user.interface';
-import { BackendService } from '../../../../../shared/services/backend.service';
-import { newUserID } from '../../../../../store/actions/store.actions';
+import { BackendService } from '../../../../../shared/services/backendAPI/backend.service';
 
 @Component({
   selector: 'app-login',

@@ -280,5 +280,24 @@
       {"title": "Net Salary"},
       {"title": "Action"}
     ]
-  }
+  },
+  "jobPositions": [
+    {"title": "Managing Director"},
+    {"title": "Executive Director"},
+    {"title": "General Manager"},
+    {"title": "Deputy General Manager"},
+    {"title": "Asst. General Manager"},
+    {"title": "Principal Manager"},
+    {"title": "Seniout Manager"},
+    {"title": "Manager"},
+    {"title": "Deputy Manager"},
+    {"title": "Snr. Ececutive Officer"},
+    {"title": "Middle Angular"}
+  ],
+  "jobLevel": [
+    {"title": "MD/CEO"},
+    {"title": "ED"},
+    {"title": "GM"},
+    {"title": "DGM"}
+  ]
 }

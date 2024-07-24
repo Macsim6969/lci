@@ -1,18 +1,18 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Store } from "@ngrx/store";
-import { StoreInterface } from "../../store/model/store.model";
-import { User } from '../interfaces/user.interface';
-import { setUserData, setUsers } from "../../store/actions/store.actions";
-import { DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface";
-import { setDashbordInfo } from "../../store/actions/dashboard.actions";
-import { sendMemoData } from "../../store/actions/memo.actions";
-import { MemoList } from "../../modules/memo/@shared/interfaces/memo.interface";
-import { setStaffMiniList, setStaffUserProfile } from "../../store/actions/staff.action";
-import { setPaymentsVouchers } from "../../store/actions/paymentVouchers.action";
-import { PaymentVouchers } from "../../modules/payment-vouchers/@shared/interfaces/paymentsVouchers.interface";
-import { PayrollData } from "../../modules/payroll/@shared/interfaces/payroll.interface";
-import { setPayroallDashboard } from "../../store/actions/payroll.action";
+import { User } from "../../interfaces/user.interface";
+import { setUserData, setUsers } from "../../../store/actions/store.actions";
+import { StoreInterface } from "../../../store/model/store.model";
+import { setStaffMiniList, setStaffUserProfile } from "../../../store/actions/staff.action";
+import { DashboardTotalInfo } from "../../../modules/dashboard/@shared/interfaces/dashboard.interface";
+import { setDashbordInfo } from "../../../store/actions/dashboard.actions";
+import { sendMemoData } from "../../../store/actions/memo.actions";
+import { MemoList } from "../../../modules/memo/@shared/interfaces/memo.interface";
+import { PaymentVouchers } from "../../../modules/payment-vouchers/@shared/interfaces/paymentsVouchers.interface";
+import { setPaymentsVouchers } from "../../../store/actions/paymentVouchers.action";
+import { PayrollData } from "../../../modules/payroll/@shared/interfaces/payroll.interface";
+import { setPayroallDashboard } from "../../../store/actions/payroll.action";
 
 @Injectable({ providedIn: 'root' })
 

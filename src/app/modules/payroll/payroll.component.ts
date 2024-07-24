@@ -1,13 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BackendService } from '../../shared/services/backend.service';
-import { setStartPayrollData } from '../../shared/base/startData';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from '../../store/model/store.model';
 import { combineLatest, Subject, takeUntil } from 'rxjs';
-import { PayrollDashboard, PayrollData } from './@shared/interfaces/payroll.interface';
-import { selectPayroll } from '../../store/selectors/store.selectors';
+import { PayrollDashboard } from './@shared/interfaces/payroll.interface';
 import { PayrollIconService } from '../../shared/services/icons/payrollIcon.service';
 import { TranslateService } from '@ngx-translate/core';
+import { GlobalIconService } from '../../shared/services/icons/globalIcon.service';
+import { selectPayroll } from '../../store/selectors/payroll.select';
 
 @Component({
   selector: 'app-payroll',
@@ -19,10 +18,10 @@ export class PayrollComponent implements OnInit, OnDestroy {
   public payrollDashboard: PayrollDashboard[];
 
   constructor(
-    private backendService: BackendService,
     private store: Store<{ store: StoreInterface }>,
     private translate: TranslateService,
-    private payrollIcon: PayrollIconService
+    private payrollIcon: PayrollIconService,
+    private globalIcon: GlobalIconService
 
   ) { }
 
@@ -48,9 +47,7 @@ export class PayrollComponent implements OnInit, OnDestroy {
           }
         });
       })
-
   }
-
 
   ngOnDestroy(): void {
     this.destroy$.next();

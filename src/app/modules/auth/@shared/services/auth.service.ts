@@ -2,15 +2,13 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject, tap } from "rxjs";
 
-import { BackendService } from "../../../../shared/services/backend.service";
-import { select, Store } from "@ngrx/store";
+import { Store } from "@ngrx/store";
 import { StoreInterface } from "../../../../store/model/store.model";
 import { newUserID, setIsLoginRegisterData, setRegiset, startGetData } from "../../../../store/actions/store.actions";
 import { environment } from '../../../../../environment/environment';
 import { Router } from "@angular/router";
 import { User } from "../model/auth.model";
-import { setStartDashboarfInfo } from "../../../../shared/base/startData";
-import { selectUsers } from "../../../../store/selectors/store.selectors";
+import { setStartDashboarfInfo } from "../../../../shared/base/startData";import { BackendService } from "../../../../shared/services/backendAPI/backend.service";
 
 export interface AuthResponseData {
   idToken: string

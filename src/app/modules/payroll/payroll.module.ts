@@ -11,6 +11,9 @@ import { CreateSalaryComponent } from './@shared/components/create-salary/create
 import { SalaryPopupSerivce } from './@shared/services/salaryPopup.service';
 import { SalaryComponent } from './@shared/components/salary/salary.component';
 import { TaxComponent } from './@shared/components/tax/tax.component';
+import { SalaryPopupComponent } from './@shared/components/salary-popup/salary-popup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PayrollApiService } from '../../shared/services/backendAPI/payrollApi.service';
 
 const routes: Routes = [
   {
@@ -30,16 +33,20 @@ const routes: Routes = [
     ListComponent,
     CreateSalaryComponent,
     SalaryComponent,
-    TaxComponent
+    TaxComponent,
+    SalaryPopupComponent
   ],
   imports: [
     CommonModule,
     ShareModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   providers: [
     PayrollIconService,
-    SalaryPopupSerivce
+    SalaryPopupSerivce,
+    PayrollApiService
   ]
 })
 export class PayrollModule { }

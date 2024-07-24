@@ -6,8 +6,8 @@ import { combineLatest, take } from 'rxjs';
 import { selectMemoList, selectStaffMiniList, selectUserInfo } from '../../../../../store/selectors/store.selectors';
 import { StaffMiniList } from '../../../../../shared/interfaces/user.interface';
 import { MemoList } from '../../interfaces/memo.interface';
-import { BackendService } from '../../../../../shared/services/backend.service';
 import { Router } from '@angular/router';
+import { BackendService } from '../../../../../shared/services/backendAPI/backend.service';
 
 @Component({
   selector: 'app-popup-reviewed',

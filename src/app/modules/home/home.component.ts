@@ -9,8 +9,8 @@ import { User } from '../../shared/interfaces/user.interface';
 import { HeaderInfoPageInterface } from '../../shared/interfaces/headerInfoPage.interface';
 import { NavigationEnd, Router } from '@angular/router';
 import { HeaderIconService } from '../../shared/services/icons/headerIcon.service';
-import { BackendService } from '../../shared/services/backend.service';
 import { PopupService } from '../../shared/services/popup.service';
+import { BackendService } from '../../shared/services/backendAPI/backend.service';
 
 @Component({
   selector: 'app-home',

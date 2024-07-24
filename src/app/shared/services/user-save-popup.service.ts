@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { User } from "../interfaces/user.interface";
-import { BackendService } from "./backend.service";
 import { FirebaseStorageService } from "../../modules/st-sett-pr/@shared/services/firebaseStorage.service";
+import { BackendService } from "./backendAPI/backend.service";
 
 
 @Injectable()

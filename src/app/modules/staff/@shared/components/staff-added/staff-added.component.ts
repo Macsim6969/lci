@@ -6,9 +6,9 @@ import { selectMemoList, selectStaffMiniList, selectUserInfo } from '../../../..
 import { StaffMiniList, User } from '../../../../../shared/interfaces/user.interface';
 import { combineLatest, take } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BackendService } from '../../../../../shared/services/backend.service';
 import { PopupService } from '../../../../../shared/services/popup.service';
 import { MemoList } from '../../../../memo/@shared/interfaces/memo.interface';
+import { BackendService } from '../../../../../shared/services/backendAPI/backend.service';
 
 @Component({
   selector: 'app-staff-added',

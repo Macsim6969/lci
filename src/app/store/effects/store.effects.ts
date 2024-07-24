@@ -3,10 +3,9 @@ import { select, Store } from "@ngrx/store";
 import { StoreInterface } from "../model/store.model";
 import { Injectable } from "@angular/core";
 import { tap, withLatestFrom } from "rxjs";
-import { BackendService } from "../../shared/services/backend.service";
 import { startGetData } from "../actions/store.actions";
 import { selectUserId } from "../selectors/store.selectors";
-import { setStartDashboarfInfo } from "../../shared/base/startData";
+import { BackendService } from "../../shared/services/backendAPI/backend.service";
 
 @Injectable()
 export class AuthEffects {
