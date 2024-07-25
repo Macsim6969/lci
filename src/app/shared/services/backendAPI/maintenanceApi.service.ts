@@ -16,16 +16,16 @@ export class MaintenanceApiService {
     private store: Store<{ store: StoreInterface }>,) {
   }
 
-  public updateMaintenanceDashboard(data: SalaryDefinition) {
+  public updateMaintenanceDashboard(data: MaintanceList) {
     return this.http.post<MaintanceList[]>(`${this.baseUrl}/maintenance.json`, data).subscribe(() => {
       this.getMaintenanceDashboard();
     })
   }
 
-public getMaintenanceDashboard() {
-   return this.http.get<MaintanceList[]>(`${this.baseUrl}/maintenance.json`).subscribe((data) =>{
-      this.store.dispatch(setMaintenanceList({data: data}))
-      
+  public getMaintenanceDashboard() {
+    return this.http.get<MaintanceList[]>(`${this.baseUrl}/maintenance.json`).subscribe((data) => {
+      this.store.dispatch(setMaintenanceList({ data: data }))
+
     })
   }
 }

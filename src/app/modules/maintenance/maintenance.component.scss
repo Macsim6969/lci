@@ -1,6 +1,17 @@
-.maintenance{
+.maintenance {
   display: flex;
   flex-direction: column;
   gap: 16px;
   position: relative;
+
+  overflow-y: auto;
+  height: calc(90vh - 30px);
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to right, #14ADD6, #384295) !important;
+  }
 }

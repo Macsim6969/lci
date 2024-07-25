@@ -1,4 +1,21 @@
-<mat-card class="calendar-card">
-  <mat-calendar (click)="check(selected)" [(selected)]="selected"></mat-calendar>
-</mat-card>
-<p>Selected date: {{selected}}</p>
+<section class="scheduled">
+  <p>Scheduled Maintenance</p>
+  <div class="content">
+    <div class="calendar">
+      <mat-card class="calendar-card">
+        <mat-calendar 
+          (selectedChange)="check($event)" 
+          [(selected)]="selected"
+          [dateClass]="dateClass">
+        </mat-calendar>
+      </mat-card>
+    </div>
+    <div class="list">
+      <div *ngFor="let item of maintenance">
+        <p>{{item.date}}</p>
+        <p>{{item.number}} {{item.name}}</p>
+      </div>
+    </div>
+  </div>
+
+</section>

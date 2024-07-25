@@ -1,3 +1,26 @@
-.calendar-card{
-  width: 400px;
+.scheduled {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: #FFFFFF;
+  border-radius: 22px;
+  padding: 24px;
+
+  p {
+    font-size: 2.2rem;
+    color: #272525;
+    font-weight: 800;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+
+    .calendar {
+      .calendar-card {
+        width: 400px;
+      }
+    }
+  }
 }

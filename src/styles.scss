@@ -51,7 +51,7 @@ body {
   font-size: 10px;
   height: 100%;
   background-color: #F2F7FF;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -64,6 +64,22 @@ app-loading {
   align-items: center;
   height: 40vh;
 
+}
+
+.highlight-date {
+  position: relative;
+}
+
+.highlight-date::before {
+  content: '';
+  position: absolute;
+  top: 0 !important;
+  left: 83% !important;
+  transform: translateX(-50%);
+  width: 10px !important;
+  height: 10px !important;
+  background-color: #47a6dd !important;
+  border-radius: 50%;
 }
 
 @import url('./style/material.scss');

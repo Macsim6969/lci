@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MaintanceList } from '../../interfaces/maintenance.interface';
+import { MaintenanceApiService } from '../../../../../shared/services/backendAPI/maintenanceApi.service';
+import { PopupService } from '../../../../../shared/services/popup.service';
 
 @Component({
   selector: 'app-create',
@@ -10,7 +13,9 @@ import { Router } from '@angular/router';
 export class CreateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   constructor(
-    private router: Router
+    private router: Router,
+    private maintenanceApi: MaintenanceApiService,
+    private popupService: PopupService
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +32,17 @@ export class CreateComponent implements OnInit, OnDestroy {
     })
   }
 
-  public submit(){}
+  public submit(): void {
+    const newData: MaintanceList = {
+      ...this.form.value,
+      status: 'Open'
+    }
+
+    this.maintenanceApi.updateMaintenanceDashboard(newData).add(() => {
+      this.popupService._isOpenDone = true;
+      this.backTo();
+    });
+  }
 
   public backTo() {
     const memoElement = document.querySelector('.create_maintenance_popup');
