@@ -6,6 +6,7 @@ export interface MaintenanceDashboard {
 }
 
 export interface MaintanceList {
+  id: number
   name: string
   number: number
   date: Date

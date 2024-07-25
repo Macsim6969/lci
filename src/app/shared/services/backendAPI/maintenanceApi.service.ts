@@ -24,14 +24,19 @@ export class MaintenanceApiService {
 
   public getMaintenanceDashboard() {
     return this.http.get<MaintanceList[]>(`${this.baseUrl}/maintenance.json`).subscribe((data) => {
-      console.log(Object.values(data))
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
       const newData: MaintenanceDashboard = {
         scheduled: Object.values(data).length,
         completed: Object.values(data).filter(e => e.status === 'Complete').length,
         pending: Object.values(data).filter(e => e.status === 'Open').length,
-        overdue: Object.values(data).filter(e => e.date < new Date()).length
+        overdue: Object.values(data).filter(e => {
+          const taskDate = new Date(e.date);
+          taskDate.setHours(0, 0, 0, 0);
+          return taskDate < today;
+        }).length
       }
-      this.store.dispatch(setMaintenanceDashboardData({data: newData}));  
+      this.store.dispatch(setMaintenanceDashboardData({ data: newData }));
       this.store.dispatch(setMaintenanceList({ data: data }))
 
     })

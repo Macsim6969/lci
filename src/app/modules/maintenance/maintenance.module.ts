@@ -10,11 +10,13 @@ import { MaintenanceIconService } from './@shared/services/maintenanceIcon.servi
 import { HeaderCreateComponent } from './@shared/components/header-create/header-create.component';
 import { CreateComponent } from './@shared/components/create/create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewComponent } from './@shared/components/view/view.component';
 
 const routes: Routes = [
   {
     path: '', component: MaintenanceComponent, children: [
-      { path: 'create', component: CreateComponent }
+      { path: 'create', component: CreateComponent },
+      { path: ':id', component: ViewComponent}
     ]
   }
 ]
@@ -25,7 +27,8 @@ const routes: Routes = [
     ScheduledComponent,
     HeaderDashboardComponent,
     HeaderCreateComponent,
-    CreateComponent
+    CreateComponent,
+    ViewComponent
   ],
   imports: [
     CommonModule,

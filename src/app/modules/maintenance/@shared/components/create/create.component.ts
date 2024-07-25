@@ -35,6 +35,7 @@ export class CreateComponent implements OnInit {
   public submit(): void {
     const newData: MaintanceList = {
       ...this.form.value,
+      id: Math.floor(Math.random() * 90000 ) + 10000,
       status: 'Open'
     }
 
@@ -48,7 +49,6 @@ export class CreateComponent implements OnInit {
     const memoElement = document.querySelector('.create_maintenance_popup');
     const navigateToMemo = () => this.router.navigate(['/maintenance']);
     if (memoElement) {
-      console.log(memoElement)
       memoElement.classList.add('close_animation');
       memoElement.addEventListener('animationend', navigateToMemo, { once: true });
     } else {

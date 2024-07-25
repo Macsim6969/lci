@@ -1,0 +1,40 @@
+<div class="view_maintenance_popup">
+  <button mat-button (click)="backTo()">
+    <mat-icon svgIcon="arrow"></mat-icon>
+    <p>Back</p>
+  </button>
+  <div class="maintenance_popup">
+    <h2 class="title_edite">Schedule Maintenance</h2>
+
+    <div class="list" *ngIf="maintenanceView; else loading">
+      <div class="column">
+        <p class="title">Item name</p>
+        <p class="data">{{maintenanceView.name}}</p>
+      </div>
+      <div class="column">
+        <p class="title">Number</p>
+        <p class="data">{{maintenanceView.number}}</p>
+      </div>
+      <div class="column">
+        <p class="title">Date</p>
+        <p class="data">{{maintenanceView.date}}</p>
+      </div>
+      <div class="column">
+        <p class="title">Maintenance type</p>
+        <p class="data">{{maintenanceView.maintenanceType}}</p>
+      </div>
+      <div class="column">
+        <p class="title">Recurring type</p>
+        <p class="data">{{maintenanceView.option}}</p>
+      </div>
+      <div class="column">
+        <p class="title">Status</p>
+        <p class="data" [ngClass]="{'open': maintenanceView.status === 'Open', 'close': maintenanceView.status === 'Close'}">{{maintenanceView.status}}</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <app-loading></app-loading>
+  </ng-template>
+
+</div>

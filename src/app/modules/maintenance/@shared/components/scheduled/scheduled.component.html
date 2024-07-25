@@ -14,7 +14,7 @@
       <div class="task" *ngFor="let item of maintenance">
         <p class="date">{{item.date}}</p>
         <p class="title">{{item.number}}. {{item.name}}</p>
-        <button mat-button>View</button>
+        <button mat-button (click)="checkList(item.id)">View</button>
       </div>
     </div>
   </div>

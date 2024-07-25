@@ -1,16 +1,17 @@
-import { Component, ElementRef, model, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, model, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from '../../../../../store/model/store.model';
 import { selectMaintenanceList } from '../../../../../store/selectors/maintenance.selectors';
 import { Subject, takeUntil } from 'rxjs';
 import { MaintanceList } from '../../interfaces/maintenance.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scheduled',
   templateUrl: './scheduled.component.html',
   styleUrl: './scheduled.component.scss'
 })
-export class ScheduledComponent implements OnInit, OnDestroy {
+export class ScheduledComponent implements OnInit, AfterViewChecked, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
 
   public selected: Date | null = new Date();
@@ -20,7 +21,8 @@ export class ScheduledComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<{ store: StoreInterface }>,
     private renderer: Renderer2,
-    private el: ElementRef
+    private el: ElementRef,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -61,14 +63,13 @@ export class ScheduledComponent implements OnInit, OnDestroy {
 
   public check(value: Date) {
     if (value) {
-      console.log(value);
       const year = value.getFullYear();
       const month = String(value.getMonth() + 1).padStart(2, '0');
       const day = String(value.getDate()).padStart(2, '0');
       const formattedDate = `${year}-${month}-${day}`;
 
       this.maintenance = this.maintenanceList.filter(e => (e.date as any) === formattedDate)
-      .sort((a, b) => (a.number as number) - (b.number as number));;
+        .sort((a, b) => (a.number as number) - (b.number as number));;
     }
   }
 
@@ -80,6 +81,10 @@ export class ScheduledComponent implements OnInit, OnDestroy {
 
     return this.maintenanceList?.some(e => (e.date as any) === formattedDate) ? 'highlight-date' : '';
   };
+
+  public checkList(id: number) {
+    this.router.navigate([`/maintenance/${id}`]).then();
+  }
 
   ngOnDestroy(): void {
     this.destroy$.next();
