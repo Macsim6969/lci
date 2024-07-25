@@ -29,7 +29,10 @@
       </div>
       <div class="column">
         <p class="title">Status</p>
-        <p class="data" [ngClass]="{'open': maintenanceView.status === 'Open', 'close': maintenanceView.status === 'Close'}">{{maintenanceView.status}}</p>
+        <select (change)="onStatusChange($event)" [ngModel]="maintenanceView.status">
+          <option  class="open" value="Open">Open</option>
+          <option  class="close" value="Close">Close</option>
+        </select>
       </div>
     </div>
   </div>

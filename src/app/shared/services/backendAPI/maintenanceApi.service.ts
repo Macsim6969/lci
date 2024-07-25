@@ -22,6 +22,12 @@ export class MaintenanceApiService {
     })
   }
 
+  public updateMaintenanceList(key: string, data: MaintanceList) {
+    return this.http.put<MaintanceList[]>(`${this.baseUrl}/maintenance/${key}.json`, data).subscribe(() => {
+      this.getMaintenanceDashboard();
+    })
+  }
+
   public getMaintenanceDashboard() {
     return this.http.get<MaintanceList[]>(`${this.baseUrl}/maintenance.json`).subscribe((data) => {
       const today = new Date();

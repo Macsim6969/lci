@@ -59,28 +59,39 @@
     display: grid;
     grid-template-columns: 1fr 0.5fr 0.8fr 1fr 1fr 1fr;
 
-    .column{
+    .column {
       display: flex;
       flex-direction: column;
       gap: 8px;
 
-      .title{
+      .title {
         color: #272525;
         font-size: 1.6rem;
       }
 
-      .data{
+      .data {
         font-size: 1.8rem;
         color: #272525;
         font-weight: 800;
+      }
 
-        &.open{
-          color: #10A142;
-        }
+      select{
+        outline: none;
+        padding: 11px 25px 11px 10px;
+        border-radius: 16px;
+        background-color: #f2f2f2;
+      }
 
-        &.close{
-          color: rgb(219, 54, 54);
-        }
+      .open {
+        color: #10A142;
+        font-size: 1.6rem;
+        font-weight: 800;
+      }
+
+      .close {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: rgb(219, 54, 54);
       }
     }
   }
