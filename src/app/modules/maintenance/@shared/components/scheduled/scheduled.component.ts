@@ -13,8 +13,8 @@ import { MaintanceList } from '../../interfaces/maintenance.interface';
 export class ScheduledComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
 
-  public selected: Date | null;
-  private maintenanceList: MaintanceList[];
+  public selected: Date | null = new Date();
+  private maintenanceList: MaintanceList[] = [];
   public maintenance: MaintanceList[];
 
   constructor(
@@ -35,6 +35,7 @@ export class ScheduledComponent implements OnInit, OnDestroy {
     this.store.pipe(select(selectMaintenanceList), takeUntil(this.destroy$))
       .subscribe((data) => {
         this.maintenanceList = Object.values(data);
+        this.check(this.selected);
       })
   }
 
@@ -59,12 +60,16 @@ export class ScheduledComponent implements OnInit, OnDestroy {
   }
 
   public check(value: Date) {
-    const year = value.getFullYear();
-    const month = String(value.getMonth() + 1).padStart(2, '0');
-    const day = String(value.getDate()).padStart(2, '0');
-    const formattedDate = `${year}-${month}-${day}`;
+    if (value) {
+      console.log(value);
+      const year = value.getFullYear();
+      const month = String(value.getMonth() + 1).padStart(2, '0');
+      const day = String(value.getDate()).padStart(2, '0');
+      const formattedDate = `${year}-${month}-${day}`;
 
-    this.maintenance = this.maintenanceList.filter(e => (e.date as any) === formattedDate);
+      this.maintenance = this.maintenanceList.filter(e => (e.date as any) === formattedDate)
+      .sort((a, b) => (a.number as number) - (b.number as number));;
+    }
   }
 
   public dateClass(date: Date): string {

@@ -66,6 +66,12 @@ app-loading {
 
 }
 
+.mat-calendar-body-active {
+  &.highlight-date::before {
+    display: none;
+  }
+}
+
 .highlight-date {
   position: relative;
 }

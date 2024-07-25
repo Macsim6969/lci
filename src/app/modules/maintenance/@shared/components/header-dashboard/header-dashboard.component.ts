@@ -30,13 +30,13 @@ export class HeaderDashboardComponent implements OnInit, OnDestroy {
         this.maintenanceDashboard = dashboardData.map((item: any) => {
           switch (item.icon) {
             case 'scheduled':
-              return { ...item, total: totalData ? Object.values(totalData)[0].scheduled : 0 };
+              return { ...item, total: totalData ? totalData.scheduled : 0 };
             case 'completed':
-              return { ...item, total: totalData ? Object.values(totalData)[0]?.completed : 0 };
+              return { ...item, total: totalData ? totalData.completed : 0 };
             case 'pending':
-              return { ...item, total: totalData ? Object.values(totalData)[0]?.pending : 0 };
+              return { ...item, total: totalData ? totalData.pending : 0 };
             case 'overdue':
-              return { ...item, total: totalData ? Object.values(totalData)[0]?.overdue : 0 };
+              return { ...item, total: totalData ? totalData.overdue : 0 };
             default:
               return item;
           }

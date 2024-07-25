@@ -11,9 +11,10 @@
       </mat-card>
     </div>
     <div class="list">
-      <div *ngFor="let item of maintenance">
-        <p>{{item.date}}</p>
-        <p>{{item.number}} {{item.name}}</p>
+      <div class="task" *ngFor="let item of maintenance">
+        <p class="date">{{item.date}}</p>
+        <p class="title">{{item.number}}. {{item.name}}</p>
+        <button mat-button>View</button>
       </div>
     </div>
   </div>

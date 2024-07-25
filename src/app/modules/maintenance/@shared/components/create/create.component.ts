@@ -10,7 +10,7 @@ import { PopupService } from '../../../../../shared/services/popup.service';
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
-export class CreateComponent implements OnInit, OnDestroy {
+export class CreateComponent implements OnInit {
   public form: FormGroup;
   constructor(
     private router: Router,
@@ -56,7 +56,4 @@ export class CreateComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy(): void {
-
-  }
 }
