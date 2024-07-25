@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SalaryDefinition } from '../../interfaces/salary.interface';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from '../../../../../store/model/store.model';
-import { selectPayrollSalary } from '../../../../../store/selectors/payroll.select';
+import { selectPayrollSalary } from '../../../../../store/selectors/payroll.selectors';
 import { PayrollApiService } from '../../../../../shared/services/backendAPI/payrollApi.service';
 import { PopupService } from '../../../../../shared/services/popup.service';
 

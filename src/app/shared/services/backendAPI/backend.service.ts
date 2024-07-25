@@ -4,15 +4,15 @@ import { Store } from "@ngrx/store";
 import { User } from "../../interfaces/user.interface";
 import { setUserData, setUsers } from "../../../store/actions/store.actions";
 import { StoreInterface } from "../../../store/model/store.model";
-import { setStaffMiniList, setStaffUserProfile } from "../../../store/actions/staff.action";
+import { setStaffMiniList, setStaffUserProfile } from "../../../store/actions/staff.actions";
 import { DashboardTotalInfo } from "../../../modules/dashboard/@shared/interfaces/dashboard.interface";
 import { setDashbordInfo } from "../../../store/actions/dashboard.actions";
 import { sendMemoData } from "../../../store/actions/memo.actions";
 import { MemoList } from "../../../modules/memo/@shared/interfaces/memo.interface";
 import { PaymentVouchers } from "../../../modules/payment-vouchers/@shared/interfaces/paymentsVouchers.interface";
-import { setPaymentsVouchers } from "../../../store/actions/paymentVouchers.action";
+import { setPaymentsVouchers } from "../../../store/actions/paymentVouchers.actions";
 import { PayrollData } from "../../../modules/payroll/@shared/interfaces/payroll.interface";
-import { setPayroallDashboard } from "../../../store/actions/payroll.action";
+import { setPayroallDashboard } from "../../../store/actions/payroll.actions";
 
 @Injectable({ providedIn: 'root' })
 

@@ -3,9 +3,10 @@ import { StoreInterface } from "../model/store.model";
 import { newUserID, setIsLoginRegisterData, setUserData, setUsers } from "../actions/store.actions";
 import { setDashbordInfo } from "../actions/dashboard.actions";
 import { sendMemoData } from "../actions/memo.actions";
-import { setStaffMiniList, setStaffUserProfile } from "../actions/staff.action";
-import { setPaymentsVouchers } from "../actions/paymentVouchers.action";
-import { setPayroallDashboard, setPayroallSalary } from "../actions/payroll.action";
+import { setStaffMiniList, setStaffUserProfile } from "../actions/staff.actions";
+import { setPaymentsVouchers } from "../actions/paymentVouchers.actions";
+import { setPayroallDashboard, setPayroallSalary } from "../actions/payroll.actions";
+import { setMaintenanceDashboardData, setMaintenanceList } from "../actions/maintenance.actions";
 
 
 export const store: StoreInterface = {
@@ -19,7 +20,9 @@ export const store: StoreInterface = {
   staffMiniList: [],
   paymentsVouchers: [],
   payrollDashboard: null,
-  payrollSalary: []
+  payrollSalary: [],
+  maintenanceDashboard: null,
+  maintenanceList: []
 }
 
 export const storeReducers = createReducer(store,
@@ -55,5 +58,11 @@ export const storeReducers = createReducer(store,
   }),
   on(setPayroallSalary, (state, action) => {
     return { ...state, payrollSalary: action.data }
+  }),
+  on(setMaintenanceDashboardData, (state, action) => {
+    return { ...state, maintenanceDashboard: action.data }
+  }),
+  on(setMaintenanceList, (state, action) => {
+    return { ...state, maintenanceList: action.data }
   })
 )

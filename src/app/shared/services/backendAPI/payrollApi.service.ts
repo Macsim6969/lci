@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { StoreInterface } from "../../../store/model/store.model";
 import { SalaryDefinition } from "../../../modules/payroll/@shared/interfaces/salary.interface";
-import { setPayroallSalary } from "../../../store/actions/payroll.action";
+import { setPayroallSalary } from "../../../store/actions/payroll.actions";
 
 
 @Injectable({

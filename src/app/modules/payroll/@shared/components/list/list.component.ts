@@ -5,7 +5,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { SalaryPopupSerivce } from '../../services/salaryPopup.service';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from '../../../../../store/model/store.model';
-import { selectPayrollSalary } from '../../../../../store/selectors/payroll.select';
+import { selectPayrollSalary } from '../../../../../store/selectors/payroll.selectors';
 
 @Component({
   selector: 'app-list',

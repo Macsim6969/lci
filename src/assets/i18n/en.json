@@ -71,6 +71,12 @@
       "icon": "memo",
       "title": "Create Memo",
       "descr": "Create and send memos to designated offices"
+    },
+    {
+      "url": "/maintenance",
+      "icon": "maintenance",
+      "title": "Maintenance",
+      "descr": "View and create schedule for maintenance"
     }
   ],
   "menuNavigation": [
@@ -98,6 +104,11 @@
       "link": "memo",
       "title": "Memo",
       "route": "/memo"
+    },
+    {
+      "link": "maintenance",
+      "title": "Maintenance",
+      "route": "/maintenance"
     }
   ],
   "dashboard": [
@@ -266,33 +277,101 @@
       }
     ],
     "salary": [
-      {"title": "S/N"},
-      {"title": "Title"},
-      {"title": "Level"},
-      {"title": "Basic Salary"},
-      {"title": "Allowance"},
-      {"title": "Gross Salary"},
-      {"title": "Deductions"},
-      {"title": "Net Salary"}
+      {
+        "title": "S/N"
+      },
+      {
+        "title": "Title"
+      },
+      {
+        "title": "Level"
+      },
+      {
+        "title": "Basic Salary"
+      },
+      {
+        "title": "Allowance"
+      },
+      {
+        "title": "Gross Salary"
+      },
+      {
+        "title": "Deductions"
+      },
+      {
+        "title": "Net Salary"
+      }
     ]
   },
   "jobPositions": [
-    {"title": "Managing Director"},
-    {"title": "Executive Director"},
-    {"title": "General Manager"},
-    {"title": "Deputy General Manager"},
-    {"title": "Asst. General Manager"},
-    {"title": "Principal Manager"},
-    {"title": "Seniout Manager"},
-    {"title": "Manager"},
-    {"title": "Deputy Manager"},
-    {"title": "Snr. Ececutive Officer"},
-    {"title": "Middle Angular"}
+    {
+      "title": "Managing Director"
+    },
+    {
+      "title": "Executive Director"
+    },
+    {
+      "title": "General Manager"
+    },
+    {
+      "title": "Deputy General Manager"
+    },
+    {
+      "title": "Asst. General Manager"
+    },
+    {
+      "title": "Principal Manager"
+    },
+    {
+      "title": "Seniout Manager"
+    },
+    {
+      "title": "Manager"
+    },
+    {
+      "title": "Deputy Manager"
+    },
+    {
+      "title": "Snr. Ececutive Officer"
+    },
+    {
+      "title": "Middle Angular"
+    }
   ],
   "jobLevel": [
-    {"title": "MD/CEO"},
-    {"title": "ED"},
-    {"title": "GM"},
-    {"title": "DGM"}
+    {
+      "title": "MD/CEO"
+    },
+    {
+      "title": "ED"
+    },
+    {
+      "title": "GM"
+    },
+    {
+      "title": "DGM"
+    }
+  ],
+  "dashboardMaintenance": [
+    {
+      "icon": "scheduled",
+      "total": "0",
+      "title": "Scheduled maintenance"
+    },
+    {
+      "icon": "completed",
+      "total": "0",
+      "title": "Completed maintenance"
+    },
+    {
+      "icon": "pending",
+      "total": "0",
+      "title": "Pending maintenance"
+    },
+    {
+      "icon": "overdue",
+      "total": "0",
+      "title": "Overdue maintenance"
+    }
   ]
 }

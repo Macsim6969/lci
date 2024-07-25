@@ -15,6 +15,7 @@ import { PopupService } from './shared/services/popup.service';
 import { UserSavePopupService } from './shared/services/user-save-popup.service';
 import { StaffAddedService } from './shared/services/staffAdded.service';
 import { StaffViewService } from './shared/services/staffView.service';
+import { MaintenanceApiService } from './shared/services/backendAPI/maintenanceApi.service';
 
 
 
@@ -37,7 +38,8 @@ import { StaffViewService } from './shared/services/staffView.service';
     PopupService,
     UserSavePopupService,
     StaffAddedService,
-    StaffViewService
+    StaffViewService,
+    MaintenanceApiService
   ],
   bootstrap: [AppComponent]
 })

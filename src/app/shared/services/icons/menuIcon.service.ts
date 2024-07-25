@@ -12,5 +12,6 @@ export class MenuIconService {
     this.matIconRegistry.addSvgIcon('staff', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/menu/staff.svg'));
     this.matIconRegistry.addSvgIcon('memo', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/menu/memo.svg'));
     this.matIconRegistry.addSvgIcon('payroll', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/menu/payroll.svg'));
+    this.matIconRegistry.addSvgIcon('maintenance', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/menu/maintenance.svg'));
   }
 }

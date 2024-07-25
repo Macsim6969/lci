@@ -5,7 +5,7 @@ export interface PayrollData {
   loan: number
 }
 
-export interface PayrollDashboard{
+export interface Dashboard{
   title: string
   total: number
   icon: string

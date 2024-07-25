@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PayrollDashboard } from '../../interfaces/payroll.interface';
+import { Dashboard } from '../../interfaces/payroll.interface';
 
 @Component({
   selector: 'app-payroll-header',
@@ -7,7 +7,7 @@ import { PayrollDashboard } from '../../interfaces/payroll.interface';
   styleUrls: ['./payroll-header.component.scss', '../../../../../shared/styles/dashboard.scss']
 })
 export class PayrollHeaderComponent {
-  @Input() dashboardInfo: PayrollDashboard[]
+  @Input() dashboardInfo: Dashboard[]
 
   constructor() { }
 

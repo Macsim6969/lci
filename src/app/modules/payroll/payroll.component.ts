@@ -2,11 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from '../../store/model/store.model';
 import { combineLatest, Subject, takeUntil } from 'rxjs';
-import { PayrollDashboard } from './@shared/interfaces/payroll.interface';
+import { Dashboard } from './@shared/interfaces/payroll.interface';
 import { PayrollIconService } from '../../shared/services/icons/payrollIcon.service';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalIconService } from '../../shared/services/icons/globalIcon.service';
-import { selectPayroll } from '../../store/selectors/payroll.select';
+import { selectPayroll } from '../../store/selectors/payroll.selectors';
 
 @Component({
   selector: 'app-payroll',
@@ -15,7 +15,7 @@ import { selectPayroll } from '../../store/selectors/payroll.select';
 })
 export class PayrollComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
-  public payrollDashboard: PayrollDashboard[];
+  public payrollDashboard: Dashboard[];
 
   constructor(
     private store: Store<{ store: StoreInterface }>,

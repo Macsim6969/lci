@@ -7,6 +7,7 @@ import { startGetData } from "../actions/store.actions";
 import { selectUserId } from "../selectors/store.selectors";
 import { BackendService } from "../../shared/services/backendAPI/backend.service";
 import { PayrollApiService } from "../../shared/services/backendAPI/payrollApi.service";
+import { MaintenanceApiService } from "../../shared/services/backendAPI/maintenanceApi.service";
 
 @Injectable()
 export class AuthEffects {
@@ -24,6 +25,8 @@ export class AuthEffects {
         this.backendService.getPaymentVouchers();
         this.backendService.getPayrollData();
         this.payrollApi.getPayrollSalary();
+        this.maintenanceApi.getMaintenanceDashboard();
+        
       })
     )
     ,
@@ -33,7 +36,8 @@ export class AuthEffects {
   constructor(private actions$: Actions,
     private store: Store<{ store: StoreInterface }>,
     private backendService: BackendService,
-    private payrollApi: PayrollApiService
+    private payrollApi: PayrollApiService,
+    private maintenanceApi: MaintenanceApiService
   ) { }
 
 }
