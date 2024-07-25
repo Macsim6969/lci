@@ -1,0 +1,41 @@
+<div class="create_maintenance_popup">
+  <button mat-button (click)="backTo()">
+    <mat-icon svgIcon="arrow"></mat-icon>
+    <p>Back</p>
+  </button>
+  <div class="maintenance_popup">
+    <h2 class="title_edite">Schedule Maintenance</h2>
+    <p>Kindly fill on the form below to schedule a maintenance</p>
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="column">
+        <label>Item Name</label>
+        <input type="text" placeholder="Select item" formControlName="name">
+      </div>
+      <div class="column">
+        <label>Number</label>
+        <select formControlName="number">
+          <option [value]="1">1</option>
+          <option [value]="2">2</option>
+          <option [value]="3">3</option>
+          <option [value]="4">4</option>
+          <option [value]="5">5</option>
+        </select>
+      </div>
+      <div class="column">
+        <label>Date</label>
+        <input type="date" formControlName="date">
+      </div>
+      <div class="column">
+        <label>Maintenance type</label>
+        <input type="text" placeholder="Select option" formControlName="maintenanceType">
+      </div>
+      <div class="column">
+        <label>Recurring option</label>
+        <input type="text" placeholder="Select option" formControlName="option">
+      </div>
+      <div class="action">
+        <button mat-button type="submit">Schedule Maintenance</button>
+      </div>
+    </form>
+  </div>
+</div>

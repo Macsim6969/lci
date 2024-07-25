@@ -11,4 +11,5 @@ export interface MaintanceList {
   date: Date
   maintenanceType: string
   option: string
+  status?: string
 }

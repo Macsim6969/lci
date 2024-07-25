@@ -14,7 +14,7 @@ import { selectMaintenanceDashboard, selectMaintenanceList } from '../../../../.
 export class HeaderDashboardComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   public maintenanceDashboard: Dashboard[];
- 
+
   constructor(
     private translate: TranslateService,
     private store: Store<{ store: StoreInterface }>
@@ -30,13 +30,13 @@ export class HeaderDashboardComponent implements OnInit, OnDestroy {
         this.maintenanceDashboard = dashboardData.map((item: any) => {
           switch (item.icon) {
             case 'scheduled':
-              return { ...item, total: Object.values(totalData)[0] ? Object.values(totalData)[0].scheduled : 0 };
+              return { ...item, total: totalData ? Object.values(totalData)[0].scheduled : 0 };
             case 'completed':
-              return { ...item, total: Object.values(totalData)[0] ? Object.values(totalData)[0]?.completed : 0 };
+              return { ...item, total: totalData ? Object.values(totalData)[0]?.completed : 0 };
             case 'pending':
-              return { ...item, total: Object.values(totalData)[0] ? Object.values(totalData)[0]?.pending : 0 };
+              return { ...item, total: totalData ? Object.values(totalData)[0]?.pending : 0 };
             case 'overdue':
-              return { ...item, total: Object.values(totalData)[0] ? Object.values(totalData)[0]?.overdue : 0 };
+              return { ...item, total: totalData ? Object.values(totalData)[0]?.overdue : 0 };
             default:
               return item;
           }

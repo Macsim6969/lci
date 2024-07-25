@@ -77,6 +77,18 @@
       "icon": "maintenance",
       "title": "Maintenance",
       "descr": "View and create schedule for maintenance"
+    },
+    {
+      "url": "/maintenance/create",
+      "icon": "maintenance",
+      "title": "Schedule Maintenance",
+      "descr": "Schedule a maintenance for future use."
+    },
+    {
+      "url": "/maintenance/view",
+      "icon": "maintenance",
+      "title": "Schedule Maintenance",
+      "descr": "Schedule a maintenance for future use."
     }
   ],
   "menuNavigation": [

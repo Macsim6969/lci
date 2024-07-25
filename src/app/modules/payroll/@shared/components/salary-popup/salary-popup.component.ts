@@ -58,7 +58,6 @@ export class SalaryPopupComponent implements OnInit, OnDestroy {
 
     this.store.pipe(select(selectPayrollSalary), take(1))
       .subscribe((data) => {
-        console.log(this.form.value);
         const newDate: SalaryDefinition = {
           ...this.form.value,
           id: Object.values(data).length + 1

@@ -7,21 +7,31 @@ import { ScheduledComponent } from './@shared/components/scheduled/scheduled.com
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { HeaderDashboardComponent } from './@shared/components/header-dashboard/header-dashboard.component';
 import { MaintenanceIconService } from './@shared/services/maintenanceIcon.service';
-import { DashboardModule } from '../dashboard/dashboard.module';
+import { HeaderCreateComponent } from './@shared/components/header-create/header-create.component';
+import { CreateComponent } from './@shared/components/create/create.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
-  {path: '', component: MaintenanceComponent}
+  {
+    path: '', component: MaintenanceComponent, children: [
+      { path: 'create', component: CreateComponent }
+    ]
+  }
 ]
 
 @NgModule({
   declarations: [
     MaintenanceComponent,
     ScheduledComponent,
-    HeaderDashboardComponent
+    HeaderDashboardComponent,
+    HeaderCreateComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,
     ShareModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   providers: [

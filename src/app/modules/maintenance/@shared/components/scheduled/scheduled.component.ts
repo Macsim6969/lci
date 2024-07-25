@@ -7,4 +7,8 @@ import { Component, model } from '@angular/core';
 })
 export class ScheduledComponent {
   selected: Date | null;
+
+  public check(value: Date){
+    console.log(value)
+  }
 }

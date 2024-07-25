@@ -1,0 +1,152 @@
+.create_maintenance_popup {
+  position: absolute;
+  inset: 0;
+  animation: 1s open;
+  background-color: #F2F7FF;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+
+  overflow-y: auto;
+  z-index: 99;
+  height: calc(100vh - 150px);
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to right, #14ADD6, #384295) !important;
+  }
+
+
+  button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    width: 100px;
+
+    mat-icon {
+      height: 16px;
+      transform: rotate(90deg);
+    }
+
+    ::ng-deep p {
+      background-image: linear-gradient(to right, #14ADD6, #384295);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 1.6rem;
+    }
+  }
+
+  .maintenance_popup{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 22px;
+    .title_edite{
+      font-size: 2.4rem;
+      color: #272525;
+      padding-bottom: 8px;
+    }
+
+    p{
+      color: #272525;
+      font-size: 1.8rem;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 40px;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 40%;
+
+      label {
+        color: #121212;
+        font-size: 1.8rem;
+      }
+
+      select,
+      input {
+        padding: 13px 0 13px 13px;
+        background-color: transparent;
+        outline: none;
+        border: 1px solid #A3A3A3;
+        border-radius: 12px;
+        font-size: 1.8rem;
+      }
+    }
+
+    .textarea {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 720px;
+      width: 100%;
+      font-size: 1.8rem;
+
+      textarea,
+      label {
+        color: #121212;
+        font-size: 1.8rem;
+      }
+    }
+
+    .action {
+      margin-top: 46px;
+
+      button {
+        border-radius: 12px;
+        outline: none;
+        border: 1px solid #384295;
+        padding: 11px 0;
+        width: 350px;
+        height: 100%;
+
+        ::ng-deep span {
+          font-size: 1.8rem;
+          background-image: linear-gradient(to right, #14ADD6, #384295);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+      }
+    }
+  }
+
+}
+
+@keyframes open {
+  from {
+    transform: translateX(3000px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes close {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(3000px);
+  }
+}
+
+.close_animation {
+  animation: 1s close forwards;
+}
