@@ -89,6 +89,12 @@
       "icon": "maintenance",
       "title": "Schedule Maintenance",
       "descr": "Schedule a maintenance for future use."
+    },
+    {
+      "url": "/notifications",
+      "icon": "notifications",
+      "title": "Notifications",
+      "descr": "View and create schedule for maintenance"
     }
   ],
   "menuNavigation": [
@@ -121,6 +127,11 @@
       "link": "maintenance",
       "title": "Maintenance",
       "route": "/maintenance"
+    },
+    {
+      "link": "notifications",
+      "title": "Notifications",
+      "route": "/notifications"
     }
   ],
   "dashboard": [
