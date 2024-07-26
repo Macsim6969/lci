@@ -27,7 +27,8 @@ const routes: Routes = [
       { path: 'payroll', loadChildren: () => import('../payroll/payroll.module').then((m) => m.PayrollModule) },
       { path: 'memo', loadChildren: () => import('../memo/memo.module').then((m) => m.MemoModule) },
       { path: 'maintenance', loadChildren: () => import('../maintenance/maintenance.module').then((m) => m.MaintenanceModule) },
-      { path: 'notifications', loadChildren: () => import('../notifications/notifications.module').then((m) => m.NotificationsModule) }
+      { path: 'notifications', loadChildren: () => import('../notifications/notifications.module').then((m) => m.NotificationsModule) },
+      { path: 'settings', loadChildren: () => import('../settings/settings.module').then((m) => m.SettingsModule) }
     ]
   }
 ]

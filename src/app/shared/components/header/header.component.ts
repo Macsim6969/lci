@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (url === 'profile') {
       this.setRouteToProfile();
     } else if (url === 'settings') {
-      return
+      this.router.navigate(['/settings']).then();
     } else if (url === 'logout') {
       this.authService.logout();
       this.router.navigate(['/auth/login']).then();

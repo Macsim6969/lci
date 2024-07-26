@@ -18,7 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { PopupConfirmedComponent } from "../components/popup-confirmed/popup-confirmed.component";
 import { SalaryPipe } from "../pipe/salary.pipe";
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from "@angular/material/core";
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import { provideNativeDateAdapter } from "@angular/material/core";
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSliderModule
   ],
   exports: [
     MatListModule,
@@ -60,7 +61,8 @@ import { provideNativeDateAdapter } from "@angular/material/core";
     MatFormFieldModule,
     MatDatepickerModule,
     PopupConfirmedComponent,
-    SalaryPipe
+    SalaryPipe,
+    MatSliderModule
   ]
 })
 

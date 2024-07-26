@@ -5,15 +5,41 @@ import { Store } from "@ngrx/store";
 import { StoreInterface } from "../../../store/model/store.model";
 import { SalaryDefinition } from "../../../modules/payroll/@shared/interfaces/salary.interface";
 import { MaintanceList, MaintenanceDashboard } from '../../../modules/maintenance/@shared/interfaces/maintenance.interface';
+import { getDatabase, onValue, ref } from 'firebase/database';
 
 
 @Injectable()
 
 export class MaintenanceApiService {
   private baseUrl = 'https://lcii-cd674-default-rtdb.firebaseio.com';
+  private db = getDatabase();
   constructor(
     private http: HttpClient,
     private store: Store<{ store: StoreInterface }>,) {
+    this.setupRealtimeListeners();
+  }
+
+  private setupRealtimeListeners() {
+    const maintenanceRef = ref(this.db, 'maintenance');
+    onValue(maintenanceRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const newData: MaintenanceDashboard = {
+          scheduled: Object.values(data).length,
+          completed: Object.values((data as MaintanceList)).filter(e => e.status === 'Close').length,
+          pending: Object.values((data as MaintanceList)).filter(e => e.status === 'Open').length,
+          overdue: Object.values((data as MaintanceList)).filter(e => {
+            const taskDate = new Date(e.date);
+            taskDate.setHours(0, 0, 0, 0);
+            return taskDate < today;
+          }).length
+        };
+        this.store.dispatch(setMaintenanceDashboardData({ data: newData }));
+        this.store.dispatch(setMaintenanceList({ data: Object.values(data) }));
+      }
+    });
   }
 
   public updateMaintenanceDashboard(data: MaintanceList) {
@@ -34,7 +60,7 @@ export class MaintenanceApiService {
       today.setHours(0, 0, 0, 0);
       const newData: MaintenanceDashboard = {
         scheduled: Object.values(data).length,
-        completed: Object.values(data).filter(e => e.status === 'Complete').length,
+        completed: Object.values(data).filter(e => e.status === 'Close').length,
         pending: Object.values(data).filter(e => e.status === 'Open').length,
         overdue: Object.values(data).filter(e => {
           const taskDate = new Date(e.date);

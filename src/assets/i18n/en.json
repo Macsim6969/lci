@@ -94,7 +94,13 @@
       "url": "/notifications",
       "icon": "notifications",
       "title": "Notifications",
-      "descr": "View and create schedule for maintenance"
+      "descr": "Read and delete notifications."
+    },
+    {
+      "url": "/settings",
+      "icon": "maintenance",
+      "title": "Settings",
+      "descr": "Change your page."
     }
   ],
   "menuNavigation": [

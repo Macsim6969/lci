@@ -40,6 +40,7 @@ export class ViewComponent implements OnInit, OnDestroy {
       .subscribe(([route, list]) => {
         this.maintenanceView = Object.values(list).filter(e => e.id === +route['id'])[0];
         this.key = Object.keys(list).filter(e => list[e].id === +route['id'])[0];
+        console.log( Object.keys(list).filter(e => list[e].id === +route['id']))
       });
   }
 
