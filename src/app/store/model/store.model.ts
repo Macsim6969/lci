@@ -1,6 +1,7 @@
 import { DashboardTotalInfo } from "../../modules/dashboard/@shared/interfaces/dashboard.interface"
 import { MaintanceList, MaintenanceDashboard } from "../../modules/maintenance/@shared/interfaces/maintenance.interface"
 import { MemoList } from "../../modules/memo/@shared/interfaces/memo.interface"
+import { Notification } from "../../modules/notifications/@shared/interfaces/notification.interface"
 import { PaymentVouchers } from "../../modules/payment-vouchers/@shared/interfaces/paymentsVouchers.interface"
 import { PayrollData } from "../../modules/payroll/@shared/interfaces/payroll.interface"
 import { SalaryDefinition } from "../../modules/payroll/@shared/interfaces/salary.interface"
@@ -20,4 +21,5 @@ export interface StoreInterface {
   payrollSalary: SalaryDefinition[]
   maintenanceDashboard: MaintenanceDashboard
   maintenanceList: MaintanceList[]
+  notificationsList: Notification[]
 }

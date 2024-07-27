@@ -1,0 +1,23 @@
+<section class="notification">
+  <div class="notification_header">
+    <h3>Notification</h3>
+    <button mat-button (click)="mark()">Mark All As Read</button>
+  </div>
+  <div class="notification_list">
+    <div class="notification_list_data" [ngClass]="{'active': !notification.read}" *ngFor="let notification of notificationList">
+      <div class="data_content">
+        <nav class="content_avatar">
+          <img src="" alt="">
+        </nav>
+        <div class="content_title">
+          <p class="title">{{notification.description}}</p>
+          <p class="time">{{formatTimeAgo(notification.date)}}</p>
+        </div>
+        <div class="content_indificator"></div>
+      </div>
+      <div class="action">
+
+      </div>
+    </div>
+  </div>
+</section>

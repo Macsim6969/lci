@@ -1,11 +1,14 @@
 import { setMaintenanceDashboardData, setMaintenanceList } from './../../../store/actions/maintenance.actions';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Store } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
 import { StoreInterface } from "../../../store/model/store.model";
-import { SalaryDefinition } from "../../../modules/payroll/@shared/interfaces/salary.interface";
 import { MaintanceList, MaintenanceDashboard } from '../../../modules/maintenance/@shared/interfaces/maintenance.interface';
 import { getDatabase, onValue, ref } from 'firebase/database';
+import { Notification } from '../../../modules/notifications/@shared/interfaces/notification.interface';
+import { selectUserInfo } from '../../../store/selectors/store.selectors';
+import { take } from 'rxjs';
+import { NotificationApiService } from './notificationApi.service';
 
 
 @Injectable()
@@ -15,7 +18,9 @@ export class MaintenanceApiService {
   private db = getDatabase();
   constructor(
     private http: HttpClient,
-    private store: Store<{ store: StoreInterface }>,) {
+    private store: Store<{ store: StoreInterface }>,
+    private notificationApi: NotificationApiService
+  ) {
     this.setupRealtimeListeners();
   }
 
@@ -67,6 +72,26 @@ export class MaintenanceApiService {
           taskDate.setHours(0, 0, 0, 0);
           return taskDate < today;
         }).length
+      }
+      const isKey = JSON.parse(localStorage.getItem('isMaintenanceCheck'));
+      if (newData.overdue > 0 && !isKey) {
+        this.store.pipe(select(selectUserInfo), take(1)).subscribe((data) => {
+          localStorage.setItem('dateNow', JSON.stringify(new Date()));
+          const notificationData: Notification = {
+            id: Math.floor(Math.random() * 9000) + 1000,
+            date: new Date(),
+            title: 'Meintanance data',
+            description: `You have ${newData.overdue} overdue maintenance`,
+            read: false,
+            sendFrom: 'AI',
+            sendTo: data?.name + ' ' + data?.lastName
+          }
+          this.notificationApi.updateNotification(data.userID, notificationData).add(() => {
+            localStorage.setItem('isMaintenanceCheck', JSON.stringify(true));
+          });
+        })
+
+
       }
       this.store.dispatch(setMaintenanceDashboardData({ data: newData }));
       this.store.dispatch(setMaintenanceList({ data: data }))

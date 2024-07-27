@@ -7,6 +7,7 @@ import { setStaffMiniList, setStaffUserProfile } from "../actions/staff.actions"
 import { setPaymentsVouchers } from "../actions/paymentVouchers.actions";
 import { setPayroallDashboard, setPayroallSalary } from "../actions/payroll.actions";
 import { setMaintenanceDashboardData, setMaintenanceList } from "../actions/maintenance.actions";
+import { sendNotificationData } from "../actions/notification.actions";
 
 
 export const store: StoreInterface = {
@@ -22,7 +23,8 @@ export const store: StoreInterface = {
   payrollDashboard: null,
   payrollSalary: [],
   maintenanceDashboard: null,
-  maintenanceList: []
+  maintenanceList: [],
+  notificationsList: []
 }
 
 export const storeReducers = createReducer(store,
@@ -64,5 +66,8 @@ export const storeReducers = createReducer(store,
   }),
   on(setMaintenanceList, (state, action) => {
     return { ...state, maintenanceList: action.data }
+  }),
+  on(sendNotificationData, (state, action) => {
+    return { ...state, notificationsList: action.data }
   })
 )

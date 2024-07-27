@@ -20,6 +20,6 @@ export class SettingsComponent {
     const value = event.target.ariaValueText;
     setTimeout(() => {
       document.documentElement.style.fontSize = `${value}px`;
-    }, 850);
+    }, 300);
   }
 }
