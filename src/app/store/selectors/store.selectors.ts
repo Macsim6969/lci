@@ -11,4 +11,4 @@ export const selectStaffMiniList = (store: {store: StoreInterface}) => store.sto
 export const selectUsersProfile = (store: {store: StoreInterface}) => store.store.allUsersProfile;
 export const selectPaymentsVouchers = (store: {store: StoreInterface}) => store.store.paymentsVouchers;
 
-export const selectNotifications = (store: {store: StoreInterface}) => store.store.notificationsList
+export const selectNotifications = (store: {store: StoreInterface}) => store.store.notificationsList;

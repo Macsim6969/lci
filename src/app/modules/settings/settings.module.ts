@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShareModule } from '../../shared/module/share.module';
 import { SettingsTabsComponent } from './@shared/components/settings-tabs/settings-tabs.component';
 import { SizeComponent } from './@shared/components/size/size.component';
+import { SettingsApiService } from '../../shared/services/backendAPI/settingApi.service';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -23,6 +25,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     ShareModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ]
 })

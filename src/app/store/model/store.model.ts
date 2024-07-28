@@ -5,6 +5,7 @@ import { Notification } from "../../modules/notifications/@shared/interfaces/not
 import { PaymentVouchers } from "../../modules/payment-vouchers/@shared/interfaces/paymentsVouchers.interface"
 import { PayrollData } from "../../modules/payroll/@shared/interfaces/payroll.interface"
 import { SalaryDefinition } from "../../modules/payroll/@shared/interfaces/salary.interface"
+import { Settings } from "../../modules/settings/@shared/interfaces/settings.interface"
 import { StaffMiniList, User } from "../../shared/interfaces/user.interface"
 
 export interface StoreInterface {
@@ -22,4 +23,5 @@ export interface StoreInterface {
   maintenanceDashboard: MaintenanceDashboard
   maintenanceList: MaintanceList[]
   notificationsList: Notification[]
+  settingsData: Settings
 }

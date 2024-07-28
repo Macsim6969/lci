@@ -17,6 +17,7 @@ import { StaffAddedService } from './shared/services/staffAdded.service';
 import { StaffViewService } from './shared/services/staffView.service';
 import { MaintenanceApiService } from './shared/services/backendAPI/maintenanceApi.service';
 import { NotificationApiService } from './shared/services/backendAPI/notificationApi.service';
+import { SettingsApiService } from './shared/services/backendAPI/settingApi.service';
 
 
 
@@ -41,7 +42,8 @@ import { NotificationApiService } from './shared/services/backendAPI/notificatio
     StaffAddedService,
     StaffViewService,
     MaintenanceApiService,
-    NotificationApiService
+    NotificationApiService,
+    SettingsApiService
   ],
   bootstrap: [AppComponent]
 })
