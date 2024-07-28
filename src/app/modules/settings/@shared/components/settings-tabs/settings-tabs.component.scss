@@ -1,0 +1,23 @@
+.settings-tabs {
+
+
+  border-right: 1px solid #252525;
+
+  .settings-tabs-route {
+    max-width: 180px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 13px 35px;
+    border-radius: 22px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &.active,
+    &:hover {
+      background-color: #ededed;
+    }
+  }
+}

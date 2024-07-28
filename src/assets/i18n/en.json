@@ -101,6 +101,12 @@
       "icon": "maintenance",
       "title": "Settings",
       "descr": "Change your page."
+    },
+    {
+      "url": "/settings/size",
+      "icon": "maintenance",
+      "title": "Settings",
+      "descr": "Change your page."
     }
   ],
   "menuNavigation": [
@@ -402,5 +408,9 @@
       "total": "0",
       "title": "Overdue maintenance"
     }
+  ],
+  "settingsTab": [
+    {"title": "Size Page"},
+    {"title": "Style Page"}
   ]
 }

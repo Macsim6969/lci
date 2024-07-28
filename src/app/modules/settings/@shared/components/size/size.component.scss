@@ -1,0 +1,11 @@
+.size {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  gap: 12px;
+
+  p {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+}

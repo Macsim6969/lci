@@ -1,3 +1,6 @@
-<mat-slider min="10" max="20" step="1" showTickMarks discrete [displayWith]="formatLabel" (input)="updateFontSize($event)">
-  <input matSliderThumb>
-</mat-slider>
+<section class="settings">
+  <app-settings-tabs></app-settings-tabs>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</section>
