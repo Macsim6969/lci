@@ -1,7 +1,7 @@
 .settings {
   display: grid;
   grid-template-columns: 0.35fr 1fr;
-  background-color: #fff;
+  background-color: var(--sidebarBg);
   padding: 24px 30px;
   border-radius: 22px;
   gap: 25px;

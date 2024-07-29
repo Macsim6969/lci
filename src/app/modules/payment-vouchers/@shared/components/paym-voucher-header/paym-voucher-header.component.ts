@@ -6,7 +6,7 @@ import { PaymentPopupCreateService } from '../../services/payment-popup-create.s
 @Component({
   selector: 'app-paym-voucher-header',
   templateUrl: './paym-voucher-header.component.html',
-  styleUrl: './paym-voucher-header.component.scss'
+  styleUrls: ['./paym-voucher-header.component.scss', '../../../../../shared/styles/headerPage.scss']
 })
 export class PaymVoucherHeaderComponent {
   @Input() public paymentVouchers: PaymentVouchers[];

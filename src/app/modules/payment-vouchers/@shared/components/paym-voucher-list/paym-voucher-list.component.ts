@@ -49,7 +49,7 @@ export class PaymVoucherListComponent implements OnInit, OnDestroy {
   public checkMemoView(id: number) {
     const newValue = this.paymentVouchers.find((e: PaymentVouchers) => e.id === id);
     this.paymentVouchersService._ispPaymentVouchers = newValue;
-    this.router.navigate(['/staff/view']).then();
+    this.router.navigate(['/payment-vouchers/view']).then();
   }
 
   ngOnDestroy(): void {

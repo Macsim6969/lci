@@ -2,13 +2,13 @@
   position: absolute;
   inset: 0;
   animation: 1s open;
-  background-color: #F2F7FF;
+  background-color: var(--sidebarBg);
 
   display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 32px;
-
+  z-index: 9;
   overflow-y: auto;
   height: calc(100vh - 150px);
 
@@ -42,12 +42,12 @@
   }
 
   .memo_popup {
-    background-color: #FFFFFF;
+    background-color: var(--sidebarBg);
     border-radius: 20px;
     padding: 24px 38px 52px 20px;
 
     .title_edite {
-      color: #272525;
+      color: var(--popupIcon);
       font-size: 2.4rem;
       font-weight: 800;
     }
@@ -73,7 +73,7 @@
           width: 100%;
 
           label {
-            color: #121212;
+            color: var(--notificationIcon);
             font-size: 1.8rem;
           }
 
@@ -85,6 +85,7 @@
             border: 1px solid #A3A3A3;
             border-radius: 12px;
             font-size: 1.8rem;
+            color: var(--notificationIcon);
           }
         }
 
@@ -95,11 +96,13 @@
           max-width: 720px;
           width: 100%;
           font-size: 1.8rem;
+          color: var(--notificationIcon);
 
           textarea,
           label {
-            color: #121212;
+            color: var(--notificationIcon);
             font-size: 1.8rem;
+            background-color: transparent;
           }
         }
       }

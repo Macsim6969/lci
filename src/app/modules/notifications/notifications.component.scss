@@ -4,20 +4,26 @@
   gap: 16px;
 
   .notification_header {
-    background-color: #fff;
+    background-color: var(--sidebarBg);
     border-radius: 22px;
     padding: 37px 24px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    h3 {
+      color: var(--sidebarColor);
+      font-size: 2.4rem;
+      font-weight: 800;
+    }
   }
 
   .notification_list {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #FFFFFF;
+    background-color: var(--sidebarBg);
     padding: 24px 20px;
     border-radius: 22px;
 
@@ -28,12 +34,12 @@
       justify-content: space-between;
       padding: 15px 20px;
       border-radius: 16px;
-      background-color: #fff;
+      background-color: var(--sidebarBg);
       border-radius: 1px solid #D0D0D0;
 
       &.active {
-        background-color: #F2F7FF;
-        border-radius: 1px solid #F2F7FF;
+        background-color: var(--activeBgColor);
+        border-radius: 7.5px;
       }
 
       .data_content {
@@ -59,12 +65,12 @@
           flex-direction: column;
 
           .title {
-            color: #272525;
+            color: var(--popupIcon);
             font-size: 1.8rem;
           }
 
           .time {
-            color: #515151;
+            color: var(--listColor);
             font-size: 1.4rem;
           }
 

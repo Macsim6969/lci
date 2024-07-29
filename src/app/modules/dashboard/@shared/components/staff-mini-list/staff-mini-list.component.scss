@@ -3,7 +3,7 @@
   flex-direction: column;
 
   padding: 24px 14px;
-  background-color: #FFFFFF;
+  background-color: var(--sidebarBg);
   border-radius: 22px;
   max-height: 327px;
   width: 562px;
@@ -17,7 +17,7 @@
     margin-bottom: 40px;
     font-size: 2rem;
     font-weight: 800;
-    color: #272525;
+    color: var(--popupIcon);
   }
 
   .memos_data_type {
@@ -27,7 +27,7 @@
     nav {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #515151;
+      color: var(--headerJob);
     }
   }
 
@@ -57,7 +57,7 @@
       nav {
         font-size: 1.5rem;
         line-height: 2.4rem;
-        color: #515151;
+        color: var(--listColor);
 
         &.active {
           color: #F29425;

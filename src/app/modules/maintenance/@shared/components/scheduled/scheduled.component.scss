@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  background-color: #FFFFFF;
+  background-color: var(--sidebarBg);
   border-radius: 22px;
   padding: 24px;
 
   p {
     font-size: 2.2rem;
-    color: #272525;
+    color: var(--popupIcon);
     font-weight: 800;
   }
 

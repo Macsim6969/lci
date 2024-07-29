@@ -1,16 +1,16 @@
-<div class="memo_header">
+<div class="header">
   <div class="header_total">
     <p class="total">{{memoList.length}}</p>
     <p class="desc">Total memo</p>
   </div>
-  <div class="search_memo">
+  <div class="search_staff">
     <p>Quick search a memo</p>
     <nav class="search">
       <input type="text" placeholder="Enter search a word" (input)="changeData($event)">
       <mat-icon svgIcon="search"></mat-icon>
     </nav>
   </div>
-  <div class="filter_memo">
+  <div class="filter">
     <label>Filter memo</label>
     <select (change)="setFilter($event)">
       <option [value]="myName" class="user">{{myName}}</option>

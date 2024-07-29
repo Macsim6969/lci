@@ -10,9 +10,9 @@ import { selectStaffMiniList, selectUserInfo } from '../../../../../store/select
 import { User } from '../../../../../shared/interfaces/user.interface';
 
 @Component({
-  selector: 'app-memo-header',
+  selector: 'app-memo-header', 
   templateUrl: './memo-header.component.html',
-  styleUrl: './memo-header.component.scss'
+  styleUrls: ['./memo-header.component.scss', '../../../../../shared/styles/headerPage.scss']
 })
 export class MemoHeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();

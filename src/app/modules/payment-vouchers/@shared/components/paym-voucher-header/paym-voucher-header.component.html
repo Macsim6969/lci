@@ -1,10 +1,10 @@
-<div class="payment_header">
+<div class="header">
   <div class="header_total">
     <p class="total">{{paymentVouchers?.length ? paymentVouchers?.length : 0}}</p>
     <p class="desc">Total payment vouchers</p>
   </div>
 
-  <div class="filter_payment">
+  <div class="filter">
     <label>Filter payment voucher</label>
     <select (change)="setFilter($event)">
       <option value="All" class="user">All</option>
