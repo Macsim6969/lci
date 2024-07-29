@@ -1,3 +1,36 @@
 <section class="welcome">
+  <h1 class="welcome_title">Create Your Project (with CLI)</h1>
+  <mat-stepper linear #stepper>
+    <mat-step [editable]="isEditable">
 
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="nameProject" placeholder="Last name, First name" required>
+      </mat-form-field>
+      <div>
+        <button [disabled]="!nameProject" mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step [editable]="isEditable">
+      <ng-template matStepLabel>Settings</ng-template>
+      <mat-label>Settings</mat-label>
+      <div class="st">
+
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step [editable]="isEditable">
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+  <div class="overlay"></div>
 </section>

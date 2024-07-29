@@ -19,6 +19,7 @@ import { PopupConfirmedComponent } from "../components/popup-confirmed/popup-con
 import { SalaryPipe } from "../pipe/salary.pipe";
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatSelectModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatSliderModule
+    MatSliderModule,
+    MatStepperModule
   ],
   exports: [
     MatListModule,
@@ -62,7 +64,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatDatepickerModule,
     PopupConfirmedComponent,
     SalaryPipe,
-    MatSliderModule
+    MatSliderModule,
+    MatStepperModule
   ]
 })
 
