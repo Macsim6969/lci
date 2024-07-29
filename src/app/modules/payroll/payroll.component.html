@@ -1,5 +1,6 @@
-<section *ngIf="payrollDashboard;else loading">
-
+<section class="main_payroll" *ngIf="payrollDashboard;else loading">
+  <app-payroll-header [dashboardInfo]="payrollDashboard"></app-payroll-header>
+  <app-payroll-content></app-payroll-content>
 </section>
 <ng-template #loading>
   <div class="sett">

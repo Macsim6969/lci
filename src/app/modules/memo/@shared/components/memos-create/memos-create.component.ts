@@ -7,8 +7,8 @@ import { StaffMiniList, User } from '../../../../../shared/interfaces/user.inter
 import { combineLatest, take } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MemoList } from '../../interfaces/memo.interface';
-import { BackendService } from '../../../../../shared/services/backend.service';
 import { PopupService } from '../../../../../shared/services/popup.service';
+import { BackendService } from '../../../../../shared/services/backendAPI/backend.service';
 
 @Component({
   selector: 'app-memos-create',

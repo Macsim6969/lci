@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { User } from "../interfaces/user.interface";
-import { BackendService } from "./backend.service";
 import { FirebaseStorageService } from "../../modules/st-sett-pr/@shared/services/firebaseStorage.service";
 import { HttpClient } from "@angular/common/http";
 import { AuthResponseData } from "../../modules/auth/@shared/services/auth.service";
@@ -9,6 +8,7 @@ import { environment } from "../../../environment/environment";
 import { setStartDashboarfInfo } from "../base/startData";
 import { tap } from "rxjs";
 import { PopupService } from "./popup.service";
+import { BackendService } from "./backendAPI/backend.service";
 
 
 @Injectable()

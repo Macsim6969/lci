@@ -4,3 +4,9 @@ export interface PayrollData {
   tax: number
   loan: number
 }
+
+export interface Dashboard{
+  title: string
+  total: number
+  icon: string
+}

@@ -1,0 +1,22 @@
+<section class="scheduled">
+  <p>Scheduled Maintenance</p>
+  <div class="content">
+    <div class="calendar">
+      <mat-card class="calendar-card">
+        <mat-calendar 
+          (selectedChange)="check($event)" 
+          [(selected)]="selected"
+          [dateClass]="dateClass">
+        </mat-calendar>
+      </mat-card>
+    </div>
+    <div class="list">
+      <div class="task" *ngFor="let item of maintenance">
+        <p class="date">{{item.date}}</p>
+        <p class="title">{{item.number}}. {{item.name}}</p>
+        <button mat-button (click)="checkList(item.id)">View</button>
+      </div>
+    </div>
+  </div>
+
+</section>

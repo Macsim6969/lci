@@ -9,8 +9,8 @@ import { User } from '../../shared/interfaces/user.interface';
 import { HeaderInfoPageInterface } from '../../shared/interfaces/headerInfoPage.interface';
 import { NavigationEnd, Router } from '@angular/router';
 import { HeaderIconService } from '../../shared/services/icons/headerIcon.service';
-import { BackendService } from '../../shared/services/backend.service';
 import { PopupService } from '../../shared/services/popup.service';
+import { BackendService } from '../../shared/services/backendAPI/backend.service';
 
 @Component({
   selector: 'app-home',
@@ -84,10 +84,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   updateHeaderInfoPage() {
     const currentUrl = this.router.url;
+    const maintenanceMatch = currentUrl.match(/maintenance\/(\d+)/);
     if (this.user && currentUrl === '/dashboard' || currentUrl === '/') {
       this.pageInfo = this.headerInfoPage?.find((e: HeaderInfoPageInterface) => e.url === currentUrl);
       this.pageInfo.title = `Welcome, Mr. ${this.user?.name} ${this.user?.lastName}`;
       this.pageInfo.descr = `Today is ${this.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`;
+    } else if (maintenanceMatch) {
+      this.pageInfo = this.headerInfoPage.find((e) => e.url === '/maintenance')
     } else {
       this.pageInfo = this.headerInfoPage?.find((e: HeaderInfoPageInterface) => e.url === currentUrl);
     }

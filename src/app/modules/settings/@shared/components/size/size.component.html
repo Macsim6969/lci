@@ -1,0 +1,7 @@
+<div class="size">
+  <p>Change to the size you prefer</p>
+  <mat-slider min="10" max="20" showTickMarks discrete [displayWith]="formatLabel" (input)="updateFontSize($event)"
+   [attr.aria-valuetext]="settingsData.size">
+    <input matSliderThumb>
+  </mat-slider>
+</div>

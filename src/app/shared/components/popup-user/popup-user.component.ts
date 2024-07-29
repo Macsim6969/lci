@@ -1,10 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { take } from 'rxjs';
 import { FirebaseStorageService } from '../../../modules/st-sett-pr/@shared/services/firebaseStorage.service';
-import { BackendService } from '../../services/backend.service';
 import { StoreInterface } from '../../../store/model/store.model';
 import { selectUserInfo } from '../../../store/selectors/store.selectors';
 import { User } from '../../interfaces/user.interface';
@@ -93,7 +91,6 @@ export class PopupUserComponent implements OnInit {
       this.staffAdded.submitUserDataSave(this.selectedFile, this.form, this.user);
       this.form.reset();
     } else if (this.activePage === 'staff-view') {
-      console.log(this.form.value);
       // this.staffViewService.submitUserDataSave(this.selectedFile, this.form, this.user)
     }
   }

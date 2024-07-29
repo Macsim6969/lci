@@ -3,7 +3,7 @@
   flex-direction: column;
   max-height: 751px;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: var(--sidebarBg);
   border-radius: 18px;
 
   align-items: center;
@@ -13,6 +13,7 @@
     font-weight: 800;
     width: 100%;
     padding: 15px 0 0 30px;
+    color: var(--popupUser);
 
     @media (max-width: 576px) {
       width: auto;
@@ -36,13 +37,13 @@
     .form-avatar {
       max-width: 333px;
       height: 100%;
-      border: 1px solid #E8E8E8;
+      border: 1px solid var(--popupUser);
       border-radius: 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 15px;
-      padding: 60px 82px 0 81px;
+      padding: 60px 82px 60px 81px;
 
       @media (max-width: 1620px) {
         height: -webkit-fill-available;
@@ -105,6 +106,7 @@
           border: 1px solid #A3AED0;
           font-size: 1.6rem;
           padding: 8px;
+          background-color: transparent;
 
           display: none;
         }
@@ -164,7 +166,7 @@
         }
 
         label {
-          color: #121212;
+          color: var(--notificationIcon);
           font-size: 1.8rem;
 
         }
@@ -189,6 +191,7 @@
           border: 1px solid #D0D0D0;
           border-radius: 12px;
           font-size: 1.8rem;
+          background-color: transparent;
         }
       }
     }

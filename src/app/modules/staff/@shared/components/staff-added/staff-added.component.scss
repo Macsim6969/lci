@@ -2,7 +2,7 @@
   position: absolute;
   inset: 0;
   animation: 1s open;
-  background-color: #F2F7FF;
+  background-color: var(--sidebarBg);
 
   display: flex;
   flex-direction: column;
@@ -42,13 +42,13 @@
   }
 
   .staff_popup {
-    background-color: #FFFFFF;
+    background-color: var(--sidebarBg);
     border-radius: 20px;
     padding: 24px 38px 52px 20px;
     height: 100%;
 
     .title_edite {
-      color: #272525;
+      color: var(--popupIcon);
       font-size: 2.4rem;
       font-weight: 800;
     }

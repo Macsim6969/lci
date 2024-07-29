@@ -1,0 +1,53 @@
+<div class="salary">
+  <div class="edite_salary">
+    <div class="edite_salary_header">
+      <p>Create Salary Definition</p>
+      <button (click)="closePopup()" mat-icon-button>
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </div>
+
+    <div class="content">
+      <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="column">
+          <label class="label">Title</label>
+          <select formControlName="title">
+            <option *ngFor="let staffs of jobPosition" [value]="staffs.title">{{staffs.title}}</option>
+          </select>
+        </div>
+        <div class="column">
+          <label class="label">Level</label>
+          <select formControlName="level">
+            <option *ngFor="let staffs of levelPosition" [value]="staffs.title">{{staffs.title}}</option>
+          </select>
+        </div>
+        <div class="column">
+          <label class="label">Basic Salary</label>
+          <input type="number" placeholder="Enter amount in Naira" formControlName="basicSalary">
+        </div>
+        <div class="column">
+          <label class="label">Allowance</label>
+          <input type="number" placeholder="Enter amount in Naira" formControlName="allowance">
+        </div>
+
+        <div class="column">
+          <label class="label">Gross Salary</label>
+          <input type="number" placeholder="Enter amount in Naira" formControlName="grossSalary">
+        </div>
+
+        <div class="column">
+          <label class="label">Deductions</label>
+          <input type="number" placeholder="Enter amount in Naira" formControlName="deductions">
+        </div>
+
+        <div class="column">
+          <label class="label">Net Salary</label>
+          <input type="number" placeholder="Enter amount in Naira" formControlName="netSalary">
+        </div>
+
+        <button type="submit" mat-button>Create</button>
+      </form>
+    </div>
+  </div>
+</div>

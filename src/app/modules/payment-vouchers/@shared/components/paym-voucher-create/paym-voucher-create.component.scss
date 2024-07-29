@@ -9,7 +9,7 @@
     border-radius: 16px;
     margin: 0 auto;
     width: 450px;
-    background-color: white;
+    background-color: var(--sidebarBg);
     padding: 15px;
 
     &_header {
@@ -21,11 +21,21 @@
       h3 {
         font-size: 2.2rem;
         font-weight: 700;
+        color: var(--popupIcon);
       }
+
 
       button {
         mat-icon {
           width: 24px;
+
+          ::ng-deep {
+            svg {
+              path {
+                fill: var(--popupIcon);
+              }
+            }
+          }
         }
       }
     }
@@ -45,6 +55,7 @@
 
         label {
           font-size: 1.8rem;
+          color: var(--popupIcon);
         }
 
         select,
@@ -53,8 +64,8 @@
           font-size: 1.8rem;
           border-radius: 12px;
           padding: 13px;
-          background-color: transparent;
-          color: #222;
+          background-color: var(--sidebarHover);
+          color: var(--popupIcon);
         }
       }
 

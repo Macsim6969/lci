@@ -1,0 +1,123 @@
+.view_maintenance_popup {
+  position: absolute;
+  inset: 0;
+  animation: 1s open;
+  background-color: var(--sidebarBg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+
+  overflow-y: auto;
+  z-index: 99;
+  height: calc(100vh - 150px);
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to right, #14ADD6, #384295) !important;
+  }
+
+
+  button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    width: 100px;
+
+    mat-icon {
+      height: 16px;
+      transform: rotate(90deg);
+    }
+
+    ::ng-deep p {
+      background-image: linear-gradient(to right, #14ADD6, #384295);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 1.6rem;
+    }
+  }
+
+  .maintenance_popup {
+    background-color: var(--sidebarBg);
+    padding: 20px;
+    border-radius: 22px;
+
+    .title_edite {
+      font-size: 2.4rem;
+      color: var(--popupIcon);
+      padding-bottom: 8px;
+    }
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.8fr 1fr 1fr 1fr;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .title {
+        color: var(--popupIcon);
+        font-size: 1.6rem;
+      }
+
+      .data {
+        font-size: 1.8rem;
+        color: var(--popupIcon);
+        font-weight: 800;
+      }
+
+      select{
+        outline: none;
+        padding: 11px 25px 11px 10px;
+        border-radius: 16px;
+        background-color: #f2f2f2;
+      }
+
+      .open {
+        color: #10A142;
+        font-size: 1.6rem;
+        font-weight: 800;
+      }
+
+      .close {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: rgb(219, 54, 54);
+      }
+    }
+  }
+
+}
+
+@keyframes open {
+  from {
+    transform: translateX(3000px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes close {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(3000px);
+  }
+}
+
+.close_animation {
+  animation: 1s close forwards;
+}

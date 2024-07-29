@@ -5,10 +5,10 @@ import { MemoList } from '../../interfaces/memo.interface';
 import { select, Store } from '@ngrx/store';
 import { StoreInterface } from '../../../../../store/model/store.model';
 import { selectMemoList } from '../../../../../store/selectors/store.selectors';
-import { take, takeUntil } from 'rxjs';
-import { BackendService } from '../../../../../shared/services/backend.service';
+import { take } from 'rxjs';
 import { PopupReviewedSerivce } from '../../services/popup-reviewed.service';
 import { PopupService } from '../../../../../shared/services/popup.service';
+import { BackendService } from '../../../../../shared/services/backendAPI/backend.service';
 
 @Component({
   selector: 'app-memo-view',

@@ -13,6 +13,14 @@
 
     .noti {
       cursor: pointer;
+
+      ::ng-deep {
+        svg {
+          path {
+            fill: var(--notificationIcon);
+          }
+        }
+      }
     }
 
     .user {
@@ -43,7 +51,7 @@
         }
 
         .name {
-          color: #121212;
+          color: var(--headerTitle);
           font-size: 1.4rem;
           font-weight: 700;
 
@@ -55,7 +63,7 @@
 
         .position {
           font-size: 1.4rem;
-          color: #515151;
+          color: var(--headerJob);
         }
 
       }
@@ -63,6 +71,14 @@
       .arrow {
         width: 16px;
         cursor: pointer;
+
+        ::ng-deep {
+          svg {
+            path {
+              fill: var(--headerTitle);
+            }
+          }
+        }
 
         &.active {
           transform: rotateX(180deg);
@@ -85,7 +101,7 @@
     top: 90px;
     border-radius: 25px;
     width: 200px;
-    background-color: #FFFFFF;
+    background-color: var(--sidebarBg);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-500px);
@@ -151,8 +167,18 @@
       }
 
       p {
-        color: #262626;
+        color: var(--sidebarColor);
         font-size: 1.8rem;
+      }
+
+      mat-icon {
+        ::ng-deep {
+          svg {
+            path {
+              fill: var(--popupIcon);
+            }
+          }
+        }
       }
     }
   }
