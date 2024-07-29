@@ -5,13 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShareModule } from '../../shared/module/share.module';
 import { SettingsTabsComponent } from './@shared/components/settings-tabs/settings-tabs.component';
 import { SizeComponent } from './@shared/components/size/size.component';
-import { SettingsApiService } from '../../shared/services/backendAPI/settingApi.service';
 import { FormsModule } from '@angular/forms';
+import { StylesComponent } from './@shared/components/styles/styles.component';
 
 const routes: Routes = [
   {
     path: '', component: SettingsComponent, children: [
-      { path: 'size', component: SizeComponent }
+      { path: 'size', component: SizeComponent },
+      { path: 'style', component: StylesComponent }
     ]
   }
 ]
@@ -20,7 +21,8 @@ const routes: Routes = [
   declarations: [
     SettingsComponent,
     SettingsTabsComponent,
-    SizeComponent
+    SizeComponent,
+    StylesComponent
   ],
   imports: [
     CommonModule,

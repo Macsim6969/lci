@@ -10,7 +10,7 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class SettingsTabsComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
-  public settingsTab: [{ title: string }];
+  public settingsTab: [{ title: string, route: string }];
   public activeTab: number;
 
   constructor(
@@ -20,18 +20,18 @@ export class SettingsTabsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getSettingsDataFromJSON();
-    this.openTab(0);
+    // this.openTab(0, 'size');
   }
 
   private getSettingsDataFromJSON() {
-    this.translate.stream('settingsTab').pipe(takeUntil(this.destroy$)).subscribe((data: [{ title: string }]) => {
+    this.translate.stream('settingsTab').pipe(takeUntil(this.destroy$)).subscribe((data: [{ title: string, route: string }]) => {
       this.settingsTab = data;
     })
   }
 
-  public openTab(index: number) {
+  public openTab(index: number, route: string) {
     this.activeTab = index;
-    this.router.navigate(['/settings/size']).then();
+    this.router.navigate([`/settings/${route}`]).then();
   }
 
   ngOnDestroy(): void {

@@ -1,7 +1,7 @@
 <div class="header">
   <ng-content></ng-content>
   <div class="settings">
-    <mat-icon class="noti" svgIcon="notification"></mat-icon>
+    <mat-icon (click)="useRoute('notifications')" class="noti" svgIcon="notification"></mat-icon>
     <div class="user" (click)="openPopup()">
       <img [src]="avatar" [alt]="user.name">
       <nav class="mainInfo">

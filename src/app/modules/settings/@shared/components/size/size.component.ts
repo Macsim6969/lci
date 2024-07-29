@@ -31,7 +31,6 @@ export class SizeComponent implements OnInit, OnDestroy {
     combineLatest([this.store.pipe(select(selectUserInfo)), this.store.pipe(select(selectSettingsData))])
       .pipe(take(1))
       .subscribe(([user, settings]) => {
-        console.log(user, settings);
         this.user = user;
         this.settingsData = settings;
         const defaultSize = settings?.size;
@@ -41,7 +40,6 @@ export class SizeComponent implements OnInit, OnDestroy {
   }
 
   public formatLabel(value: number): string {
-    console.log(value);
     if (value >= 1000) {
       return Math.round(value / 1000) + 'px';
     }

@@ -1,3 +1,3 @@
 <section class="settings-tabs">
-  <nav [ngClass]="{'active': activeTab === i}" (click)="openTab(i)" class="settings-tabs-route" *ngFor="let tabs of settingsTab;index as i">{{tabs.title}}</nav>
+  <nav [ngClass]="{'active': activeTab === i}" (click)="openTab(i, tabs.route)" class="settings-tabs-route" *ngFor="let tabs of settingsTab;index as i">{{tabs.title}}</nav>
 </section>

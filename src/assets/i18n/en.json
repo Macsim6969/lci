@@ -107,6 +107,12 @@
       "icon": "maintenance",
       "title": "Settings",
       "descr": "Change your page."
+    },
+    {
+      "url": "/settings/style",
+      "icon": "maintenance",
+      "title": "Settings",
+      "descr": "Change your page."
     }
   ],
   "menuNavigation": [
@@ -410,7 +416,7 @@
     }
   ],
   "settingsTab": [
-    {"title": "Size Page"},
-    {"title": "Style Page"}
+    {"title": "Size Page", "route": "size"},
+    {"title": "Style Page", "route": "style"}
   ]
 }

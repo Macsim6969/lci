@@ -27,6 +27,7 @@ export class  SettingsApiService {
     return this.http.get<Settings>(`${this.baseUrl}/users/${userId}/settings.json`).subscribe((data) => {
       this.store.dispatch(setSettings({ data: data }));
       document.documentElement.style.fontSize = `${data.size}px`;
+      document.body.classList.add(data?.style);
     })
   }
 }

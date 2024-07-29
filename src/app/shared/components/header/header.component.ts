@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private async streamCheckAvatar() {
     this.store.pipe(select(selectUserInfo), takeUntil(this.destroy$)).subscribe(async (data: User) => {
       data ? this.avatar = await this.firebaseStorageService.onGetImage(data) : null;
-      
+
     });
   }
 
@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isOpenPopup = !this.isOpenPopup;
   }
 
-  public useRoute(url: 'profile' | 'settings' | 'logout') {
+  public useRoute(url: 'notifications' | 'profile' | 'settings' | 'logout') {
     if (url === 'profile') {
       this.setRouteToProfile();
     } else if (url === 'settings') {
@@ -50,6 +50,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     } else if (url === 'logout') {
       this.authService.logout();
       this.router.navigate(['/auth/login']).then();
+    } else if (url === 'notifications') {
+      this.router.navigate(['/notifications']).then();
     }
 
     this.isOpenPopup = false;
